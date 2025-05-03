@@ -122,7 +122,14 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 				// @TODO: It's important to handle this scenario as well.
 			}
 		case "Int":
-			staticValue = NewInt(dynamicValue.(int64))
+			switch v := dynamicValue.(type) {
+			case int64:
+				staticValue = NewInt(v)
+			case float64:
+				staticValue = NewInt(int64(v))
+			default:
+				// 其它类型可选处理
+			}
 		case "Selection":
 			staticValue = NewSelection(dynamicValue)
 		case "Float":
