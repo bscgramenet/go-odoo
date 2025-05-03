@@ -126,7 +126,15 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 		case "Selection":
 			staticValue = NewSelection(dynamicValue)
 		case "Float":
-			staticValue = NewFloat(dynamicValue.(float64))
+			// 兼容 Odoo 返回 float64 或 int64
+			switch v := dynamicValue.(type) {
+			case float64:
+				staticValue = NewFloat(v)
+			case int64:
+				staticValue = NewFloat(float64(v))
+			default:
+				// 其它类型直接丢弃或报错
+			}
 		case "Time":
 			format := dateFormat
 			if len(dynamicValue.(string)) > 10 {
