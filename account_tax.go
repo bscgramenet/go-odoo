@@ -56,6 +56,7 @@ type AccountTax struct {
 	WebsiteMessageIds            *Relation  `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                    *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                     *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XClaseid                     *Int       `xmlrpc:"x_claseid,omitempty"`
 }
 
 // AccountTaxs represents array of account.tax model.
