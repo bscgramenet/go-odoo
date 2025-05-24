@@ -2,33 +2,32 @@ package odoo
 
 // AccountTaxTemplate represents account.tax.template model.
 type AccountTaxTemplate struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
-	AccountId         *Many2One  `xmlrpc:"account_id,omitempty"`
-	Active            *Bool      `xmlrpc:"active,omitempty"`
-	Amount            *Float     `xmlrpc:"amount,omitempty"`
-	AmountType        *Selection `xmlrpc:"amount_type,omitempty"`
-	Analytic          *Bool      `xmlrpc:"analytic,omitempty"`
-	CashBasisAccount  *Many2One  `xmlrpc:"cash_basis_account,omitempty"`
-	ChartTemplateId   *Many2One  `xmlrpc:"chart_template_id,omitempty"`
-	ChildrenTaxIds    *Relation  `xmlrpc:"children_tax_ids,omitempty"`
-	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Description       *String    `xmlrpc:"description,omitempty"`
-	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
-	Id                *Int       `xmlrpc:"id,omitempty"`
-	IncludeBaseAmount *Bool      `xmlrpc:"include_base_amount,omitempty"`
-	Name              *String    `xmlrpc:"name,omitempty"`
-	PriceInclude      *Bool      `xmlrpc:"price_include,omitempty"`
-	RefundAccountId   *Many2One  `xmlrpc:"refund_account_id,omitempty"`
-	Sequence          *Int       `xmlrpc:"sequence,omitempty"`
-	TagIds            *Relation  `xmlrpc:"tag_ids,omitempty"`
-	TaxAdjustment     *Bool      `xmlrpc:"tax_adjustment,omitempty"`
-	TaxExigibility    *Selection `xmlrpc:"tax_exigibility,omitempty"`
-	TaxGroupId        *Many2One  `xmlrpc:"tax_group_id,omitempty"`
-	TypeTaxUse        *Selection `xmlrpc:"type_tax_use,omitempty"`
-	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate                   *Time      `xmlrpc:"__last_update,omitempty"`
+	Active                       *Bool      `xmlrpc:"active,omitempty"`
+	Amount                       *Float     `xmlrpc:"amount,omitempty"`
+	AmountType                   *Selection `xmlrpc:"amount_type,omitempty"`
+	Analytic                     *Bool      `xmlrpc:"analytic,omitempty"`
+	CashBasisTransitionAccountId *Many2One  `xmlrpc:"cash_basis_transition_account_id,omitempty"`
+	ChartTemplateId              *Many2One  `xmlrpc:"chart_template_id,omitempty"`
+	ChildrenTaxIds               *Relation  `xmlrpc:"children_tax_ids,omitempty"`
+	CreateDate                   *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                    *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Description                  *String    `xmlrpc:"description,omitempty"`
+	DisplayName                  *String    `xmlrpc:"display_name,omitempty"`
+	Id                           *Int       `xmlrpc:"id,omitempty"`
+	IncludeBaseAmount            *Bool      `xmlrpc:"include_base_amount,omitempty"`
+	InvoiceRepartitionLineIds    *Relation  `xmlrpc:"invoice_repartition_line_ids,omitempty"`
+	IsBaseAffected               *Bool      `xmlrpc:"is_base_affected,omitempty"`
+	Name                         *String    `xmlrpc:"name,omitempty"`
+	PriceInclude                 *Bool      `xmlrpc:"price_include,omitempty"`
+	RefundRepartitionLineIds     *Relation  `xmlrpc:"refund_repartition_line_ids,omitempty"`
+	Sequence                     *Int       `xmlrpc:"sequence,omitempty"`
+	TaxExigibility               *Selection `xmlrpc:"tax_exigibility,omitempty"`
+	TaxGroupId                   *Many2One  `xmlrpc:"tax_group_id,omitempty"`
+	TaxScope                     *Selection `xmlrpc:"tax_scope,omitempty"`
+	TypeTaxUse                   *Selection `xmlrpc:"type_tax_use,omitempty"`
+	WriteDate                    *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                     *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountTaxTemplates represents array of account.tax.template model.
@@ -54,7 +53,7 @@ func (c *Client) CreateAccountTaxTemplate(att *AccountTaxTemplate) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountTaxTemplates creates a new account.tax.template model and returns its id.
+// CreateAccountTaxTemplate creates a new account.tax.template model and returns its id.
 func (c *Client) CreateAccountTaxTemplates(atts []*AccountTaxTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range atts {

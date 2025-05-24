@@ -3,6 +3,7 @@ package odoo
 // MailAlias represents mail.alias model.
 type MailAlias struct {
 	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
+	AliasBouncedContent *String    `xmlrpc:"alias_bounced_content,omitempty"`
 	AliasContact        *Selection `xmlrpc:"alias_contact,omitempty"`
 	AliasDefaults       *String    `xmlrpc:"alias_defaults,omitempty"`
 	AliasDomain         *String    `xmlrpc:"alias_domain,omitempty"`
@@ -43,7 +44,7 @@ func (c *Client) CreateMailAlias(ma *MailAlias) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailAliass creates a new mail.alias model and returns its id.
+// CreateMailAlias creates a new mail.alias model and returns its id.
 func (c *Client) CreateMailAliass(mas []*MailAlias) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mas {

@@ -39,7 +39,7 @@ func (c *Client) CreateBaseLanguageImport(bli *BaseLanguageImport) (int64, error
 	return ids[0], nil
 }
 
-// CreateBaseLanguageImports creates a new base.language.import model and returns its id.
+// CreateBaseLanguageImport creates a new base.language.import model and returns its id.
 func (c *Client) CreateBaseLanguageImports(blis []*BaseLanguageImport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range blis {

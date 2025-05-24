@@ -7,6 +7,7 @@ type BaseImportTestsModelsO2M struct {
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
+	Name        *String   `xmlrpc:"name,omitempty"`
 	Value       *Relation `xmlrpc:"value,omitempty"`
 	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
@@ -35,7 +36,7 @@ func (c *Client) CreateBaseImportTestsModelsO2M(btmo *BaseImportTestsModelsO2M) 
 	return ids[0], nil
 }
 
-// CreateBaseImportTestsModelsO2Ms creates a new base_import.tests.models.o2m model and returns its id.
+// CreateBaseImportTestsModelsO2M creates a new base_import.tests.models.o2m model and returns its id.
 func (c *Client) CreateBaseImportTestsModelsO2Ms(btmos []*BaseImportTestsModelsO2M) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range btmos {

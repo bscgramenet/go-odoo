@@ -36,7 +36,7 @@ func (c *Client) CreateProductRemoval(pr *ProductRemoval) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateProductRemovals creates a new product.removal model and returns its id.
+// CreateProductRemoval creates a new product.removal model and returns its id.
 func (c *Client) CreateProductRemovals(prs []*ProductRemoval) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range prs {

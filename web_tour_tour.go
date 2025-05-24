@@ -32,7 +32,7 @@ func (c *Client) CreateWebTourTour(wt *WebTourTour) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateWebTourTours creates a new web_tour.tour model and returns its id.
+// CreateWebTourTour creates a new web_tour.tour model and returns its id.
 func (c *Client) CreateWebTourTours(wts []*WebTourTour) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range wts {

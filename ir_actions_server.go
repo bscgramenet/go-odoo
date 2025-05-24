@@ -2,33 +2,46 @@ package odoo
 
 // IrActionsServer represents ir.actions.server model.
 type IrActionsServer struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	BindingModelId *Many2One  `xmlrpc:"binding_model_id,omitempty"`
-	BindingType    *Selection `xmlrpc:"binding_type,omitempty"`
-	ChannelIds     *Relation  `xmlrpc:"channel_ids,omitempty"`
-	ChildIds       *Relation  `xmlrpc:"child_ids,omitempty"`
-	Code           *String    `xmlrpc:"code,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CrudModelId    *Many2One  `xmlrpc:"crud_model_id,omitempty"`
-	CrudModelName  *String    `xmlrpc:"crud_model_name,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	FieldsLines    *Relation  `xmlrpc:"fields_lines,omitempty"`
-	Help           *String    `xmlrpc:"help,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	LinkFieldId    *Many2One  `xmlrpc:"link_field_id,omitempty"`
-	ModelId        *Many2One  `xmlrpc:"model_id,omitempty"`
-	ModelName      *String    `xmlrpc:"model_name,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	PartnerIds     *Relation  `xmlrpc:"partner_ids,omitempty"`
-	Sequence       *Int       `xmlrpc:"sequence,omitempty"`
-	State          *Selection `xmlrpc:"state,omitempty"`
-	TemplateId     *Many2One  `xmlrpc:"template_id,omitempty"`
-	Type           *String    `xmlrpc:"type,omitempty"`
-	Usage          *Selection `xmlrpc:"usage,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
-	XmlId          *String    `xmlrpc:"xml_id,omitempty"`
+	LastUpdate                    *Time      `xmlrpc:"__last_update,omitempty"`
+	ActivityDateDeadlineRange     *Int       `xmlrpc:"activity_date_deadline_range,omitempty"`
+	ActivityDateDeadlineRangeType *Selection `xmlrpc:"activity_date_deadline_range_type,omitempty"`
+	ActivityNote                  *String    `xmlrpc:"activity_note,omitempty"`
+	ActivitySummary               *String    `xmlrpc:"activity_summary,omitempty"`
+	ActivityTypeId                *Many2One  `xmlrpc:"activity_type_id,omitempty"`
+	ActivityUserFieldName         *String    `xmlrpc:"activity_user_field_name,omitempty"`
+	ActivityUserId                *Many2One  `xmlrpc:"activity_user_id,omitempty"`
+	ActivityUserType              *Selection `xmlrpc:"activity_user_type,omitempty"`
+	BindingModelId                *Many2One  `xmlrpc:"binding_model_id,omitempty"`
+	BindingType                   *Selection `xmlrpc:"binding_type,omitempty"`
+	BindingViewTypes              *String    `xmlrpc:"binding_view_types,omitempty"`
+	ChildIds                      *Relation  `xmlrpc:"child_ids,omitempty"`
+	Code                          *String    `xmlrpc:"code,omitempty"`
+	CreateDate                    *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                     *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CrudModelId                   *Many2One  `xmlrpc:"crud_model_id,omitempty"`
+	CrudModelName                 *String    `xmlrpc:"crud_model_name,omitempty"`
+	DisplayName                   *String    `xmlrpc:"display_name,omitempty"`
+	FieldsLines                   *Relation  `xmlrpc:"fields_lines,omitempty"`
+	GroupsId                      *Relation  `xmlrpc:"groups_id,omitempty"`
+	Help                          *String    `xmlrpc:"help,omitempty"`
+	Id                            *Int       `xmlrpc:"id,omitempty"`
+	LinkFieldId                   *Many2One  `xmlrpc:"link_field_id,omitempty"`
+	MailPostAutofollow            *Bool      `xmlrpc:"mail_post_autofollow,omitempty"`
+	MailPostMethod                *Selection `xmlrpc:"mail_post_method,omitempty"`
+	ModelId                       *Many2One  `xmlrpc:"model_id,omitempty"`
+	ModelName                     *String    `xmlrpc:"model_name,omitempty"`
+	Name                          *String    `xmlrpc:"name,omitempty"`
+	PartnerIds                    *Relation  `xmlrpc:"partner_ids,omitempty"`
+	Sequence                      *Int       `xmlrpc:"sequence,omitempty"`
+	SmsMethod                     *Selection `xmlrpc:"sms_method,omitempty"`
+	SmsTemplateId                 *Many2One  `xmlrpc:"sms_template_id,omitempty"`
+	State                         *Selection `xmlrpc:"state,omitempty"`
+	TemplateId                    *Many2One  `xmlrpc:"template_id,omitempty"`
+	Type                          *String    `xmlrpc:"type,omitempty"`
+	Usage                         *Selection `xmlrpc:"usage,omitempty"`
+	WriteDate                     *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XmlId                         *String    `xmlrpc:"xml_id,omitempty"`
 }
 
 // IrActionsServers represents array of ir.actions.server model.
@@ -54,7 +67,7 @@ func (c *Client) CreateIrActionsServer(ias *IrActionsServer) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrActionsServers creates a new ir.actions.server model and returns its id.
+// CreateIrActionsServer creates a new ir.actions.server model and returns its id.
 func (c *Client) CreateIrActionsServers(iass []*IrActionsServer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range iass {

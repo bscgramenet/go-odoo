@@ -12,7 +12,10 @@ type CalendarAttendee struct {
 	Email        *String    `xmlrpc:"email,omitempty"`
 	EventId      *Many2One  `xmlrpc:"event_id,omitempty"`
 	Id           *Int       `xmlrpc:"id,omitempty"`
+	MailTz       *Selection `xmlrpc:"mail_tz,omitempty"`
 	PartnerId    *Many2One  `xmlrpc:"partner_id,omitempty"`
+	Phone        *String    `xmlrpc:"phone,omitempty"`
+	RecurrenceId *Many2One  `xmlrpc:"recurrence_id,omitempty"`
 	State        *Selection `xmlrpc:"state,omitempty"`
 	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
@@ -41,7 +44,7 @@ func (c *Client) CreateCalendarAttendee(ca *CalendarAttendee) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCalendarAttendees creates a new calendar.attendee model and returns its id.
+// CreateCalendarAttendee creates a new calendar.attendee model and returns its id.
 func (c *Client) CreateCalendarAttendees(cas []*CalendarAttendee) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range cas {

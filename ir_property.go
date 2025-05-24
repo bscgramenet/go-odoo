@@ -45,7 +45,7 @@ func (c *Client) CreateIrProperty(ip *IrProperty) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrPropertys creates a new ir.property model and returns its id.
+// CreateIrProperty creates a new ir.property model and returns its id.
 func (c *Client) CreateIrPropertys(ips []*IrProperty) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ips {

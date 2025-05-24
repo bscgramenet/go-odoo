@@ -16,7 +16,7 @@ type IrLogging struct {
 	Path        *String    `xmlrpc:"path,omitempty"`
 	Type        *Selection `xmlrpc:"type,omitempty"`
 	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
+	WriteUid    *Int       `xmlrpc:"write_uid,omitempty"`
 }
 
 // IrLoggings represents array of ir.logging model.
@@ -42,7 +42,7 @@ func (c *Client) CreateIrLogging(il *IrLogging) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrLoggings creates a new ir.logging model and returns its id.
+// CreateIrLogging creates a new ir.logging model and returns its id.
 func (c *Client) CreateIrLoggings(ils []*IrLogging) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ils {

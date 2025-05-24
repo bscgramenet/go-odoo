@@ -3,7 +3,6 @@ package odoo
 // PaymentIcon represents payment.icon model.
 type PaymentIcon struct {
 	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
-	AcquirerIds      *Relation `xmlrpc:"acquirer_ids,omitempty"`
 	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
@@ -11,6 +10,8 @@ type PaymentIcon struct {
 	Image            *String   `xmlrpc:"image,omitempty"`
 	ImagePaymentForm *String   `xmlrpc:"image_payment_form,omitempty"`
 	Name             *String   `xmlrpc:"name,omitempty"`
+	ProviderIds      *Relation `xmlrpc:"provider_ids,omitempty"`
+	Sequence         *Int      `xmlrpc:"sequence,omitempty"`
 	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
 }
@@ -38,7 +39,7 @@ func (c *Client) CreatePaymentIcon(pi *PaymentIcon) (int64, error) {
 	return ids[0], nil
 }
 
-// CreatePaymentIcons creates a new payment.icon model and returns its id.
+// CreatePaymentIcon creates a new payment.icon model and returns its id.
 func (c *Client) CreatePaymentIcons(pis []*PaymentIcon) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pis {

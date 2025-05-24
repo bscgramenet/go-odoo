@@ -10,11 +10,10 @@ type ResourceCalendarLeaves struct {
 	DateFrom    *Time      `xmlrpc:"date_from,omitempty"`
 	DateTo      *Time      `xmlrpc:"date_to,omitempty"`
 	DisplayName *String    `xmlrpc:"display_name,omitempty"`
-	HolidayId   *Many2One  `xmlrpc:"holiday_id,omitempty"`
 	Id          *Int       `xmlrpc:"id,omitempty"`
 	Name        *String    `xmlrpc:"name,omitempty"`
 	ResourceId  *Many2One  `xmlrpc:"resource_id,omitempty"`
-	Tz          *Selection `xmlrpc:"tz,omitempty"`
+	TimeType    *Selection `xmlrpc:"time_type,omitempty"`
 	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
@@ -42,7 +41,7 @@ func (c *Client) CreateResourceCalendarLeaves(rcl *ResourceCalendarLeaves) (int6
 	return ids[0], nil
 }
 
-// CreateResourceCalendarLeavess creates a new resource.calendar.leaves model and returns its id.
+// CreateResourceCalendarLeaves creates a new resource.calendar.leaves model and returns its id.
 func (c *Client) CreateResourceCalendarLeavess(rcls []*ResourceCalendarLeaves) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rcls {

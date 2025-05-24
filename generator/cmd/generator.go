@@ -102,7 +102,9 @@ func (g *generator) modelFieldsFromModel(model string) ([]*modelField, error) {
 
 func (g *generator) irModelFieldsToModelFields(imfs *odoo.IrModelFieldss) []*modelField {
 	var mfs []*modelField
+	//fmt.Println("[DEBUG] ir.model.fields 字段名:")
 	for _, imf := range *imfs {
+		fmt.Println(" -", imf.Name.Get())
 		mfs = append(mfs, newModelField(imf.Name.Get(), imf.Ttype.Get().(string)))
 	}
 	return mfs

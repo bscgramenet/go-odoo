@@ -3,52 +3,39 @@ package odoo
 // MailChannel represents mail.channel model.
 type MailChannel struct {
 	LastUpdate                *Time      `xmlrpc:"__last_update,omitempty"`
-	AliasContact              *Selection `xmlrpc:"alias_contact,omitempty"`
-	AliasDefaults             *String    `xmlrpc:"alias_defaults,omitempty"`
-	AliasDomain               *String    `xmlrpc:"alias_domain,omitempty"`
-	AliasForceThreadId        *Int       `xmlrpc:"alias_force_thread_id,omitempty"`
-	AliasId                   *Many2One  `xmlrpc:"alias_id,omitempty"`
-	AliasModelId              *Many2One  `xmlrpc:"alias_model_id,omitempty"`
-	AliasName                 *String    `xmlrpc:"alias_name,omitempty"`
-	AliasParentModelId        *Many2One  `xmlrpc:"alias_parent_model_id,omitempty"`
-	AliasParentThreadId       *Int       `xmlrpc:"alias_parent_thread_id,omitempty"`
-	AliasUserId               *Many2One  `xmlrpc:"alias_user_id,omitempty"`
-	AnonymousName             *String    `xmlrpc:"anonymous_name,omitempty"`
-	ChannelLastSeenPartnerIds *Relation  `xmlrpc:"channel_last_seen_partner_ids,omitempty"`
-	ChannelMessageIds         *Relation  `xmlrpc:"channel_message_ids,omitempty"`
+	Active                    *Bool      `xmlrpc:"active,omitempty"`
+	Avatar128                 *String    `xmlrpc:"avatar_128,omitempty"`
+	ChannelMemberIds          *Relation  `xmlrpc:"channel_member_ids,omitempty"`
 	ChannelPartnerIds         *Relation  `xmlrpc:"channel_partner_ids,omitempty"`
 	ChannelType               *Selection `xmlrpc:"channel_type,omitempty"`
 	CreateDate                *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                 *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DefaultDisplayMode        *Selection `xmlrpc:"default_display_mode,omitempty"`
 	Description               *String    `xmlrpc:"description,omitempty"`
 	DisplayName               *String    `xmlrpc:"display_name,omitempty"`
-	EmailSend                 *Bool      `xmlrpc:"email_send,omitempty"`
 	GroupIds                  *Relation  `xmlrpc:"group_ids,omitempty"`
 	GroupPublicId             *Many2One  `xmlrpc:"group_public_id,omitempty"`
+	HasMessage                *Bool      `xmlrpc:"has_message,omitempty"`
 	Id                        *Int       `xmlrpc:"id,omitempty"`
-	Image                     *String    `xmlrpc:"image,omitempty"`
-	ImageMedium               *String    `xmlrpc:"image_medium,omitempty"`
-	ImageSmall                *String    `xmlrpc:"image_small,omitempty"`
+	Image128                  *String    `xmlrpc:"image_128,omitempty"`
+	InvitationUrl             *String    `xmlrpc:"invitation_url,omitempty"`
+	IsChat                    *Bool      `xmlrpc:"is_chat,omitempty"`
 	IsMember                  *Bool      `xmlrpc:"is_member,omitempty"`
-	IsSubscribed              *Bool      `xmlrpc:"is_subscribed,omitempty"`
-	LivechatChannelId         *Many2One  `xmlrpc:"livechat_channel_id,omitempty"`
-	MessageChannelIds         *Relation  `xmlrpc:"message_channel_ids,omitempty"`
+	MemberCount               *Int       `xmlrpc:"member_count,omitempty"`
+	MessageAttachmentCount    *Int       `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds        *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError           *Bool      `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter    *Int       `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError        *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds                *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower         *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageLastPost           *Time      `xmlrpc:"message_last_post,omitempty"`
+	MessageMainAttachmentId   *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction         *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter  *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds         *Relation  `xmlrpc:"message_partner_ids,omitempty"`
-	MessageUnread             *Bool      `xmlrpc:"message_unread,omitempty"`
-	MessageUnreadCounter      *Int       `xmlrpc:"message_unread_counter,omitempty"`
 	Name                      *String    `xmlrpc:"name,omitempty"`
-	Public                    *Selection `xmlrpc:"public,omitempty"`
-	RatingCount               *Int       `xmlrpc:"rating_count,omitempty"`
-	RatingIds                 *Relation  `xmlrpc:"rating_ids,omitempty"`
-	RatingLastFeedback        *String    `xmlrpc:"rating_last_feedback,omitempty"`
-	RatingLastImage           *String    `xmlrpc:"rating_last_image,omitempty"`
-	RatingLastValue           *Float     `xmlrpc:"rating_last_value,omitempty"`
+	RtcSessionIds             *Relation  `xmlrpc:"rtc_session_ids,omitempty"`
+	SubscriptionDepartmentIds *Relation  `xmlrpc:"subscription_department_ids,omitempty"`
 	Uuid                      *String    `xmlrpc:"uuid,omitempty"`
 	WebsiteMessageIds         *Relation  `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                 *Time      `xmlrpc:"write_date,omitempty"`
@@ -78,7 +65,7 @@ func (c *Client) CreateMailChannel(mc *MailChannel) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateMailChannels creates a new mail.channel model and returns its id.
+// CreateMailChannel creates a new mail.channel model and returns its id.
 func (c *Client) CreateMailChannels(mcs []*MailChannel) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range mcs {

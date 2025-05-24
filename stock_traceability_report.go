@@ -34,7 +34,7 @@ func (c *Client) CreateStockTraceabilityReport(str *StockTraceabilityReport) (in
 	return ids[0], nil
 }
 
-// CreateStockTraceabilityReports creates a new stock.traceability.report model and returns its id.
+// CreateStockTraceabilityReport creates a new stock.traceability.report model and returns its id.
 func (c *Client) CreateStockTraceabilityReports(strs []*StockTraceabilityReport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range strs {

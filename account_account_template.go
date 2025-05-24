@@ -2,24 +2,36 @@ package odoo
 
 // AccountAccountTemplate represents account.account.template model.
 type AccountAccountTemplate struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
-	ChartTemplateId *Many2One `xmlrpc:"chart_template_id,omitempty"`
-	Code            *String   `xmlrpc:"code,omitempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId      *Many2One `xmlrpc:"currency_id,omitempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
-	GroupId         *Many2One `xmlrpc:"group_id,omitempty"`
-	Id              *Int      `xmlrpc:"id,omitempty"`
-	Name            *String   `xmlrpc:"name,omitempty"`
-	Nocreate        *Bool     `xmlrpc:"nocreate,omitempty"`
-	Note            *String   `xmlrpc:"note,omitempty"`
-	Reconcile       *Bool     `xmlrpc:"reconcile,omitempty"`
-	TagIds          *Relation `xmlrpc:"tag_ids,omitempty"`
-	TaxIds          *Relation `xmlrpc:"tax_ids,omitempty"`
-	UserTypeId      *Many2One `xmlrpc:"user_type_id,omitempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountType              *Selection `xmlrpc:"account_type,omitempty"`
+	ChartTemplateId          *Many2One  `xmlrpc:"chart_template_id,omitempty"`
+	Code                     *String    `xmlrpc:"code,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId               *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	HasMessage               *Bool      `xmlrpc:"has_message,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	MessageAttachmentCount   *Int       `xmlrpc:"message_attachment_count,omitempty"`
+	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
+	MessageHasError          *Bool      `xmlrpc:"message_has_error,omitempty"`
+	MessageHasErrorCounter   *Int       `xmlrpc:"message_has_error_counter,omitempty"`
+	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
+	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
+	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
+	MessageMainAttachmentId  *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
+	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
+	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
+	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	Nocreate                 *Bool      `xmlrpc:"nocreate,omitempty"`
+	Note                     *String    `xmlrpc:"note,omitempty"`
+	Reconcile                *Bool      `xmlrpc:"reconcile,omitempty"`
+	TagIds                   *Relation  `xmlrpc:"tag_ids,omitempty"`
+	TaxIds                   *Relation  `xmlrpc:"tax_ids,omitempty"`
+	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAccountTemplates represents array of account.account.template model.
@@ -45,7 +57,7 @@ func (c *Client) CreateAccountAccountTemplate(aat *AccountAccountTemplate) (int6
 	return ids[0], nil
 }
 
-// CreateAccountAccountTemplates creates a new account.account.template model and returns its id.
+// CreateAccountAccountTemplate creates a new account.account.template model and returns its id.
 func (c *Client) CreateAccountAccountTemplates(aats []*AccountAccountTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range aats {

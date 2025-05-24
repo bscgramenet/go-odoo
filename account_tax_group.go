@@ -2,15 +2,21 @@ package odoo
 
 // AccountTaxGroup represents account.tax.group model.
 type AccountTaxGroup struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate                         *Time     `xmlrpc:"__last_update,omitempty"`
+	CountryCode                        *String   `xmlrpc:"country_code,omitempty"`
+	CountryId                          *Many2One `xmlrpc:"country_id,omitempty"`
+	CreateDate                         *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                          *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName                        *String   `xmlrpc:"display_name,omitempty"`
+	Id                                 *Int      `xmlrpc:"id,omitempty"`
+	Name                               *String   `xmlrpc:"name,omitempty"`
+	PrecedingSubtotal                  *String   `xmlrpc:"preceding_subtotal,omitempty"`
+	PropertyAdvanceTaxPaymentAccountId *Many2One `xmlrpc:"property_advance_tax_payment_account_id,omitempty"`
+	PropertyTaxPayableAccountId        *Many2One `xmlrpc:"property_tax_payable_account_id,omitempty"`
+	PropertyTaxReceivableAccountId     *Many2One `xmlrpc:"property_tax_receivable_account_id,omitempty"`
+	Sequence                           *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate                          *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                           *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountTaxGroups represents array of account.tax.group model.
@@ -36,7 +42,7 @@ func (c *Client) CreateAccountTaxGroup(atg *AccountTaxGroup) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateAccountTaxGroups creates a new account.tax.group model and returns its id.
+// CreateAccountTaxGroup creates a new account.tax.group model and returns its id.
 func (c *Client) CreateAccountTaxGroups(atgs []*AccountTaxGroup) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range atgs {

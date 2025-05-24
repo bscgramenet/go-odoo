@@ -16,6 +16,7 @@ type IrModuleModule struct {
 	DescriptionHtml  *String    `xmlrpc:"description_html,omitempty"`
 	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
 	ExclusionIds     *Relation  `xmlrpc:"exclusion_ids,omitempty"`
+	HasIap           *Bool      `xmlrpc:"has_iap,omitempty"`
 	Icon             *String    `xmlrpc:"icon,omitempty"`
 	IconImage        *String    `xmlrpc:"icon_image,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`
@@ -31,6 +32,7 @@ type IrModuleModule struct {
 	Shortdesc        *String    `xmlrpc:"shortdesc,omitempty"`
 	State            *Selection `xmlrpc:"state,omitempty"`
 	Summary          *String    `xmlrpc:"summary,omitempty"`
+	ToBuy            *Bool      `xmlrpc:"to_buy,omitempty"`
 	Url              *String    `xmlrpc:"url,omitempty"`
 	ViewsByModule    *String    `xmlrpc:"views_by_module,omitempty"`
 	Website          *String    `xmlrpc:"website,omitempty"`
@@ -61,7 +63,7 @@ func (c *Client) CreateIrModuleModule(imm *IrModuleModule) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModuleModules creates a new ir.module.module model and returns its id.
+// CreateIrModuleModule creates a new ir.module.module model and returns its id.
 func (c *Client) CreateIrModuleModules(imms []*IrModuleModule) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imms {

@@ -2,19 +2,24 @@ package odoo
 
 // AccountPaymentTerm represents account.payment.term model.
 type AccountPaymentTerm struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	Active      *Bool     `xmlrpc:"active,omitempty"`
-	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	LineIds     *Relation `xmlrpc:"line_ids,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	Note        *String   `xmlrpc:"note,omitempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
+	Active           *Bool     `xmlrpc:"active,omitempty"`
+	CompanyId        *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
+	DisplayOnInvoice *Bool     `xmlrpc:"display_on_invoice,omitempty"`
+	ExampleAmount    *Float    `xmlrpc:"example_amount,omitempty"`
+	ExampleDate      *Time     `xmlrpc:"example_date,omitempty"`
+	ExampleInvalid   *Bool     `xmlrpc:"example_invalid,omitempty"`
+	ExamplePreview   *String   `xmlrpc:"example_preview,omitempty"`
+	Id               *Int      `xmlrpc:"id,omitempty"`
+	LineIds          *Relation `xmlrpc:"line_ids,omitempty"`
+	Name             *String   `xmlrpc:"name,omitempty"`
+	Note             *String   `xmlrpc:"note,omitempty"`
+	Sequence         *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountPaymentTerms represents array of account.payment.term model.
@@ -40,7 +45,7 @@ func (c *Client) CreateAccountPaymentTerm(apt *AccountPaymentTerm) (int64, error
 	return ids[0], nil
 }
 
-// CreateAccountPaymentTerms creates a new account.payment.term model and returns its id.
+// CreateAccountPaymentTerm creates a new account.payment.term model and returns its id.
 func (c *Client) CreateAccountPaymentTerms(apts []*AccountPaymentTerm) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range apts {

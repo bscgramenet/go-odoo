@@ -13,7 +13,7 @@ type ProductSupplierinfo struct {
 	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
 	Id                  *Int      `xmlrpc:"id,omitempty"`
 	MinQty              *Float    `xmlrpc:"min_qty,omitempty"`
-	Name                *Many2One `xmlrpc:"name,omitempty"`
+	PartnerId           *Many2One `xmlrpc:"partner_id,omitempty"`
 	Price               *Float    `xmlrpc:"price,omitempty"`
 	ProductCode         *String   `xmlrpc:"product_code,omitempty"`
 	ProductId           *Many2One `xmlrpc:"product_id,omitempty"`
@@ -49,7 +49,7 @@ func (c *Client) CreateProductSupplierinfo(ps *ProductSupplierinfo) (int64, erro
 	return ids[0], nil
 }
 
-// CreateProductSupplierinfos creates a new product.supplierinfo model and returns its id.
+// CreateProductSupplierinfo creates a new product.supplierinfo model and returns its id.
 func (c *Client) CreateProductSupplierinfos(pss []*ProductSupplierinfo) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range pss {

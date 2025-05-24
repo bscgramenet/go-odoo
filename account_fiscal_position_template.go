@@ -20,8 +20,8 @@ type AccountFiscalPositionTemplate struct {
 	VatRequired     *Bool     `xmlrpc:"vat_required,omitempty"`
 	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
-	ZipFrom         *Int      `xmlrpc:"zip_from,omitempty"`
-	ZipTo           *Int      `xmlrpc:"zip_to,omitempty"`
+	ZipFrom         *String   `xmlrpc:"zip_from,omitempty"`
+	ZipTo           *String   `xmlrpc:"zip_to,omitempty"`
 }
 
 // AccountFiscalPositionTemplates represents array of account.fiscal.position.template model.
@@ -47,7 +47,7 @@ func (c *Client) CreateAccountFiscalPositionTemplate(afpt *AccountFiscalPosition
 	return ids[0], nil
 }
 
-// CreateAccountFiscalPositionTemplates creates a new account.fiscal.position.template model and returns its id.
+// CreateAccountFiscalPositionTemplate creates a new account.fiscal.position.template model and returns its id.
 func (c *Client) CreateAccountFiscalPositionTemplates(afpts []*AccountFiscalPositionTemplate) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range afpts {

@@ -4,7 +4,7 @@ package odoo
 type IapAccount struct {
 	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
 	AccountToken *String   `xmlrpc:"account_token,omitempty"`
-	CompanyId    *Many2One `xmlrpc:"company_id,omitempty"`
+	CompanyIds   *Relation `xmlrpc:"company_ids,omitempty"`
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
@@ -37,7 +37,7 @@ func (c *Client) CreateIapAccount(ia *IapAccount) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIapAccounts creates a new iap.account model and returns its id.
+// CreateIapAccount creates a new iap.account model and returns its id.
 func (c *Client) CreateIapAccounts(ias []*IapAccount) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range ias {

@@ -40,7 +40,7 @@ func (c *Client) CreateBaseLanguageExport(ble *BaseLanguageExport) (int64, error
 	return ids[0], nil
 }
 
-// CreateBaseLanguageExports creates a new base.language.export model and returns its id.
+// CreateBaseLanguageExport creates a new base.language.export model and returns its id.
 func (c *Client) CreateBaseLanguageExports(bles []*BaseLanguageExport) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range bles {

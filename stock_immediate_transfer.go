@@ -2,14 +2,16 @@ package odoo
 
 // StockImmediateTransfer represents stock.immediate.transfer model.
 type StockImmediateTransfer struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	PickIds     *Relation `xmlrpc:"pick_ids,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
+	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	Id                       *Int      `xmlrpc:"id,omitempty"`
+	ImmediateTransferLineIds *Relation `xmlrpc:"immediate_transfer_line_ids,omitempty"`
+	PickIds                  *Relation `xmlrpc:"pick_ids,omitempty"`
+	ShowTransfers            *Bool     `xmlrpc:"show_transfers,omitempty"`
+	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockImmediateTransfers represents array of stock.immediate.transfer model.
@@ -35,7 +37,7 @@ func (c *Client) CreateStockImmediateTransfer(sit *StockImmediateTransfer) (int6
 	return ids[0], nil
 }
 
-// CreateStockImmediateTransfers creates a new stock.immediate.transfer model and returns its id.
+// CreateStockImmediateTransfer creates a new stock.immediate.transfer model and returns its id.
 func (c *Client) CreateStockImmediateTransfers(sits []*StockImmediateTransfer) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range sits {

@@ -2,6 +2,7 @@ package odoo
 
 // AccountTax represents account.tax model.
 type AccountTax struct {
+	LastUpdate                   *Time      `xmlrpc:"__last_update,omitempty"`
 	Active                       *Bool      `xmlrpc:"active,omitempty"`
 	Amount                       *Float     `xmlrpc:"amount,omitempty"`
 	AmountType                   *Selection `xmlrpc:"amount_type,omitempty"`
@@ -9,51 +10,27 @@ type AccountTax struct {
 	CashBasisTransitionAccountId *Many2One  `xmlrpc:"cash_basis_transition_account_id,omitempty"`
 	ChildrenTaxIds               *Relation  `xmlrpc:"children_tax_ids,omitempty"`
 	CompanyId                    *Many2One  `xmlrpc:"company_id,omitempty"`
-	CompanyPriceInclude          *Selection `xmlrpc:"company_price_include,omitempty"`
 	CountryCode                  *String    `xmlrpc:"country_code,omitempty"`
 	CountryId                    *Many2One  `xmlrpc:"country_id,omitempty"`
 	CreateDate                   *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                    *Many2One  `xmlrpc:"create_uid,omitempty"`
 	Description                  *String    `xmlrpc:"description,omitempty"`
 	DisplayName                  *String    `xmlrpc:"display_name,omitempty"`
-	HasMessage                   *Bool      `xmlrpc:"has_message,omitempty"`
-	HasNegativeFactor            *Bool      `xmlrpc:"has_negative_factor,omitempty"`
 	HideTaxExigibility           *Bool      `xmlrpc:"hide_tax_exigibility,omitempty"`
 	Id                           *Int       `xmlrpc:"id,omitempty"`
 	IncludeBaseAmount            *Bool      `xmlrpc:"include_base_amount,omitempty"`
-	InvoiceLabel                 *String    `xmlrpc:"invoice_label,omitempty"`
-	InvoiceLegalNotes            *String    `xmlrpc:"invoice_legal_notes,omitempty"`
 	InvoiceRepartitionLineIds    *Relation  `xmlrpc:"invoice_repartition_line_ids,omitempty"`
 	IsBaseAffected               *Bool      `xmlrpc:"is_base_affected,omitempty"`
-	IsUsed                       *Bool      `xmlrpc:"is_used,omitempty"`
-	L10NEsBienInversion          *Bool      `xmlrpc:"l10n_es_bien_inversion,omitempty"`
-	L10NEsEdiFacturaeTaxType     *Selection `xmlrpc:"l10n_es_edi_facturae_tax_type,omitempty"`
-	L10NEsExemptReason           *Selection `xmlrpc:"l10n_es_exempt_reason,omitempty"`
-	L10NEsType                   *Selection `xmlrpc:"l10n_es_type,omitempty"`
-	MessageAttachmentCount       *Int       `xmlrpc:"message_attachment_count,omitempty"`
-	MessageFollowerIds           *Relation  `xmlrpc:"message_follower_ids,omitempty"`
-	MessageHasError              *Bool      `xmlrpc:"message_has_error,omitempty"`
-	MessageHasErrorCounter       *Int       `xmlrpc:"message_has_error_counter,omitempty"`
-	MessageHasSmsError           *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
-	MessageIds                   *Relation  `xmlrpc:"message_ids,omitempty"`
-	MessageIsFollower            *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageNeedaction            *Bool      `xmlrpc:"message_needaction,omitempty"`
-	MessageNeedactionCounter     *Int       `xmlrpc:"message_needaction_counter,omitempty"`
-	MessagePartnerIds            *Relation  `xmlrpc:"message_partner_ids,omitempty"`
 	Name                         *String    `xmlrpc:"name,omitempty"`
 	NameSearchable               *String    `xmlrpc:"name_searchable,omitempty"`
 	PriceInclude                 *Bool      `xmlrpc:"price_include,omitempty"`
-	PriceIncludeOverride         *Selection `xmlrpc:"price_include_override,omitempty"`
-	RatingIds                    *Relation  `xmlrpc:"rating_ids,omitempty"`
+	RealAmount                   *Float     `xmlrpc:"real_amount,omitempty"`
 	RefundRepartitionLineIds     *Relation  `xmlrpc:"refund_repartition_line_ids,omitempty"`
-	RepartitionLineIds           *Relation  `xmlrpc:"repartition_line_ids,omitempty"`
-	RepartitionLinesStr          *String    `xmlrpc:"repartition_lines_str,omitempty"`
 	Sequence                     *Int       `xmlrpc:"sequence,omitempty"`
 	TaxExigibility               *Selection `xmlrpc:"tax_exigibility,omitempty"`
 	TaxGroupId                   *Many2One  `xmlrpc:"tax_group_id,omitempty"`
 	TaxScope                     *Selection `xmlrpc:"tax_scope,omitempty"`
 	TypeTaxUse                   *Selection `xmlrpc:"type_tax_use,omitempty"`
-	WebsiteMessageIds            *Relation  `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                    *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                     *Many2One  `xmlrpc:"write_uid,omitempty"`
 	XClaseid                     *Int       `xmlrpc:"x_claseid,omitempty"`

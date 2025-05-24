@@ -12,8 +12,7 @@ type ResPartnerCategory struct {
 	Id          *Int      `xmlrpc:"id,omitempty"`
 	Name        *String   `xmlrpc:"name,omitempty"`
 	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
-	ParentLeft  *Int      `xmlrpc:"parent_left,omitempty"`
-	ParentRight *Int      `xmlrpc:"parent_right,omitempty"`
+	ParentPath  *String   `xmlrpc:"parent_path,omitempty"`
 	PartnerIds  *Relation `xmlrpc:"partner_ids,omitempty"`
 	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
@@ -42,7 +41,7 @@ func (c *Client) CreateResPartnerCategory(rpc *ResPartnerCategory) (int64, error
 	return ids[0], nil
 }
 
-// CreateResPartnerCategorys creates a new res.partner.category model and returns its id.
+// CreateResPartnerCategory creates a new res.partner.category model and returns its id.
 func (c *Client) CreateResPartnerCategorys(rpcs []*ResPartnerCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range rpcs {

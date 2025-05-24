@@ -7,6 +7,7 @@ type CrmLeadLost struct {
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
 	Id           *Int      `xmlrpc:"id,omitempty"`
+	LostFeedback *String   `xmlrpc:"lost_feedback,omitempty"`
 	LostReasonId *Many2One `xmlrpc:"lost_reason_id,omitempty"`
 	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
@@ -35,7 +36,7 @@ func (c *Client) CreateCrmLeadLost(cll *CrmLeadLost) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateCrmLeadLosts creates a new crm.lead.lost model and returns its id.
+// CreateCrmLeadLost creates a new crm.lead.lost model and returns its id.
 func (c *Client) CreateCrmLeadLosts(clls []*CrmLeadLost) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range clls {

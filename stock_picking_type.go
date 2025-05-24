@@ -2,38 +2,44 @@ package odoo
 
 // StockPickingType represents stock.picking.type model.
 type StockPickingType struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
-	Active                 *Bool      `xmlrpc:"active,omitempty"`
-	BarcodeNomenclatureId  *Many2One  `xmlrpc:"barcode_nomenclature_id,omitempty"`
-	Code                   *Selection `xmlrpc:"code,omitempty"`
-	Color                  *Int       `xmlrpc:"color,omitempty"`
-	CountPicking           *Int       `xmlrpc:"count_picking,omitempty"`
-	CountPickingBackorders *Int       `xmlrpc:"count_picking_backorders,omitempty"`
-	CountPickingDraft      *Int       `xmlrpc:"count_picking_draft,omitempty"`
-	CountPickingLate       *Int       `xmlrpc:"count_picking_late,omitempty"`
-	CountPickingReady      *Int       `xmlrpc:"count_picking_ready,omitempty"`
-	CountPickingWaiting    *Int       `xmlrpc:"count_picking_waiting,omitempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DefaultLocationDestId  *Many2One  `xmlrpc:"default_location_dest_id,omitempty"`
-	DefaultLocationSrcId   *Many2One  `xmlrpc:"default_location_src_id,omitempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
-	Id                     *Int       `xmlrpc:"id,omitempty"`
-	LastDonePicking        *String    `xmlrpc:"last_done_picking,omitempty"`
-	Name                   *String    `xmlrpc:"name,omitempty"`
-	RatePickingBackorders  *Int       `xmlrpc:"rate_picking_backorders,omitempty"`
-	RatePickingLate        *Int       `xmlrpc:"rate_picking_late,omitempty"`
-	ReturnPickingTypeId    *Many2One  `xmlrpc:"return_picking_type_id,omitempty"`
-	Sequence               *Int       `xmlrpc:"sequence,omitempty"`
-	SequenceId             *Many2One  `xmlrpc:"sequence_id,omitempty"`
-	ShowEntirePacks        *Bool      `xmlrpc:"show_entire_packs,omitempty"`
-	ShowOperations         *Bool      `xmlrpc:"show_operations,omitempty"`
-	ShowReserved           *Bool      `xmlrpc:"show_reserved,omitempty"`
-	UseCreateLots          *Bool      `xmlrpc:"use_create_lots,omitempty"`
-	UseExistingLots        *Bool      `xmlrpc:"use_existing_lots,omitempty"`
-	WarehouseId            *Many2One  `xmlrpc:"warehouse_id,omitempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
+	LastUpdate                    *Time      `xmlrpc:"__last_update,omitempty"`
+	Active                        *Bool      `xmlrpc:"active,omitempty"`
+	AutoShowReceptionReport       *Bool      `xmlrpc:"auto_show_reception_report,omitempty"`
+	Barcode                       *String    `xmlrpc:"barcode,omitempty"`
+	Code                          *Selection `xmlrpc:"code,omitempty"`
+	Color                         *Int       `xmlrpc:"color,omitempty"`
+	CompanyId                     *Many2One  `xmlrpc:"company_id,omitempty"`
+	CountPicking                  *Int       `xmlrpc:"count_picking,omitempty"`
+	CountPickingBackorders        *Int       `xmlrpc:"count_picking_backorders,omitempty"`
+	CountPickingDraft             *Int       `xmlrpc:"count_picking_draft,omitempty"`
+	CountPickingLate              *Int       `xmlrpc:"count_picking_late,omitempty"`
+	CountPickingReady             *Int       `xmlrpc:"count_picking_ready,omitempty"`
+	CountPickingWaiting           *Int       `xmlrpc:"count_picking_waiting,omitempty"`
+	CreateBackorder               *Selection `xmlrpc:"create_backorder,omitempty"`
+	CreateDate                    *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                     *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DefaultLocationDestId         *Many2One  `xmlrpc:"default_location_dest_id,omitempty"`
+	DefaultLocationSrcId          *Many2One  `xmlrpc:"default_location_src_id,omitempty"`
+	DisplayName                   *String    `xmlrpc:"display_name,omitempty"`
+	HideReservationMethod         *Bool      `xmlrpc:"hide_reservation_method,omitempty"`
+	Id                            *Int       `xmlrpc:"id,omitempty"`
+	Name                          *String    `xmlrpc:"name,omitempty"`
+	PrintLabel                    *Bool      `xmlrpc:"print_label,omitempty"`
+	ReservationDaysBefore         *Int       `xmlrpc:"reservation_days_before,omitempty"`
+	ReservationDaysBeforePriority *Int       `xmlrpc:"reservation_days_before_priority,omitempty"`
+	ReservationMethod             *Selection `xmlrpc:"reservation_method,omitempty"`
+	ReturnPickingTypeId           *Many2One  `xmlrpc:"return_picking_type_id,omitempty"`
+	Sequence                      *Int       `xmlrpc:"sequence,omitempty"`
+	SequenceCode                  *String    `xmlrpc:"sequence_code,omitempty"`
+	SequenceId                    *Many2One  `xmlrpc:"sequence_id,omitempty"`
+	ShowEntirePacks               *Bool      `xmlrpc:"show_entire_packs,omitempty"`
+	ShowOperations                *Bool      `xmlrpc:"show_operations,omitempty"`
+	ShowReserved                  *Bool      `xmlrpc:"show_reserved,omitempty"`
+	UseCreateLots                 *Bool      `xmlrpc:"use_create_lots,omitempty"`
+	UseExistingLots               *Bool      `xmlrpc:"use_existing_lots,omitempty"`
+	WarehouseId                   *Many2One  `xmlrpc:"warehouse_id,omitempty"`
+	WriteDate                     *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                      *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockPickingTypes represents array of stock.picking.type model.
@@ -59,7 +65,7 @@ func (c *Client) CreateStockPickingType(spt *StockPickingType) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateStockPickingTypes creates a new stock.picking.type model and returns its id.
+// CreateStockPickingType creates a new stock.picking.type model and returns its id.
 func (c *Client) CreateStockPickingTypes(spts []*StockPickingType) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range spts {

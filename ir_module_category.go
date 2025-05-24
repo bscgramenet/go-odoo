@@ -44,7 +44,7 @@ func (c *Client) CreateIrModuleCategory(imc *IrModuleCategory) (int64, error) {
 	return ids[0], nil
 }
 
-// CreateIrModuleCategorys creates a new ir.module.category model and returns its id.
+// CreateIrModuleCategory creates a new ir.module.category model and returns its id.
 func (c *Client) CreateIrModuleCategorys(imcs []*IrModuleCategory) ([]int64, error) {
 	var vv []interface{}
 	for _, v := range imcs {
