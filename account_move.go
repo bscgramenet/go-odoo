@@ -1,5 +1,16 @@
 package odoo
 
+import (
+	"errors"
+	"fmt"
+	"io"
+	"net/http"
+	"net/url"
+	"os"
+	"regexp"
+	"strings"
+)
+
 // AccountMove represents account.move model.
 type AccountMove struct {
 	LastUpdate                            *Time      `xmlrpc:"__last_update,omitempty"`
@@ -257,3 +268,332 @@ func (c *Client) FindAccountMoveId(criteria *Criteria, options *Options) (int64,
 	}
 	return ids[0], nil
 }
+
+// ReportDownloadInvoicePDF 通过 Odoo 16+ 登录态下载发票 PDF（自动登录获取 session cookie，自动获取 csrf_token）
+func (c *Client) ReportDownloadInvoicePDF(moveId int64, username, password string) ([]byte, error) {
+	if c.cfg == nil || c.cfg.URL == "" {
+		return nil, errors.New("Odoo URL 未配置")
+	}
+	loginUrl := fmt.Sprintf("%s/web/login", c.cfg.URL)
+	pdfUrl := fmt.Sprintf("%s/report/pdf/account.account_invoices/%d", c.cfg.URL, moveId)
+	client := &http.Client{CheckRedirect: func(req *http.Request, via []*http.Request) error { return http.ErrUseLastResponse }}
+
+	// 1. 先GET登录页，提取csrf_token
+	resp0, err := client.Get(loginUrl)
+	if err != nil {
+		return nil, fmt.Errorf("Odoo 登录页获取失败: %v", err)
+	}
+	defer resp0.Body.Close()
+	body0, err := io.ReadAll(resp0.Body)
+	if err != nil {
+		return nil, err
+	}
+	csrfToken := ""
+	// 简单正则提取 <input type="hidden" name="csrf_token" value="..."/>
+	re := regexp.MustCompile(`name=["']csrf_token["']\s+value=["']([^"']+)["']`)
+	match := re.FindSubmatch(body0)
+	if len(match) == 2 {
+		csrfToken = string(match[1])
+	}
+	if csrfToken == "" {
+		return nil, errors.New("Odoo 登录页未获取到 csrf_token")
+	}
+
+	// 2. 登录获取 session_id，带上首次GET登录页返回的所有cookies
+	loginData := url.Values{}
+	loginData.Set("login", username)
+	loginData.Set("password", password)
+	//loginData.Set("db", c.cfg.Database)
+	loginData.Set("csrf_token", csrfToken)
+
+	// 构造POST请求，带上cookie
+	loginReq, err := http.NewRequest("POST", loginUrl, strings.NewReader(loginData.Encode()))
+	if err != nil {
+		return nil, fmt.Errorf("Odoo 登录请求构造失败: %v", err)
+	}
+	loginReq.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	// 收集首次GET登录页的所有cookie
+	var cookies []string
+	for _, c := range resp0.Cookies() {
+		cookies = append(cookies, c.Name+"="+c.Value)
+	}
+	if len(cookies) > 0 {
+		loginReq.Header.Set("Cookie", strings.Join(cookies, "; "))
+	}
+	loginResp, err := client.Do(loginReq)
+	if err != nil {
+		return nil, fmt.Errorf("Odoo 登录失败: %v", err)
+	}
+	defer loginResp.Body.Close()
+	var sessionId string
+	for _, cookie := range loginResp.Cookies() {
+		if cookie.Name == "session_id" {
+			sessionId = cookie.Value
+			break
+		}
+	}
+	if sessionId == "" {
+		return nil, errors.New("Odoo 登录未获取到 session_id，账号或密码错误")
+	}
+
+	// 3. 用所有cookie访问 PDF（合并首次GET和登录后所有cookie，去重）
+	cookieMap := make(map[string]string)
+	for _, c := range resp0.Cookies() {
+		cookieMap[c.Name] = c.Value
+	}
+	for _, c := range loginResp.Cookies() {
+		cookieMap[c.Name] = c.Value
+	}
+	var pdfCookies []string
+	for k, v := range cookieMap {
+		pdfCookies = append(pdfCookies, k+"="+v)
+	}
+
+	// 3.1 检查 session 有效性（用POST+JSON）
+	infoUrl := fmt.Sprintf("%s/web/session/get_session_info", c.cfg.URL)
+	infoReq, err := http.NewRequest("POST", infoUrl, strings.NewReader("{}"))
+	if err == nil {
+		if len(pdfCookies) > 0 {
+			infoReq.Header.Set("Cookie", strings.Join(pdfCookies, "; "))
+		}
+		infoReq.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+		infoReq.Header.Set("Content-Type", "application/json")
+		infoResp, err := client.Do(infoReq)
+		if err == nil {
+			defer infoResp.Body.Close()
+			infoBody, _ := io.ReadAll(infoResp.Body)
+			os.WriteFile("odoo_session_info.json", infoBody, 0644)
+		}
+	}
+
+	// 4. 用所有cookie访问 PDF，支持 303 跳转自动跟进
+	maxRedirect := 3
+	curUrl := pdfUrl
+	var lastResp *http.Response
+	for i := 0; i < maxRedirect; i++ {
+		req, err := http.NewRequest("GET", curUrl, nil)
+		if err != nil {
+			return nil, err
+		}
+		if len(pdfCookies) > 0 {
+			req.Header.Set("Cookie", strings.Join(pdfCookies, "; "))
+		}
+		req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+		req.Header.Set("Referer", fmt.Sprintf("%s/web", c.cfg.URL))
+		resp2, err := client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+		defer resp2.Body.Close()
+		lastResp = resp2
+		if resp2.StatusCode == 200 {
+			contentType := resp2.Header.Get("Content-Type")
+			body, err := io.ReadAll(resp2.Body)
+			if err != nil {
+				return nil, err
+			}
+			if contentType != "application/pdf" {
+				errFile := fmt.Sprintf("odoo_invoice_%d_error.html", moveId)
+				_ = os.WriteFile(errFile, body, 0644)
+				preview := string(body)
+				if len(preview) > 300 {
+					preview = preview[:300] + "..."
+				}
+				return nil, fmt.Errorf("Odoo 返回非 PDF，Content-Type: %s，内容预览: %s，已保存为 %s", contentType, preview, errFile)
+			}
+			return body, nil
+		}
+		if resp2.StatusCode == 303 || resp2.StatusCode == 302 {
+			loc := resp2.Header.Get("Location")
+			headersFile := fmt.Sprintf("odoo_invoice_%d_303_headers.txt", moveId)
+			bodyFile := fmt.Sprintf("odoo_invoice_%d_303.html", moveId)
+			_ = os.WriteFile(headersFile, []byte(resp2.Status+"\n"+loc+"\n"+fmt.Sprint(resp2.Header)), 0644)
+			b, _ := io.ReadAll(resp2.Body)
+			_ = os.WriteFile(bodyFile, b, 0644)
+			if strings.Contains(loc, "/web/login") {
+				return nil, fmt.Errorf("Odoo 跳转到登录页，session 可能无效或权限不足，Location: %s", loc)
+			}
+			if strings.HasPrefix(loc, "/") && !strings.HasPrefix(loc, "http") {
+				curUrl = c.cfg.URL + loc
+			} else {
+				curUrl = loc
+			}
+			continue
+		}
+		// 其它状态码
+		b, _ := io.ReadAll(resp2.Body)
+		errFile := fmt.Sprintf("odoo_invoice_%d_error.html", moveId)
+		_ = os.WriteFile(errFile, b, 0644)
+		return nil, fmt.Errorf("Odoo PDF 下载失败: %s，内容已保存为 %s", resp2.Status, errFile)
+	}
+	// 超过最大跳转次数
+	if lastResp != nil {
+		b, _ := io.ReadAll(lastResp.Body)
+		errFile := fmt.Sprintf("odoo_invoice_%d_error.html", moveId)
+		_ = os.WriteFile(errFile, b, 0644)
+	}
+	return nil, fmt.Errorf("Odoo PDF 下载失败，超过最大跳转次数")
+}
+
+// ReportDownloadPosTicketPDF 通过 Odoo 16+ 登录态下载 POS 小票 PDF（自动登录获取 session cookie，自动获取 csrf_token）
+func (c *Client) ReportDownloadPosTicketPDF(posOrderId int64, username, password string) ([]byte, error) {
+	if c.cfg == nil || c.cfg.URL == "" {
+		return nil, errors.New("Odoo URL 未配置")
+	}
+	loginUrl := fmt.Sprintf("%s/web/login", c.cfg.URL)
+	pdfUrl := fmt.Sprintf("%s/report/pdf/point_of_sale.pos_ticket/%d", c.cfg.URL, posOrderId)
+	client := &http.Client{CheckRedirect: func(req *http.Request, via []*http.Request) error { return http.ErrUseLastResponse }}
+
+	// 1. 先GET登录页，提取csrf_token
+	resp0, err := client.Get(loginUrl)
+	if err != nil {
+		return nil, fmt.Errorf("Odoo 登录页获取失败: %v", err)
+	}
+	defer resp0.Body.Close()
+	body0, err := io.ReadAll(resp0.Body)
+	if err != nil {
+		return nil, err
+	}
+	csrfToken := ""
+	re := regexp.MustCompile(`name=["']csrf_token["']\s+value=["']([^"']+)["']`)
+	match := re.FindSubmatch(body0)
+	if len(match) == 2 {
+		csrfToken = string(match[1])
+	}
+	if csrfToken == "" {
+		return nil, errors.New("Odoo 登录页未获取到 csrf_token")
+	}
+
+	// 2. 登录获取 session_id，带上首次GET登录页返回的所有cookies
+	loginData := url.Values{}
+	loginData.Set("login", username)
+	loginData.Set("password", password)
+	loginData.Set("csrf_token", csrfToken)
+	loginReq, err := http.NewRequest("POST", loginUrl, strings.NewReader(loginData.Encode()))
+	if err != nil {
+		return nil, fmt.Errorf("Odoo 登录请求构造失败: %v", err)
+	}
+	loginReq.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	var cookies []string
+	for _, c := range resp0.Cookies() {
+		cookies = append(cookies, c.Name+"="+c.Value)
+	}
+	if len(cookies) > 0 {
+		loginReq.Header.Set("Cookie", strings.Join(cookies, "; "))
+	}
+	loginResp, err := client.Do(loginReq)
+	if err != nil {
+		return nil, fmt.Errorf("Odoo 登录失败: %v", err)
+	}
+	defer loginResp.Body.Close()
+	var sessionId string
+	for _, cookie := range loginResp.Cookies() {
+		if cookie.Name == "session_id" {
+			sessionId = cookie.Value
+			break
+		}
+	}
+	if sessionId == "" {
+		return nil, errors.New("Odoo 登录未获取到 session_id，账号或密码错误")
+	}
+
+	// 3. 合并所有cookie
+	cookieMap := make(map[string]string)
+	for _, c := range resp0.Cookies() {
+		cookieMap[c.Name] = c.Value
+	}
+	for _, c := range loginResp.Cookies() {
+		cookieMap[c.Name] = c.Value
+	}
+	var pdfCookies []string
+	for k, v := range cookieMap {
+		pdfCookies = append(pdfCookies, k+"="+v)
+	}
+
+	// 4. 检查 session 有效性
+	infoUrl := fmt.Sprintf("%s/web/session/get_session_info", c.cfg.URL)
+	infoReq, err := http.NewRequest("POST", infoUrl, strings.NewReader("{}"))
+	if err == nil {
+		if len(pdfCookies) > 0 {
+			infoReq.Header.Set("Cookie", strings.Join(pdfCookies, "; "))
+		}
+		infoReq.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+		infoReq.Header.Set("Content-Type", "application/json")
+		infoResp, err := client.Do(infoReq)
+		if err == nil {
+			defer infoResp.Body.Close()
+			infoBody, _ := io.ReadAll(infoResp.Body)
+			os.WriteFile("odoo_session_info.json", infoBody, 0644)
+		}
+	}
+
+	// 5. 用所有cookie访问 PDF，支持 303 跳转自动跟进
+	maxRedirect := 3
+	curUrl := pdfUrl
+	var lastResp *http.Response
+	for i := 0; i < maxRedirect; i++ {
+		req, err := http.NewRequest("GET", curUrl, nil)
+		if err != nil {
+			return nil, err
+		}
+		if len(pdfCookies) > 0 {
+			req.Header.Set("Cookie", strings.Join(pdfCookies, "; "))
+		}
+		req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+		req.Header.Set("Referer", fmt.Sprintf("%s/web", c.cfg.URL))
+		resp2, err := client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+		defer resp2.Body.Close()
+		lastResp = resp2
+		if resp2.StatusCode == 200 {
+			contentType := resp2.Header.Get("Content-Type")
+			body, err := io.ReadAll(resp2.Body)
+			if err != nil {
+				return nil, err
+			}
+			if contentType != "application/pdf" {
+				errFile := fmt.Sprintf("odoo_pos_ticket_%d_error.html", posOrderId)
+				_ = os.WriteFile(errFile, body, 0644)
+				preview := string(body)
+				if len(preview) > 300 {
+					preview = preview[:300] + "..."
+				}
+				return nil, fmt.Errorf("Odoo 返回非 PDF，Content-Type: %s，内容预览: %s，已保存为 %s", contentType, preview, errFile)
+			}
+			return body, nil
+		}
+		if resp2.StatusCode == 303 || resp2.StatusCode == 302 {
+			loc := resp2.Header.Get("Location")
+			headersFile := fmt.Sprintf("odoo_pos_ticket_%d_303_headers.txt", posOrderId)
+			bodyFile := fmt.Sprintf("odoo_pos_ticket_%d_303.html", posOrderId)
+			_ = os.WriteFile(headersFile, []byte(resp2.Status+"\n"+loc+"\n"+fmt.Sprint(resp2.Header)), 0644)
+			b, _ := io.ReadAll(resp2.Body)
+			_ = os.WriteFile(bodyFile, b, 0644)
+			if strings.Contains(loc, "/web/login") {
+				return nil, fmt.Errorf("Odoo 跳转到登录页，session 可能无效或权限不足，Location: %s", loc)
+			}
+			if strings.HasPrefix(loc, "/") && !strings.HasPrefix(loc, "http") {
+				curUrl = c.cfg.URL + loc
+			} else {
+				curUrl = loc
+			}
+			continue
+		}
+		// 其它状态码
+		b, _ := io.ReadAll(resp2.Body)
+		errFile := fmt.Sprintf("odoo_pos_ticket_%d_error.html", posOrderId)
+		_ = os.WriteFile(errFile, b, 0644)
+		return nil, fmt.Errorf("Odoo POS 小票 PDF 下载失败: %s，内容已保存为 %s", resp2.Status, errFile)
+	}
+	// 超过最大跳转次数
+	if lastResp != nil {
+		b, _ := io.ReadAll(lastResp.Body)
+		errFile := fmt.Sprintf("odoo_pos_ticket_%d_error.html", posOrderId)
+		_ = os.WriteFile(errFile, b, 0644)
+	}
+	return nil, fmt.Errorf("Odoo POS 小票 PDF 下载失败，超过最大跳转次数")
+}
+
+// 移除本文件多余的 call 方法定义，避免与 odoo.go 冲突

@@ -409,7 +409,11 @@ func (c *Client) objectCall(serviceMethod string, args interface{}) (interface{}
 	return resp, nil
 }
 
+// go-odoo/odoo.go 的 call 方法加健壮性判空，防止 xmlrpc client 未初始化时 panic
 func (c *Client) call(x *xmlrpc.Client, serviceMethod string, args interface{}) (interface{}, error) {
+	if x == nil || x.Client == nil {
+		return nil, errors.New("xmlrpc client is nil, Odoo连接未初始化或认证失败")
+	}
 	var reply interface{}
 	if err := x.Call(serviceMethod, args, &reply); err != nil {
 		return nil, err
