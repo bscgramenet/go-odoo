@@ -2,7 +2,6 @@ package odoo
 
 // IrAsset represents ir.asset model.
 type IrAsset struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool      `xmlrpc:"active,omitempty"`
 	Bundle      *String    `xmlrpc:"bundle,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`

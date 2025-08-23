@@ -2,7 +2,6 @@ package odoo
 
 // DecimalPrecision represents decimal.precision model.
 type DecimalPrecision struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	Digits      *Int      `xmlrpc:"digits,omitempty"`

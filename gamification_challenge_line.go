@@ -2,7 +2,6 @@ package odoo
 
 // GamificationChallengeLine represents gamification.challenge.line model.
 type GamificationChallengeLine struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
 	ChallengeId          *Many2One  `xmlrpc:"challenge_id,omitempty"`
 	Condition            *Selection `xmlrpc:"condition,omitempty"`
 	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`

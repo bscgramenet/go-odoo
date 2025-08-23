@@ -2,7 +2,6 @@ package odoo
 
 // AccountGroup represents account.group model.
 type AccountGroup struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
 	CodePrefixEnd   *String   `xmlrpc:"code_prefix_end,omitempty"`
 	CodePrefixStart *String   `xmlrpc:"code_prefix_start,omitempty"`
 	CompanyId       *Many2One `xmlrpc:"company_id,omitempty"`
@@ -12,7 +11,6 @@ type AccountGroup struct {
 	Id              *Int      `xmlrpc:"id,omitempty"`
 	Name            *String   `xmlrpc:"name,omitempty"`
 	ParentId        *Many2One `xmlrpc:"parent_id,omitempty"`
-	ParentPath      *String   `xmlrpc:"parent_path,omitempty"`
 	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
 }

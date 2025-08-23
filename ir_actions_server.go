@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsServer represents ir.actions.server model.
 type IrActionsServer struct {
-	LastUpdate                    *Time      `xmlrpc:"__last_update,omitempty"`
 	ActivityDateDeadlineRange     *Int       `xmlrpc:"activity_date_deadline_range,omitempty"`
 	ActivityDateDeadlineRangeType *Selection `xmlrpc:"activity_date_deadline_range_type,omitempty"`
 	ActivityNote                  *String    `xmlrpc:"activity_note,omitempty"`
@@ -11,6 +10,7 @@ type IrActionsServer struct {
 	ActivityUserFieldName         *String    `xmlrpc:"activity_user_field_name,omitempty"`
 	ActivityUserId                *Many2One  `xmlrpc:"activity_user_id,omitempty"`
 	ActivityUserType              *Selection `xmlrpc:"activity_user_type,omitempty"`
+	AvailableModelIds             *Relation  `xmlrpc:"available_model_ids,omitempty"`
 	BindingModelId                *Many2One  `xmlrpc:"binding_model_id,omitempty"`
 	BindingType                   *Selection `xmlrpc:"binding_type,omitempty"`
 	BindingViewTypes              *String    `xmlrpc:"binding_view_types,omitempty"`
@@ -21,7 +21,7 @@ type IrActionsServer struct {
 	CrudModelId                   *Many2One  `xmlrpc:"crud_model_id,omitempty"`
 	CrudModelName                 *String    `xmlrpc:"crud_model_name,omitempty"`
 	DisplayName                   *String    `xmlrpc:"display_name,omitempty"`
-	FieldsLines                   *Relation  `xmlrpc:"fields_lines,omitempty"`
+	EvaluationType                *Selection `xmlrpc:"evaluation_type,omitempty"`
 	GroupsId                      *Relation  `xmlrpc:"groups_id,omitempty"`
 	Help                          *String    `xmlrpc:"help,omitempty"`
 	Id                            *Int       `xmlrpc:"id,omitempty"`
@@ -32,13 +32,27 @@ type IrActionsServer struct {
 	ModelName                     *String    `xmlrpc:"model_name,omitempty"`
 	Name                          *String    `xmlrpc:"name,omitempty"`
 	PartnerIds                    *Relation  `xmlrpc:"partner_ids,omitempty"`
+	Path                          *String    `xmlrpc:"path,omitempty"`
+	ResourceRef                   *String    `xmlrpc:"resource_ref,omitempty"`
+	SelectionValue                *Many2One  `xmlrpc:"selection_value,omitempty"`
 	Sequence                      *Int       `xmlrpc:"sequence,omitempty"`
 	SmsMethod                     *Selection `xmlrpc:"sms_method,omitempty"`
 	SmsTemplateId                 *Many2One  `xmlrpc:"sms_template_id,omitempty"`
 	State                         *Selection `xmlrpc:"state,omitempty"`
 	TemplateId                    *Many2One  `xmlrpc:"template_id,omitempty"`
 	Type                          *String    `xmlrpc:"type,omitempty"`
+	UpdateBooleanValue            *Selection `xmlrpc:"update_boolean_value,omitempty"`
+	UpdateFieldId                 *Many2One  `xmlrpc:"update_field_id,omitempty"`
+	UpdateFieldType               *Selection `xmlrpc:"update_field_type,omitempty"`
+	UpdateM2MOperation            *Selection `xmlrpc:"update_m2m_operation,omitempty"`
+	UpdatePath                    *String    `xmlrpc:"update_path,omitempty"`
+	UpdateRelatedModelId          *Many2One  `xmlrpc:"update_related_model_id,omitempty"`
 	Usage                         *Selection `xmlrpc:"usage,omitempty"`
+	Value                         *String    `xmlrpc:"value,omitempty"`
+	ValueFieldToShow              *Selection `xmlrpc:"value_field_to_show,omitempty"`
+	WebhookFieldIds               *Relation  `xmlrpc:"webhook_field_ids,omitempty"`
+	WebhookSamplePayload          *String    `xmlrpc:"webhook_sample_payload,omitempty"`
+	WebhookUrl                    *String    `xmlrpc:"webhook_url,omitempty"`
 	WriteDate                     *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                      *Many2One  `xmlrpc:"write_uid,omitempty"`
 	XmlId                         *String    `xmlrpc:"xml_id,omitempty"`

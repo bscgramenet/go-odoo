@@ -2,11 +2,11 @@ package odoo
 
 // AccountReconcileModel represents account.reconcile.model model.
 type AccountReconcileModel struct {
-	LastUpdate                 *Time      `xmlrpc:"__last_update,omitempty"`
 	Active                     *Bool      `xmlrpc:"active,omitempty"`
 	AllowPaymentTolerance      *Bool      `xmlrpc:"allow_payment_tolerance,omitempty"`
 	AutoReconcile              *Bool      `xmlrpc:"auto_reconcile,omitempty"`
 	CompanyId                  *Many2One  `xmlrpc:"company_id,omitempty"`
+	CounterpartType            *Selection `xmlrpc:"counterpart_type,omitempty"`
 	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                  *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DecimalSeparator           *String    `xmlrpc:"decimal_separator,omitempty"`
@@ -40,7 +40,6 @@ type AccountReconcileModel struct {
 	MessageHasSmsError         *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds                 *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower          *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId    *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction          *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter   *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds          *Relation  `xmlrpc:"message_partner_ids,omitempty"`
@@ -50,6 +49,7 @@ type AccountReconcileModel struct {
 	PastMonthsLimit            *Int       `xmlrpc:"past_months_limit,omitempty"`
 	PaymentToleranceParam      *Float     `xmlrpc:"payment_tolerance_param,omitempty"`
 	PaymentToleranceType       *Selection `xmlrpc:"payment_tolerance_type,omitempty"`
+	RatingIds                  *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RuleType                   *Selection `xmlrpc:"rule_type,omitempty"`
 	Sequence                   *Int       `xmlrpc:"sequence,omitempty"`
 	ShowDecimalSeparator       *Bool      `xmlrpc:"show_decimal_separator,omitempty"`

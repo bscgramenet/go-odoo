@@ -2,23 +2,24 @@ package odoo
 
 // UomUom represents uom.uom model.
 type UomUom struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
-	Active         *Bool      `xmlrpc:"active,omitempty"`
-	CategoryId     *Many2One  `xmlrpc:"category_id,omitempty"`
-	Color          *Int       `xmlrpc:"color,omitempty"`
-	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
-	Factor         *Float     `xmlrpc:"factor,omitempty"`
-	FactorInv      *Float     `xmlrpc:"factor_inv,omitempty"`
-	Id             *Int       `xmlrpc:"id,omitempty"`
-	IsPosGroupable *Bool      `xmlrpc:"is_pos_groupable,omitempty"`
-	Name           *String    `xmlrpc:"name,omitempty"`
-	Ratio          *Float     `xmlrpc:"ratio,omitempty"`
-	Rounding       *Float     `xmlrpc:"rounding,omitempty"`
-	UomType        *Selection `xmlrpc:"uom_type,omitempty"`
-	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active                   *Bool      `xmlrpc:"active,omitempty"`
+	CategoryId               *Many2One  `xmlrpc:"category_id,omitempty"`
+	Color                    *Int       `xmlrpc:"color,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	Factor                   *Float     `xmlrpc:"factor,omitempty"`
+	FactorInv                *Float     `xmlrpc:"factor_inv,omitempty"`
+	FiscalCountryCodes       *String    `xmlrpc:"fiscal_country_codes,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	IsPosGroupable           *Bool      `xmlrpc:"is_pos_groupable,omitempty"`
+	L10NEsEdiFacturaeUomCode *Selection `xmlrpc:"l10n_es_edi_facturae_uom_code,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	Ratio                    *Float     `xmlrpc:"ratio,omitempty"`
+	Rounding                 *Float     `xmlrpc:"rounding,omitempty"`
+	UomType                  *Selection `xmlrpc:"uom_type,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // UomUoms represents array of uom.uom model.

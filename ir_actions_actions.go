@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsActions represents ir.actions.actions model.
 type IrActionsActions struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
 	BindingType      *Selection `xmlrpc:"binding_type,omitempty"`
 	BindingViewTypes *String    `xmlrpc:"binding_view_types,omitempty"`
@@ -12,6 +11,7 @@ type IrActionsActions struct {
 	Help             *String    `xmlrpc:"help,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`
 	Name             *String    `xmlrpc:"name,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
 	Type             *String    `xmlrpc:"type,omitempty"`
 	WriteDate        *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid         *Many2One  `xmlrpc:"write_uid,omitempty"`

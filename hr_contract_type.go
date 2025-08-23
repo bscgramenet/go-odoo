@@ -2,7 +2,8 @@ package odoo
 
 // HrContractType represents hr.contract.type model.
 type HrContractType struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
+	Code        *String   `xmlrpc:"code,omitempty"`
+	CountryId   *Many2One `xmlrpc:"country_id,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`

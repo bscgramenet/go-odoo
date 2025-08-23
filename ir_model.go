@@ -2,7 +2,6 @@ package odoo
 
 // IrModel represents ir.model model.
 type IrModel struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
 	AccessIds         *Relation  `xmlrpc:"access_ids,omitempty"`
 	Count             *Int       `xmlrpc:"count,omitempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`

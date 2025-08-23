@@ -2,7 +2,6 @@ package odoo
 
 // StockChangeProductQty represents stock.change.product.qty model.
 type StockChangeProductQty struct {
-	LastUpdate          *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
@@ -10,6 +9,7 @@ type StockChangeProductQty struct {
 	NewQuantity         *Float    `xmlrpc:"new_quantity,omitempty"`
 	ProductId           *Many2One `xmlrpc:"product_id,omitempty"`
 	ProductTmplId       *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
+	ProductUomId        *Many2One `xmlrpc:"product_uom_id,omitempty"`
 	ProductVariantCount *Int      `xmlrpc:"product_variant_count,omitempty"`
 	WriteDate           *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid            *Many2One `xmlrpc:"write_uid,omitempty"`

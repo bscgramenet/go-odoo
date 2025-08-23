@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsTodo represents ir.actions.todo model.
 type IrActionsTodo struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	ActionId    *Many2One  `xmlrpc:"action_id,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`

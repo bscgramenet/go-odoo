@@ -2,16 +2,15 @@ package odoo
 
 // SurveyInvite represents survey.invite model.
 type SurveyInvite struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
 	AttachmentIds            *Relation  `xmlrpc:"attachment_ids,omitempty"`
 	AuthorId                 *Many2One  `xmlrpc:"author_id,omitempty"`
 	Body                     *String    `xmlrpc:"body,omitempty"`
+	BodyHasTemplateValue     *Bool      `xmlrpc:"body_has_template_value,omitempty"`
 	CanEditBody              *Bool      `xmlrpc:"can_edit_body,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
 	Deadline                 *Time      `xmlrpc:"deadline,omitempty"`
 	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
-	EmailFrom                *String    `xmlrpc:"email_from,omitempty"`
 	Emails                   *String    `xmlrpc:"emails,omitempty"`
 	ExistingEmails           *String    `xmlrpc:"existing_emails,omitempty"`
 	ExistingMode             *Selection `xmlrpc:"existing_mode,omitempty"`
@@ -23,6 +22,7 @@ type SurveyInvite struct {
 	MailServerId             *Many2One  `xmlrpc:"mail_server_id,omitempty"`
 	PartnerIds               *Relation  `xmlrpc:"partner_ids,omitempty"`
 	RenderModel              *String    `xmlrpc:"render_model,omitempty"`
+	SendEmail                *Bool      `xmlrpc:"send_email,omitempty"`
 	Subject                  *String    `xmlrpc:"subject,omitempty"`
 	SurveyAccessMode         *Selection `xmlrpc:"survey_access_mode,omitempty"`
 	SurveyId                 *Many2One  `xmlrpc:"survey_id,omitempty"`

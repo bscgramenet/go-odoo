@@ -2,7 +2,6 @@ package odoo
 
 // MailTemplatePreview represents mail.template.preview model.
 type MailTemplatePreview struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
 	AttachmentIds  *Relation  `xmlrpc:"attachment_ids,omitempty"`
 	BodyHtml       *String    `xmlrpc:"body_html,omitempty"`
 	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`

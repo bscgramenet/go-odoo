@@ -2,20 +2,24 @@ package odoo
 
 // SpreadsheetDashboard represents spreadsheet.dashboard model.
 type SpreadsheetDashboard struct {
-	LastUpdate       *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate       *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid        *Many2One `xmlrpc:"create_uid,omitempty"`
-	DashboardGroupId *Many2One `xmlrpc:"dashboard_group_id,omitempty"`
-	Data             *String   `xmlrpc:"data,omitempty"`
-	DisplayName      *String   `xmlrpc:"display_name,omitempty"`
-	GroupIds         *Relation `xmlrpc:"group_ids,omitempty"`
-	Id               *Int      `xmlrpc:"id,omitempty"`
-	Name             *String   `xmlrpc:"name,omitempty"`
-	Raw              *String   `xmlrpc:"raw,omitempty"`
-	Sequence         *Int      `xmlrpc:"sequence,omitempty"`
-	Thumbnail        *String   `xmlrpc:"thumbnail,omitempty"`
-	WriteDate        *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid         *Many2One `xmlrpc:"write_uid,omitempty"`
+	CompanyId               *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate              *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid               *Many2One `xmlrpc:"create_uid,omitempty"`
+	DashboardGroupId        *Many2One `xmlrpc:"dashboard_group_id,omitempty"`
+	DisplayName             *String   `xmlrpc:"display_name,omitempty"`
+	GroupIds                *Relation `xmlrpc:"group_ids,omitempty"`
+	Id                      *Int      `xmlrpc:"id,omitempty"`
+	IsPublished             *Bool     `xmlrpc:"is_published,omitempty"`
+	MainDataModelIds        *Relation `xmlrpc:"main_data_model_ids,omitempty"`
+	Name                    *String   `xmlrpc:"name,omitempty"`
+	SampleDashboardFilePath *String   `xmlrpc:"sample_dashboard_file_path,omitempty"`
+	Sequence                *Int      `xmlrpc:"sequence,omitempty"`
+	SpreadsheetBinaryData   *String   `xmlrpc:"spreadsheet_binary_data,omitempty"`
+	SpreadsheetData         *String   `xmlrpc:"spreadsheet_data,omitempty"`
+	SpreadsheetFileName     *String   `xmlrpc:"spreadsheet_file_name,omitempty"`
+	Thumbnail               *String   `xmlrpc:"thumbnail,omitempty"`
+	WriteDate               *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // SpreadsheetDashboards represents array of spreadsheet.dashboard model.

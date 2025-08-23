@@ -2,7 +2,6 @@ package odoo
 
 // IrSequence represents ir.sequence model.
 type IrSequence struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	Active           *Bool      `xmlrpc:"active,omitempty"`
 	Code             *String    `xmlrpc:"code,omitempty"`
 	CompanyId        *Many2One  `xmlrpc:"company_id,omitempty"`

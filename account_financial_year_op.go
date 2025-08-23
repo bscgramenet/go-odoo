@@ -2,7 +2,6 @@ package odoo
 
 // AccountFinancialYearOp represents account.financial.year.op model.
 type AccountFinancialYearOp struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
 	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`

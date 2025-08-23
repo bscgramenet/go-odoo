@@ -2,7 +2,6 @@ package odoo
 
 // BasePartnerMergeLine represents base.partner.merge.line model.
 type BasePartnerMergeLine struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	AggrIds     *String   `xmlrpc:"aggr_ids,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

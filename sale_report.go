@@ -2,26 +2,29 @@ package odoo
 
 // SaleReport represents sale.report model.
 type SaleReport struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
-	AnalyticAccountId      *Many2One  `xmlrpc:"analytic_account_id,omitempty"`
 	CampaignId             *Many2One  `xmlrpc:"campaign_id,omitempty"`
 	CategId                *Many2One  `xmlrpc:"categ_id,omitempty"`
 	CommercialPartnerId    *Many2One  `xmlrpc:"commercial_partner_id,omitempty"`
 	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
 	CountryId              *Many2One  `xmlrpc:"country_id,omitempty"`
+	CurrencyId             *Many2One  `xmlrpc:"currency_id,omitempty"`
 	Date                   *Time      `xmlrpc:"date,omitempty"`
 	Discount               *Float     `xmlrpc:"discount,omitempty"`
 	DiscountAmount         *Float     `xmlrpc:"discount_amount,omitempty"`
 	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
 	Id                     *Int       `xmlrpc:"id,omitempty"`
 	IndustryId             *Many2One  `xmlrpc:"industry_id,omitempty"`
+	InvoiceStatus          *Selection `xmlrpc:"invoice_status,omitempty"`
+	LineInvoiceStatus      *Selection `xmlrpc:"line_invoice_status,omitempty"`
 	MediumId               *Many2One  `xmlrpc:"medium_id,omitempty"`
 	Name                   *String    `xmlrpc:"name,omitempty"`
 	Nbr                    *Int       `xmlrpc:"nbr,omitempty"`
-	OrderId                *Many2One  `xmlrpc:"order_id,omitempty"`
+	OrderReference         *String    `xmlrpc:"order_reference,omitempty"`
 	PartnerId              *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PartnerZip             *String    `xmlrpc:"partner_zip,omitempty"`
 	PriceSubtotal          *Float     `xmlrpc:"price_subtotal,omitempty"`
 	PriceTotal             *Float     `xmlrpc:"price_total,omitempty"`
+	PriceUnit              *Float     `xmlrpc:"price_unit,omitempty"`
 	PricelistId            *Many2One  `xmlrpc:"pricelist_id,omitempty"`
 	ProductId              *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProductTmplId          *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
@@ -33,6 +36,7 @@ type SaleReport struct {
 	QtyToInvoice           *Float     `xmlrpc:"qty_to_invoice,omitempty"`
 	SourceId               *Many2One  `xmlrpc:"source_id,omitempty"`
 	State                  *Selection `xmlrpc:"state,omitempty"`
+	StateId                *Many2One  `xmlrpc:"state_id,omitempty"`
 	TeamId                 *Many2One  `xmlrpc:"team_id,omitempty"`
 	UntaxedAmountInvoiced  *Float     `xmlrpc:"untaxed_amount_invoiced,omitempty"`
 	UntaxedAmountToInvoice *Float     `xmlrpc:"untaxed_amount_to_invoice,omitempty"`

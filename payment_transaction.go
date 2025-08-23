@@ -2,20 +2,13 @@ package odoo
 
 // PaymentTransaction represents payment.transaction model.
 type PaymentTransaction struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
 	Amount              *Float     `xmlrpc:"amount,omitempty"`
-	CallbackHash        *String    `xmlrpc:"callback_hash,omitempty"`
-	CallbackIsDone      *Bool      `xmlrpc:"callback_is_done,omitempty"`
-	CallbackMethod      *String    `xmlrpc:"callback_method,omitempty"`
-	CallbackModelId     *Many2One  `xmlrpc:"callback_model_id,omitempty"`
-	CallbackResId       *Int       `xmlrpc:"callback_res_id,omitempty"`
 	ChildTransactionIds *Relation  `xmlrpc:"child_transaction_ids,omitempty"`
 	CompanyId           *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
 	CurrencyId          *Many2One  `xmlrpc:"currency_id,omitempty"`
 	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
-	Fees                *Float     `xmlrpc:"fees,omitempty"`
 	Id                  *Int       `xmlrpc:"id,omitempty"`
 	InvoiceIds          *Relation  `xmlrpc:"invoice_ids,omitempty"`
 	InvoicesCount       *Int       `xmlrpc:"invoices_count,omitempty"`
@@ -34,6 +27,9 @@ type PaymentTransaction struct {
 	PartnerStateId      *Many2One  `xmlrpc:"partner_state_id,omitempty"`
 	PartnerZip          *String    `xmlrpc:"partner_zip,omitempty"`
 	PaymentId           *Many2One  `xmlrpc:"payment_id,omitempty"`
+	PaymentMethodCode   *String    `xmlrpc:"payment_method_code,omitempty"`
+	PaymentMethodId     *Many2One  `xmlrpc:"payment_method_id,omitempty"`
+	PosOrderId          *Many2One  `xmlrpc:"pos_order_id,omitempty"`
 	ProviderCode        *Selection `xmlrpc:"provider_code,omitempty"`
 	ProviderId          *Many2One  `xmlrpc:"provider_id,omitempty"`
 	ProviderReference   *String    `xmlrpc:"provider_reference,omitempty"`

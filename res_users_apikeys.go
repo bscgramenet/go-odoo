@@ -2,13 +2,13 @@ package odoo
 
 // ResUsersApikeys represents res.users.apikeys model.
 type ResUsersApikeys struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	Scope       *String   `xmlrpc:"scope,omitempty"`
-	UserId      *Many2One `xmlrpc:"user_id,omitempty"`
+	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
+	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
+	ExpirationDate *Time     `xmlrpc:"expiration_date,omitempty"`
+	Id             *Int      `xmlrpc:"id,omitempty"`
+	Name           *String   `xmlrpc:"name,omitempty"`
+	Scope          *String   `xmlrpc:"scope,omitempty"`
+	UserId         *Many2One `xmlrpc:"user_id,omitempty"`
 }
 
 // ResUsersApikeyss represents array of res.users.apikeys model.

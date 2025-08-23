@@ -2,7 +2,6 @@ package odoo
 
 // AccountReportExternalValue represents account.report.external.value model.
 type AccountReportExternalValue struct {
-	LastUpdate                     *Time     `xmlrpc:"__last_update,omitempty"`
 	CarryoverOriginExpressionLabel *String   `xmlrpc:"carryover_origin_expression_label,omitempty"`
 	CarryoverOriginReportLineId    *Many2One `xmlrpc:"carryover_origin_report_line_id,omitempty"`
 	CompanyId                      *Many2One `xmlrpc:"company_id,omitempty"`
@@ -17,6 +16,7 @@ type AccountReportExternalValue struct {
 	TargetReportExpressionId       *Many2One `xmlrpc:"target_report_expression_id,omitempty"`
 	TargetReportExpressionLabel    *String   `xmlrpc:"target_report_expression_label,omitempty"`
 	TargetReportLineId             *Many2One `xmlrpc:"target_report_line_id,omitempty"`
+	TextValue                      *String   `xmlrpc:"text_value,omitempty"`
 	Value                          *Float    `xmlrpc:"value,omitempty"`
 	WriteDate                      *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid                       *Many2One `xmlrpc:"write_uid,omitempty"`

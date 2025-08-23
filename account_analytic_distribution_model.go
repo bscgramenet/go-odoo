@@ -2,22 +2,23 @@ package odoo
 
 // AccountAnalyticDistributionModel represents account.analytic.distribution.model model.
 type AccountAnalyticDistributionModel struct {
-	LastUpdate                 *Time       `xmlrpc:"__last_update,omitempty"`
-	AccountPrefix              *String     `xmlrpc:"account_prefix,omitempty"`
-	AnalyticDistribution       interface{} `xmlrpc:"analytic_distribution,omitempty"`
-	AnalyticDistributionSearch interface{} `xmlrpc:"analytic_distribution_search,omitempty"`
-	AnalyticPrecision          *Int        `xmlrpc:"analytic_precision,omitempty"`
-	CompanyId                  *Many2One   `xmlrpc:"company_id,omitempty"`
-	CreateDate                 *Time       `xmlrpc:"create_date,omitempty"`
-	CreateUid                  *Many2One   `xmlrpc:"create_uid,omitempty"`
-	DisplayName                *String     `xmlrpc:"display_name,omitempty"`
-	Id                         *Int        `xmlrpc:"id,omitempty"`
-	PartnerCategoryId          *Many2One   `xmlrpc:"partner_category_id,omitempty"`
-	PartnerId                  *Many2One   `xmlrpc:"partner_id,omitempty"`
-	ProductCategId             *Many2One   `xmlrpc:"product_categ_id,omitempty"`
-	ProductId                  *Many2One   `xmlrpc:"product_id,omitempty"`
-	WriteDate                  *Time       `xmlrpc:"write_date,omitempty"`
-	WriteUid                   *Many2One   `xmlrpc:"write_uid,omitempty"`
+	AccountPrefix                  *String     `xmlrpc:"account_prefix,omitempty"`
+	AnalyticDistribution           interface{} `xmlrpc:"analytic_distribution,omitempty"`
+	AnalyticPrecision              *Int        `xmlrpc:"analytic_precision,omitempty"`
+	CompanyId                      *Many2One   `xmlrpc:"company_id,omitempty"`
+	CreateDate                     *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid                      *Many2One   `xmlrpc:"create_uid,omitempty"`
+	DisplayName                    *String     `xmlrpc:"display_name,omitempty"`
+	DistributionAnalyticAccountIds *Relation   `xmlrpc:"distribution_analytic_account_ids,omitempty"`
+	Id                             *Int        `xmlrpc:"id,omitempty"`
+	PartnerCategoryId              *Many2One   `xmlrpc:"partner_category_id,omitempty"`
+	PartnerId                      *Many2One   `xmlrpc:"partner_id,omitempty"`
+	PrefixPlaceholder              *String     `xmlrpc:"prefix_placeholder,omitempty"`
+	ProductCategId                 *Many2One   `xmlrpc:"product_categ_id,omitempty"`
+	ProductId                      *Many2One   `xmlrpc:"product_id,omitempty"`
+	Sequence                       *Int        `xmlrpc:"sequence,omitempty"`
+	WriteDate                      *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid                       *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAnalyticDistributionModels represents array of account.analytic.distribution.model model.

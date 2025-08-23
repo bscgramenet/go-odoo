@@ -2,7 +2,6 @@ package odoo
 
 // MailingContactToList represents mailing.contact.to.list model.
 type MailingContactToList struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
 	ContactIds    *Relation `xmlrpc:"contact_ids,omitempty"`
 	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // MailingListMerge represents mailing.list.merge model.
 type MailingListMerge struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
 	ArchiveSrcLists *Bool      `xmlrpc:"archive_src_lists,omitempty"`
 	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`

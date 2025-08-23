@@ -2,18 +2,21 @@ package odoo
 
 // GamificationKarmaTracking represents gamification.karma.tracking model.
 type GamificationKarmaTracking struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
-	Consolidated *Bool     `xmlrpc:"consolidated,omitempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	NewValue     *Int      `xmlrpc:"new_value,omitempty"`
-	OldValue     *Int      `xmlrpc:"old_value,omitempty"`
-	TrackingDate *Time     `xmlrpc:"tracking_date,omitempty"`
-	UserId       *Many2One `xmlrpc:"user_id,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	Consolidated       *Bool      `xmlrpc:"consolidated,omitempty"`
+	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
+	Gain               *Int       `xmlrpc:"gain,omitempty"`
+	Id                 *Int       `xmlrpc:"id,omitempty"`
+	NewValue           *Int       `xmlrpc:"new_value,omitempty"`
+	OldValue           *Int       `xmlrpc:"old_value,omitempty"`
+	OriginRef          *String    `xmlrpc:"origin_ref,omitempty"`
+	OriginRefModelName *Selection `xmlrpc:"origin_ref_model_name,omitempty"`
+	Reason             *String    `xmlrpc:"reason,omitempty"`
+	TrackingDate       *Time      `xmlrpc:"tracking_date,omitempty"`
+	UserId             *Many2One  `xmlrpc:"user_id,omitempty"`
+	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // GamificationKarmaTrackings represents array of gamification.karma.tracking model.

@@ -2,18 +2,22 @@ package odoo
 
 // MailMessage represents mail.message model.
 type MailMessage struct {
-	LastUpdate                 *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountAuditLogAccountId   *Many2One  `xmlrpc:"account_audit_log_account_id,omitempty"`
+	AccountAuditLogActivated   *Bool      `xmlrpc:"account_audit_log_activated,omitempty"`
+	AccountAuditLogCompanyId   *Many2One  `xmlrpc:"account_audit_log_company_id,omitempty"`
+	AccountAuditLogMoveId      *Many2One  `xmlrpc:"account_audit_log_move_id,omitempty"`
+	AccountAuditLogPartnerId   *Many2One  `xmlrpc:"account_audit_log_partner_id,omitempty"`
+	AccountAuditLogPreview     *String    `xmlrpc:"account_audit_log_preview,omitempty"`
+	AccountAuditLogTaxId       *Many2One  `xmlrpc:"account_audit_log_tax_id,omitempty"`
 	AttachmentIds              *Relation  `xmlrpc:"attachment_ids,omitempty"`
 	AuthorAvatar               *String    `xmlrpc:"author_avatar,omitempty"`
 	AuthorGuestId              *Many2One  `xmlrpc:"author_guest_id,omitempty"`
 	AuthorId                   *Many2One  `xmlrpc:"author_id,omitempty"`
 	Body                       *String    `xmlrpc:"body,omitempty"`
-	CannedResponseIds          *Relation  `xmlrpc:"canned_response_ids,omitempty"`
 	ChildIds                   *Relation  `xmlrpc:"child_ids,omitempty"`
 	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                  *Many2One  `xmlrpc:"create_uid,omitempty"`
 	Date                       *Time      `xmlrpc:"date,omitempty"`
-	Description                *String    `xmlrpc:"description,omitempty"`
 	DisplayName                *String    `xmlrpc:"display_name,omitempty"`
 	EmailAddSignature          *Bool      `xmlrpc:"email_add_signature,omitempty"`
 	EmailFrom                  *String    `xmlrpc:"email_from,omitempty"`
@@ -36,10 +40,14 @@ type MailMessage struct {
 	NotifiedPartnerIds         *Relation  `xmlrpc:"notified_partner_ids,omitempty"`
 	ParentId                   *Many2One  `xmlrpc:"parent_id,omitempty"`
 	PartnerIds                 *Relation  `xmlrpc:"partner_ids,omitempty"`
+	PinnedAt                   *Time      `xmlrpc:"pinned_at,omitempty"`
 	Preview                    *String    `xmlrpc:"preview,omitempty"`
+	RatingId                   *Many2One  `xmlrpc:"rating_id,omitempty"`
 	RatingIds                  *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RatingValue                *Float     `xmlrpc:"rating_value,omitempty"`
 	ReactionIds                *Relation  `xmlrpc:"reaction_ids,omitempty"`
+	RecordAliasDomainId        *Many2One  `xmlrpc:"record_alias_domain_id,omitempty"`
+	RecordCompanyId            *Many2One  `xmlrpc:"record_company_id,omitempty"`
 	RecordName                 *String    `xmlrpc:"record_name,omitempty"`
 	ReplyTo                    *String    `xmlrpc:"reply_to,omitempty"`
 	ReplyToForceNew            *Bool      `xmlrpc:"reply_to_force_new,omitempty"`

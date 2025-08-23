@@ -2,12 +2,12 @@ package odoo
 
 // MailingTrace represents mailing.trace model.
 type MailingTrace struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	CampaignId         *Many2One  `xmlrpc:"campaign_id,omitempty"`
 	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
 	Email              *String    `xmlrpc:"email,omitempty"`
+	FailureReason      *String    `xmlrpc:"failure_reason,omitempty"`
 	FailureType        *Selection `xmlrpc:"failure_type,omitempty"`
 	Id                 *Int       `xmlrpc:"id,omitempty"`
 	LinksClickDatetime *Time      `xmlrpc:"links_click_datetime,omitempty"`

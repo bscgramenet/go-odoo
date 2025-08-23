@@ -2,7 +2,6 @@ package odoo
 
 // HrJob represents hr.job model.
 type HrJob struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
 	Active                   *Bool     `xmlrpc:"active,omitempty"`
 	CompanyId                *Many2One `xmlrpc:"company_id,omitempty"`
 	ContractTypeId           *Many2One `xmlrpc:"contract_type_id,omitempty"`
@@ -22,14 +21,13 @@ type HrJob struct {
 	MessageHasSmsError       *Bool     `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`
 	NoOfEmployee             *Int      `xmlrpc:"no_of_employee,omitempty"`
-	NoOfHiredEmployee        *Int      `xmlrpc:"no_of_hired_employee,omitempty"`
 	NoOfRecruitment          *Int      `xmlrpc:"no_of_recruitment,omitempty"`
+	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
 	Requirements             *String   `xmlrpc:"requirements,omitempty"`
 	Sequence                 *Int      `xmlrpc:"sequence,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`

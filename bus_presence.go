@@ -2,7 +2,6 @@ package odoo
 
 // BusPresence represents bus.presence model.
 type BusPresence struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
 	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
 	GuestId      *Many2One  `xmlrpc:"guest_id,omitempty"`
 	Id           *Int       `xmlrpc:"id,omitempty"`

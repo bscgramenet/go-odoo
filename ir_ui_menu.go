@@ -2,7 +2,6 @@ package odoo
 
 // IrUiMenu represents ir.ui.menu model.
 type IrUiMenu struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
 	Action       *String   `xmlrpc:"action,omitempty"`
 	Active       *Bool     `xmlrpc:"active,omitempty"`
 	ChildId      *Relation `xmlrpc:"child_id,omitempty"`

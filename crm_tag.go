@@ -2,7 +2,6 @@ package odoo
 
 // CrmTag represents crm.tag model.
 type CrmTag struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

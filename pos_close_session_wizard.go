@@ -2,7 +2,6 @@ package odoo
 
 // PosCloseSessionWizard represents pos.close.session.wizard model.
 type PosCloseSessionWizard struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
 	AccountId       *Many2One `xmlrpc:"account_id,omitempty"`
 	AccountReadonly *Bool     `xmlrpc:"account_readonly,omitempty"`
 	AmountToBalance *Float    `xmlrpc:"amount_to_balance,omitempty"`

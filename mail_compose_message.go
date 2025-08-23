@@ -2,15 +2,15 @@ package odoo
 
 // MailComposeMessage represents mail.compose.message model.
 type MailComposeMessage struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
-	ActiveDomain         *String    `xmlrpc:"active_domain,omitempty"`
 	AttachmentIds        *Relation  `xmlrpc:"attachment_ids,omitempty"`
 	AuthorId             *Many2One  `xmlrpc:"author_id,omitempty"`
 	AutoDelete           *Bool      `xmlrpc:"auto_delete,omitempty"`
-	AutoDeleteMessage    *Bool      `xmlrpc:"auto_delete_message,omitempty"`
+	AutoDeleteKeepLog    *Bool      `xmlrpc:"auto_delete_keep_log,omitempty"`
 	Body                 *String    `xmlrpc:"body,omitempty"`
+	BodyHasTemplateValue *Bool      `xmlrpc:"body_has_template_value,omitempty"`
 	CampaignId           *Many2One  `xmlrpc:"campaign_id,omitempty"`
 	CanEditBody          *Bool      `xmlrpc:"can_edit_body,omitempty"`
+	CompositionBatch     *Bool      `xmlrpc:"composition_batch,omitempty"`
 	CompositionMode      *Selection `xmlrpc:"composition_mode,omitempty"`
 	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -18,8 +18,8 @@ type MailComposeMessage struct {
 	EmailAddSignature    *Bool      `xmlrpc:"email_add_signature,omitempty"`
 	EmailFrom            *String    `xmlrpc:"email_from,omitempty"`
 	EmailLayoutXmlid     *String    `xmlrpc:"email_layout_xmlid,omitempty"`
+	ForceSend            *Bool      `xmlrpc:"force_send,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
-	IsLog                *Bool      `xmlrpc:"is_log,omitempty"`
 	IsMailTemplateEditor *Bool      `xmlrpc:"is_mail_template_editor,omitempty"`
 	Lang                 *String    `xmlrpc:"lang,omitempty"`
 	MailActivityTypeId   *Many2One  `xmlrpc:"mail_activity_type_id,omitempty"`
@@ -29,19 +29,26 @@ type MailComposeMessage struct {
 	MassMailingName      *String    `xmlrpc:"mass_mailing_name,omitempty"`
 	MessageType          *Selection `xmlrpc:"message_type,omitempty"`
 	Model                *String    `xmlrpc:"model,omitempty"`
-	Notify               *Bool      `xmlrpc:"notify,omitempty"`
+	ModelIsThread        *Bool      `xmlrpc:"model_is_thread,omitempty"`
 	ParentId             *Many2One  `xmlrpc:"parent_id,omitempty"`
 	PartnerIds           *Relation  `xmlrpc:"partner_ids,omitempty"`
+	RecordAliasDomainId  *Many2One  `xmlrpc:"record_alias_domain_id,omitempty"`
+	RecordCompanyId      *Many2One  `xmlrpc:"record_company_id,omitempty"`
 	RecordName           *String    `xmlrpc:"record_name,omitempty"`
 	RenderModel          *String    `xmlrpc:"render_model,omitempty"`
 	ReplyTo              *String    `xmlrpc:"reply_to,omitempty"`
 	ReplyToForceNew      *Bool      `xmlrpc:"reply_to_force_new,omitempty"`
 	ReplyToMode          *Selection `xmlrpc:"reply_to_mode,omitempty"`
-	ResId                *Int       `xmlrpc:"res_id,omitempty"`
+	ResDomain            *String    `xmlrpc:"res_domain,omitempty"`
+	ResDomainUserId      *Many2One  `xmlrpc:"res_domain_user_id,omitempty"`
+	ResIds               *String    `xmlrpc:"res_ids,omitempty"`
+	ScheduledDate        *String    `xmlrpc:"scheduled_date,omitempty"`
 	Subject              *String    `xmlrpc:"subject,omitempty"`
 	SubtypeId            *Many2One  `xmlrpc:"subtype_id,omitempty"`
+	SubtypeIsLog         *Bool      `xmlrpc:"subtype_is_log,omitempty"`
 	TemplateId           *Many2One  `xmlrpc:"template_id,omitempty"`
-	UseActiveDomain      *Bool      `xmlrpc:"use_active_domain,omitempty"`
+	TemplateName         *String    `xmlrpc:"template_name,omitempty"`
+	UseExclusionList     *Bool      `xmlrpc:"use_exclusion_list,omitempty"`
 	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

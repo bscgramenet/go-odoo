@@ -2,7 +2,6 @@ package odoo
 
 // AccountReportColumn represents account.report.column model.
 type AccountReportColumn struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
 	BlankIfZero         *Bool      `xmlrpc:"blank_if_zero,omitempty"`
 	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`

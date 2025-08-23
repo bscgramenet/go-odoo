@@ -2,7 +2,6 @@ package odoo
 
 // BarcodeRule represents barcode.rule model.
 type BarcodeRule struct {
-	LastUpdate            *Time      `xmlrpc:"__last_update,omitempty"`
 	Alias                 *String    `xmlrpc:"alias,omitempty"`
 	AssociatedUomId       *Many2One  `xmlrpc:"associated_uom_id,omitempty"`
 	BarcodeNomenclatureId *Many2One  `xmlrpc:"barcode_nomenclature_id,omitempty"`

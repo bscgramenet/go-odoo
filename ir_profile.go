@@ -2,7 +2,6 @@ package odoo
 
 // IrProfile represents ir.profile model.
 type IrProfile struct {
-	LastUpdate     *Time   `xmlrpc:"__last_update,omitempty"`
 	CreateDate     *Time   `xmlrpc:"create_date,omitempty"`
 	DisplayName    *String `xmlrpc:"display_name,omitempty"`
 	Duration       *Float  `xmlrpc:"duration,omitempty"`

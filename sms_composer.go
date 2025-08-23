@@ -2,7 +2,6 @@ package odoo
 
 // SmsComposer represents sms.composer model.
 type SmsComposer struct {
-	LastUpdate                 *Time      `xmlrpc:"__last_update,omitempty"`
 	Body                       *String    `xmlrpc:"body,omitempty"`
 	CommentSingleRecipient     *Bool      `xmlrpc:"comment_single_recipient,omitempty"`
 	CompositionMode            *Selection `xmlrpc:"composition_mode,omitempty"`

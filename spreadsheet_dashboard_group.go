@@ -2,16 +2,16 @@ package odoo
 
 // SpreadsheetDashboardGroup represents spreadsheet.dashboard.group model.
 type SpreadsheetDashboardGroup struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DashboardIds *Relation `xmlrpc:"dashboard_ids,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	Name         *String   `xmlrpc:"name,omitempty"`
-	Sequence     *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate            *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid             *Many2One `xmlrpc:"create_uid,omitempty"`
+	DashboardIds          *Relation `xmlrpc:"dashboard_ids,omitempty"`
+	DisplayName           *String   `xmlrpc:"display_name,omitempty"`
+	Id                    *Int      `xmlrpc:"id,omitempty"`
+	Name                  *String   `xmlrpc:"name,omitempty"`
+	PublishedDashboardIds *Relation `xmlrpc:"published_dashboard_ids,omitempty"`
+	Sequence              *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate             *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid              *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // SpreadsheetDashboardGroups represents array of spreadsheet.dashboard.group model.

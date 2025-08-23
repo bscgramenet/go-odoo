@@ -2,7 +2,6 @@ package odoo
 
 // GamificationChallenge represents gamification.challenge model.
 type GamificationChallenge struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
 	ChallengeCategory        *Selection `xmlrpc:"challenge_category,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -22,13 +21,13 @@ type GamificationChallenge struct {
 	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
 	NextReportDate           *Time      `xmlrpc:"next_report_date,omitempty"`
 	Period                   *Selection `xmlrpc:"period,omitempty"`
+	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RemindUpdateDelay        *Int       `xmlrpc:"remind_update_delay,omitempty"`
 	ReportMessageFrequency   *Selection `xmlrpc:"report_message_frequency,omitempty"`
 	ReportMessageGroupId     *Many2One  `xmlrpc:"report_message_group_id,omitempty"`

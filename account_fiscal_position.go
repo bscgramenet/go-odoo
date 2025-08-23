@@ -2,8 +2,8 @@ package odoo
 
 // AccountFiscalPosition represents account.fiscal.position model.
 type AccountFiscalPosition struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
 	AccountIds           *Relation  `xmlrpc:"account_ids,omitempty"`
+	AccountMap           *String    `xmlrpc:"account_map,omitempty"`
 	Active               *Bool      `xmlrpc:"active,omitempty"`
 	AutoApply            *Bool      `xmlrpc:"auto_apply,omitempty"`
 	CompanyCountryId     *Many2One  `xmlrpc:"company_country_id,omitempty"`
@@ -13,6 +13,7 @@ type AccountFiscalPosition struct {
 	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
+	FiscalCountryCodes   *String    `xmlrpc:"fiscal_country_codes,omitempty"`
 	ForeignVat           *String    `xmlrpc:"foreign_vat,omitempty"`
 	ForeignVatHeaderMode *Selection `xmlrpc:"foreign_vat_header_mode,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
@@ -22,6 +23,7 @@ type AccountFiscalPosition struct {
 	StateIds             *Relation  `xmlrpc:"state_ids,omitempty"`
 	StatesCount          *Int       `xmlrpc:"states_count,omitempty"`
 	TaxIds               *Relation  `xmlrpc:"tax_ids,omitempty"`
+	TaxMap               *String    `xmlrpc:"tax_map,omitempty"`
 	VatRequired          *Bool      `xmlrpc:"vat_required,omitempty"`
 	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`

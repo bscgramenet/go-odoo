@@ -2,7 +2,6 @@ package odoo
 
 // StockStorageCategory represents stock.storage.category model.
 type StockStorageCategory struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	AllowNewProduct    *Selection `xmlrpc:"allow_new_product,omitempty"`
 	CapacityIds        *Relation  `xmlrpc:"capacity_ids,omitempty"`
 	CompanyId          *Many2One  `xmlrpc:"company_id,omitempty"`

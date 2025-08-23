@@ -2,16 +2,16 @@ package odoo
 
 // ProjectCollaborator represents project.collaborator model.
 type ProjectCollaborator struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	PartnerEmail *String   `xmlrpc:"partner_email,omitempty"`
-	PartnerId    *Many2One `xmlrpc:"partner_id,omitempty"`
-	ProjectId    *Many2One `xmlrpc:"project_id,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
+	Id            *Int      `xmlrpc:"id,omitempty"`
+	LimitedAccess *Bool     `xmlrpc:"limited_access,omitempty"`
+	PartnerEmail  *String   `xmlrpc:"partner_email,omitempty"`
+	PartnerId     *Many2One `xmlrpc:"partner_id,omitempty"`
+	ProjectId     *Many2One `xmlrpc:"project_id,omitempty"`
+	WriteDate     *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid      *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProjectCollaborators represents array of project.collaborator model.

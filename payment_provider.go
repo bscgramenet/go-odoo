@@ -2,11 +2,11 @@ package odoo
 
 // PaymentProvider represents payment.provider model.
 type PaymentProvider struct {
-	LastUpdate                *Time      `xmlrpc:"__last_update,omitempty"`
 	AllowExpressCheckout      *Bool      `xmlrpc:"allow_express_checkout,omitempty"`
 	AllowTokenization         *Bool      `xmlrpc:"allow_tokenization,omitempty"`
 	AuthMsg                   *String    `xmlrpc:"auth_msg,omitempty"`
 	AvailableCountryIds       *Relation  `xmlrpc:"available_country_ids,omitempty"`
+	AvailableCurrencyIds      *Relation  `xmlrpc:"available_currency_ids,omitempty"`
 	CancelMsg                 *String    `xmlrpc:"cancel_msg,omitempty"`
 	CaptureManually           *Bool      `xmlrpc:"capture_manually,omitempty"`
 	Code                      *Selection `xmlrpc:"code,omitempty"`
@@ -14,15 +14,9 @@ type PaymentProvider struct {
 	CompanyId                 *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate                *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                 *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayAs                 *String    `xmlrpc:"display_as,omitempty"`
 	DisplayName               *String    `xmlrpc:"display_name,omitempty"`
 	DoneMsg                   *String    `xmlrpc:"done_msg,omitempty"`
 	ExpressCheckoutFormViewId *Many2One  `xmlrpc:"express_checkout_form_view_id,omitempty"`
-	FeesActive                *Bool      `xmlrpc:"fees_active,omitempty"`
-	FeesDomFixed              *Float     `xmlrpc:"fees_dom_fixed,omitempty"`
-	FeesDomVar                *Float     `xmlrpc:"fees_dom_var,omitempty"`
-	FeesIntFixed              *Float     `xmlrpc:"fees_int_fixed,omitempty"`
-	FeesIntVar                *Float     `xmlrpc:"fees_int_var,omitempty"`
 	Id                        *Int       `xmlrpc:"id,omitempty"`
 	Image128                  *String    `xmlrpc:"image_128,omitempty"`
 	InlineFormViewId          *Many2One  `xmlrpc:"inline_form_view_id,omitempty"`
@@ -34,25 +28,15 @@ type PaymentProvider struct {
 	ModuleState               *Selection `xmlrpc:"module_state,omitempty"`
 	ModuleToBuy               *Bool      `xmlrpc:"module_to_buy,omitempty"`
 	Name                      *String    `xmlrpc:"name,omitempty"`
-	PaymentIconIds            *Relation  `xmlrpc:"payment_icon_ids,omitempty"`
+	PaymentMethodIds          *Relation  `xmlrpc:"payment_method_ids,omitempty"`
 	PendingMsg                *String    `xmlrpc:"pending_msg,omitempty"`
 	PreMsg                    *String    `xmlrpc:"pre_msg,omitempty"`
 	RedirectFormViewId        *Many2One  `xmlrpc:"redirect_form_view_id,omitempty"`
 	Sequence                  *Int       `xmlrpc:"sequence,omitempty"`
-	ShowAllowExpressCheckout  *Bool      `xmlrpc:"show_allow_express_checkout,omitempty"`
-	ShowAllowTokenization     *Bool      `xmlrpc:"show_allow_tokenization,omitempty"`
-	ShowAuthMsg               *Bool      `xmlrpc:"show_auth_msg,omitempty"`
-	ShowCancelMsg             *Bool      `xmlrpc:"show_cancel_msg,omitempty"`
-	ShowCredentialsPage       *Bool      `xmlrpc:"show_credentials_page,omitempty"`
-	ShowDoneMsg               *Bool      `xmlrpc:"show_done_msg,omitempty"`
-	ShowPaymentIconIds        *Bool      `xmlrpc:"show_payment_icon_ids,omitempty"`
-	ShowPendingMsg            *Bool      `xmlrpc:"show_pending_msg,omitempty"`
-	ShowPreMsg                *Bool      `xmlrpc:"show_pre_msg,omitempty"`
 	SoReferenceType           *Selection `xmlrpc:"so_reference_type,omitempty"`
 	State                     *Selection `xmlrpc:"state,omitempty"`
 	SupportExpressCheckout    *Bool      `xmlrpc:"support_express_checkout,omitempty"`
-	SupportFees               *Bool      `xmlrpc:"support_fees,omitempty"`
-	SupportManualCapture      *Bool      `xmlrpc:"support_manual_capture,omitempty"`
+	SupportManualCapture      *Selection `xmlrpc:"support_manual_capture,omitempty"`
 	SupportRefund             *Selection `xmlrpc:"support_refund,omitempty"`
 	SupportTokenization       *Bool      `xmlrpc:"support_tokenization,omitempty"`
 	TokenInlineFormViewId     *Many2One  `xmlrpc:"token_inline_form_view_id,omitempty"`

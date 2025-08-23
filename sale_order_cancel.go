@@ -2,16 +2,15 @@ package odoo
 
 // SaleOrderCancel represents sale.order.cancel model.
 type SaleOrderCancel struct {
-	LastUpdate           *Time     `xmlrpc:"__last_update,omitempty"`
 	AuthorId             *Many2One `xmlrpc:"author_id,omitempty"`
 	Body                 *String   `xmlrpc:"body,omitempty"`
+	BodyHasTemplateValue *Bool     `xmlrpc:"body_has_template_value,omitempty"`
 	CanEditBody          *Bool     `xmlrpc:"can_edit_body,omitempty"`
 	CreateDate           *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid            *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayDeliveryAlert *Bool     `xmlrpc:"display_delivery_alert,omitempty"`
 	DisplayInvoiceAlert  *Bool     `xmlrpc:"display_invoice_alert,omitempty"`
 	DisplayName          *String   `xmlrpc:"display_name,omitempty"`
-	EmailFrom            *String   `xmlrpc:"email_from,omitempty"`
 	Id                   *Int      `xmlrpc:"id,omitempty"`
 	IsMailTemplateEditor *Bool     `xmlrpc:"is_mail_template_editor,omitempty"`
 	Lang                 *String   `xmlrpc:"lang,omitempty"`

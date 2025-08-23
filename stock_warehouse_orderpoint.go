@@ -2,7 +2,6 @@ package odoo
 
 // StockWarehouseOrderpoint represents stock.warehouse.orderpoint model.
 type StockWarehouseOrderpoint struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	Active             *Bool      `xmlrpc:"active,omitempty"`
 	AllowedLocationIds *Relation  `xmlrpc:"allowed_location_ids,omitempty"`
 	CompanyId          *Many2One  `xmlrpc:"company_id,omitempty"`
@@ -26,10 +25,13 @@ type StockWarehouseOrderpoint struct {
 	QtyMultiple        *Float     `xmlrpc:"qty_multiple,omitempty"`
 	QtyOnHand          *Float     `xmlrpc:"qty_on_hand,omitempty"`
 	QtyToOrder         *Float     `xmlrpc:"qty_to_order,omitempty"`
+	QtyToOrderComputed *Float     `xmlrpc:"qty_to_order_computed,omitempty"`
+	QtyToOrderManual   *Float     `xmlrpc:"qty_to_order_manual,omitempty"`
 	RouteId            *Many2One  `xmlrpc:"route_id,omitempty"`
 	RuleIds            *Relation  `xmlrpc:"rule_ids,omitempty"`
 	SnoozedUntil       *Time      `xmlrpc:"snoozed_until,omitempty"`
 	Trigger            *Selection `xmlrpc:"trigger,omitempty"`
+	UnwantedReplenish  *Bool      `xmlrpc:"unwanted_replenish,omitempty"`
 	VisibilityDays     *Float     `xmlrpc:"visibility_days,omitempty"`
 	WarehouseId        *Many2One  `xmlrpc:"warehouse_id,omitempty"`
 	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`

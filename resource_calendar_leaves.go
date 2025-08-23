@@ -2,7 +2,6 @@ package odoo
 
 // ResourceCalendarLeaves represents resource.calendar.leaves model.
 type ResourceCalendarLeaves struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	CalendarId  *Many2One  `xmlrpc:"calendar_id,omitempty"`
 	CompanyId   *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`

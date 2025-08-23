@@ -2,7 +2,6 @@ package odoo
 
 // ReportStockQuantity represents report.stock.quantity model.
 type ReportStockQuantity struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
 	CompanyId     *Many2One  `xmlrpc:"company_id,omitempty"`
 	Date          *Time      `xmlrpc:"date,omitempty"`
 	DisplayName   *String    `xmlrpc:"display_name,omitempty"`

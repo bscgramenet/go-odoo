@@ -2,22 +2,22 @@ package odoo
 
 // StockQuantPackage represents stock.quant.package model.
 type StockQuantPackage struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	CompanyId     *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	LocationId    *Many2One  `xmlrpc:"location_id,omitempty"`
-	Name          *String    `xmlrpc:"name,omitempty"`
-	OwnerId       *Many2One  `xmlrpc:"owner_id,omitempty"`
-	PackDate      *Time      `xmlrpc:"pack_date,omitempty"`
-	PackageTypeId *Many2One  `xmlrpc:"package_type_id,omitempty"`
-	PackageUse    *Selection `xmlrpc:"package_use,omitempty"`
-	QuantIds      *Relation  `xmlrpc:"quant_ids,omitempty"`
-	ValidSscc     *Bool      `xmlrpc:"valid_sscc,omitempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	LocationId     *Many2One  `xmlrpc:"location_id,omitempty"`
+	Name           *String    `xmlrpc:"name,omitempty"`
+	OwnerId        *Many2One  `xmlrpc:"owner_id,omitempty"`
+	PackDate       *Time      `xmlrpc:"pack_date,omitempty"`
+	PackageTypeId  *Many2One  `xmlrpc:"package_type_id,omitempty"`
+	PackageUse     *Selection `xmlrpc:"package_use,omitempty"`
+	QuantIds       *Relation  `xmlrpc:"quant_ids,omitempty"`
+	ShippingWeight *Float     `xmlrpc:"shipping_weight,omitempty"`
+	ValidSscc      *Bool      `xmlrpc:"valid_sscc,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockQuantPackages represents array of stock.quant.package model.

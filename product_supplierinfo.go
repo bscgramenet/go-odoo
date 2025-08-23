@@ -2,7 +2,6 @@ package odoo
 
 // ProductSupplierinfo represents product.supplierinfo model.
 type ProductSupplierinfo struct {
-	LastUpdate          *Time     `xmlrpc:"__last_update,omitempty"`
 	CompanyId           *Many2One `xmlrpc:"company_id,omitempty"`
 	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -10,11 +9,13 @@ type ProductSupplierinfo struct {
 	DateEnd             *Time     `xmlrpc:"date_end,omitempty"`
 	DateStart           *Time     `xmlrpc:"date_start,omitempty"`
 	Delay               *Int      `xmlrpc:"delay,omitempty"`
+	Discount            *Float    `xmlrpc:"discount,omitempty"`
 	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
 	Id                  *Int      `xmlrpc:"id,omitempty"`
 	MinQty              *Float    `xmlrpc:"min_qty,omitempty"`
 	PartnerId           *Many2One `xmlrpc:"partner_id,omitempty"`
 	Price               *Float    `xmlrpc:"price,omitempty"`
+	PriceDiscounted     *Float    `xmlrpc:"price_discounted,omitempty"`
 	ProductCode         *String   `xmlrpc:"product_code,omitempty"`
 	ProductId           *Many2One `xmlrpc:"product_id,omitempty"`
 	ProductName         *String   `xmlrpc:"product_name,omitempty"`

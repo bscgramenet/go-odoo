@@ -2,7 +2,6 @@ package odoo
 
 // MailingContact represents mailing.contact model.
 type MailingContact struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
 	CompanyName              *String   `xmlrpc:"company_name,omitempty"`
 	CountryId                *Many2One `xmlrpc:"country_id,omitempty"`
 	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
@@ -10,9 +9,11 @@ type MailingContact struct {
 	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
 	Email                    *String   `xmlrpc:"email,omitempty"`
 	EmailNormalized          *String   `xmlrpc:"email_normalized,omitempty"`
+	FirstName                *String   `xmlrpc:"first_name,omitempty"`
 	HasMessage               *Bool     `xmlrpc:"has_message,omitempty"`
 	Id                       *Int      `xmlrpc:"id,omitempty"`
 	IsBlacklisted            *Bool     `xmlrpc:"is_blacklisted,omitempty"`
+	LastName                 *String   `xmlrpc:"last_name,omitempty"`
 	ListIds                  *Relation `xmlrpc:"list_ids,omitempty"`
 	MessageAttachmentCount   *Int      `xmlrpc:"message_attachment_count,omitempty"`
 	MessageBounce            *Int      `xmlrpc:"message_bounce,omitempty"`
@@ -22,13 +23,13 @@ type MailingContact struct {
 	MessageHasSmsError       *Bool     `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`
 	OptOut                   *Bool     `xmlrpc:"opt_out,omitempty"`
-	SubscriptionListIds      *Relation `xmlrpc:"subscription_list_ids,omitempty"`
+	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
+	SubscriptionIds          *Relation `xmlrpc:"subscription_ids,omitempty"`
 	TagIds                   *Relation `xmlrpc:"tag_ids,omitempty"`
 	TitleId                  *Many2One `xmlrpc:"title_id,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`

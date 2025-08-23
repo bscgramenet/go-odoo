@@ -2,14 +2,12 @@ package odoo
 
 // StockInventoryAdjustmentName represents stock.inventory.adjustment.name model.
 type StockInventoryAdjustmentName struct {
-	LastUpdate              *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate              *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid               *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName             *String   `xmlrpc:"display_name,omitempty"`
 	Id                      *Int      `xmlrpc:"id,omitempty"`
 	InventoryAdjustmentName *String   `xmlrpc:"inventory_adjustment_name,omitempty"`
 	QuantIds                *Relation `xmlrpc:"quant_ids,omitempty"`
-	ShowInfo                *Bool     `xmlrpc:"show_info,omitempty"`
 	WriteDate               *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid                *Many2One `xmlrpc:"write_uid,omitempty"`
 }

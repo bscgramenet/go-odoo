@@ -2,7 +2,6 @@ package odoo
 
 // ResCountryState represents res.country.state model.
 type ResCountryState struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Code        *String   `xmlrpc:"code,omitempty"`
 	CountryId   *Many2One `xmlrpc:"country_id,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`

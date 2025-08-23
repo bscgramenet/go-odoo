@@ -2,7 +2,6 @@ package odoo
 
 // AccountAutomaticEntryWizard represents account.automatic.entry.wizard model.
 type AccountAutomaticEntryWizard struct {
-	LastUpdate            *Time      `xmlrpc:"__last_update,omitempty"`
 	AccountType           *Selection `xmlrpc:"account_type,omitempty"`
 	Action                *Selection `xmlrpc:"action,omitempty"`
 	CompanyCurrencyId     *Many2One  `xmlrpc:"company_currency_id,omitempty"`

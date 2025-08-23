@@ -2,18 +2,18 @@ package odoo
 
 // HrWorkLocation represents hr.work.location model.
 type HrWorkLocation struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
-	Active         *Bool     `xmlrpc:"active,omitempty"`
-	AddressId      *Many2One `xmlrpc:"address_id,omitempty"`
-	CompanyId      *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
-	Id             *Int      `xmlrpc:"id,omitempty"`
-	LocationNumber *String   `xmlrpc:"location_number,omitempty"`
-	Name           *String   `xmlrpc:"name,omitempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active         *Bool      `xmlrpc:"active,omitempty"`
+	AddressId      *Many2One  `xmlrpc:"address_id,omitempty"`
+	CompanyId      *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	LocationNumber *String    `xmlrpc:"location_number,omitempty"`
+	LocationType   *Selection `xmlrpc:"location_type,omitempty"`
+	Name           *String    `xmlrpc:"name,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // HrWorkLocations represents array of hr.work.location model.

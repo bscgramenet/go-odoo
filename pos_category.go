@@ -2,12 +2,14 @@ package odoo
 
 // PosCategory represents pos.category model.
 type PosCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	ChildId     *Relation `xmlrpc:"child_id,omitempty"`
+	ChildIds    *Relation `xmlrpc:"child_ids,omitempty"`
+	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	HasImage    *Bool     `xmlrpc:"has_image,omitempty"`
+	HourAfter   *Float    `xmlrpc:"hour_after,omitempty"`
+	HourUntil   *Float    `xmlrpc:"hour_until,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
 	Image128    *String   `xmlrpc:"image_128,omitempty"`
 	Name        *String   `xmlrpc:"name,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // ResCurrencyRate represents res.currency.rate model.
 type ResCurrencyRate struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
 	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
 	CompanyRate        *Float    `xmlrpc:"company_rate,omitempty"`
 	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`

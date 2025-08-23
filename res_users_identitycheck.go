@@ -2,15 +2,15 @@ package odoo
 
 // ResUsersIdentitycheck represents res.users.identitycheck model.
 type ResUsersIdentitycheck struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Password    *String   `xmlrpc:"password,omitempty"`
-	Request     *String   `xmlrpc:"request,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	AuthMethod  *Selection `xmlrpc:"auth_method,omitempty"`
+	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String    `xmlrpc:"display_name,omitempty"`
+	Id          *Int       `xmlrpc:"id,omitempty"`
+	Password    *String    `xmlrpc:"password,omitempty"`
+	Request     *String    `xmlrpc:"request,omitempty"`
+	WriteDate   *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ResUsersIdentitychecks represents array of res.users.identitycheck model.

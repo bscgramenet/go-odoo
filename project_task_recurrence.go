@@ -2,34 +2,17 @@ package odoo
 
 // ProjectTaskRecurrence represents project.task.recurrence model.
 type ProjectTaskRecurrence struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
-	Fri                *Bool      `xmlrpc:"fri,omitempty"`
-	Id                 *Int       `xmlrpc:"id,omitempty"`
-	Mon                *Bool      `xmlrpc:"mon,omitempty"`
-	NextRecurrenceDate *Time      `xmlrpc:"next_recurrence_date,omitempty"`
-	RecurrenceLeft     *Int       `xmlrpc:"recurrence_left,omitempty"`
-	RepeatDay          *Selection `xmlrpc:"repeat_day,omitempty"`
-	RepeatInterval     *Int       `xmlrpc:"repeat_interval,omitempty"`
-	RepeatMonth        *Selection `xmlrpc:"repeat_month,omitempty"`
-	RepeatNumber       *Int       `xmlrpc:"repeat_number,omitempty"`
-	RepeatOnMonth      *Selection `xmlrpc:"repeat_on_month,omitempty"`
-	RepeatOnYear       *Selection `xmlrpc:"repeat_on_year,omitempty"`
-	RepeatType         *Selection `xmlrpc:"repeat_type,omitempty"`
-	RepeatUnit         *Selection `xmlrpc:"repeat_unit,omitempty"`
-	RepeatUntil        *Time      `xmlrpc:"repeat_until,omitempty"`
-	RepeatWeek         *Selection `xmlrpc:"repeat_week,omitempty"`
-	RepeatWeekday      *Selection `xmlrpc:"repeat_weekday,omitempty"`
-	Sat                *Bool      `xmlrpc:"sat,omitempty"`
-	Sun                *Bool      `xmlrpc:"sun,omitempty"`
-	TaskIds            *Relation  `xmlrpc:"task_ids,omitempty"`
-	Thu                *Bool      `xmlrpc:"thu,omitempty"`
-	Tue                *Bool      `xmlrpc:"tue,omitempty"`
-	Wed                *Bool      `xmlrpc:"wed,omitempty"`
-	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	RepeatInterval *Int       `xmlrpc:"repeat_interval,omitempty"`
+	RepeatType     *Selection `xmlrpc:"repeat_type,omitempty"`
+	RepeatUnit     *Selection `xmlrpc:"repeat_unit,omitempty"`
+	RepeatUntil    *Time      `xmlrpc:"repeat_until,omitempty"`
+	TaskIds        *Relation  `xmlrpc:"task_ids,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProjectTaskRecurrences represents array of project.task.recurrence model.

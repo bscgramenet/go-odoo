@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsActWindowView represents ir.actions.act_window.view model.
 type IrActionsActWindowView struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	ActWindowId *Many2One  `xmlrpc:"act_window_id,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`

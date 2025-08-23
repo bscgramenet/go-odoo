@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsActUrl represents ir.actions.act_url model.
 type IrActionsActUrl struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
 	BindingType      *Selection `xmlrpc:"binding_type,omitempty"`
 	BindingViewTypes *String    `xmlrpc:"binding_view_types,omitempty"`
@@ -12,6 +11,7 @@ type IrActionsActUrl struct {
 	Help             *String    `xmlrpc:"help,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`
 	Name             *String    `xmlrpc:"name,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
 	Target           *Selection `xmlrpc:"target,omitempty"`
 	Type             *String    `xmlrpc:"type,omitempty"`
 	Url              *String    `xmlrpc:"url,omitempty"`

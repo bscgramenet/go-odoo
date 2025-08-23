@@ -2,30 +2,32 @@ package odoo
 
 // AccountReportLine represents account.report.line model.
 type AccountReportLine struct {
-	LastUpdate          *Time     `xmlrpc:"__last_update,omitempty"`
-	AccountCodesFormula *String   `xmlrpc:"account_codes_formula,omitempty"`
-	ActionId            *Many2One `xmlrpc:"action_id,omitempty"`
-	AggregationFormula  *String   `xmlrpc:"aggregation_formula,omitempty"`
-	ChildrenIds         *Relation `xmlrpc:"children_ids,omitempty"`
-	Code                *String   `xmlrpc:"code,omitempty"`
-	CreateDate          *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid           *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName         *String   `xmlrpc:"display_name,omitempty"`
-	DomainFormula       *String   `xmlrpc:"domain_formula,omitempty"`
-	ExpressionIds       *Relation `xmlrpc:"expression_ids,omitempty"`
-	Foldable            *Bool     `xmlrpc:"foldable,omitempty"`
-	Groupby             *String   `xmlrpc:"groupby,omitempty"`
-	HideIfZero          *Bool     `xmlrpc:"hide_if_zero,omitempty"`
-	HierarchyLevel      *Int      `xmlrpc:"hierarchy_level,omitempty"`
-	Id                  *Int      `xmlrpc:"id,omitempty"`
-	Name                *String   `xmlrpc:"name,omitempty"`
-	ParentId            *Many2One `xmlrpc:"parent_id,omitempty"`
-	PrintOnNewPage      *Bool     `xmlrpc:"print_on_new_page,omitempty"`
-	ReportId            *Many2One `xmlrpc:"report_id,omitempty"`
-	Sequence            *Int      `xmlrpc:"sequence,omitempty"`
-	TaxTagsFormula      *String   `xmlrpc:"tax_tags_formula,omitempty"`
-	WriteDate           *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid            *Many2One `xmlrpc:"write_uid,omitempty"`
+	AccountCodesFormula *String    `xmlrpc:"account_codes_formula,omitempty"`
+	ActionId            *Many2One  `xmlrpc:"action_id,omitempty"`
+	AggregationFormula  *String    `xmlrpc:"aggregation_formula,omitempty"`
+	ChildrenIds         *Relation  `xmlrpc:"children_ids,omitempty"`
+	Code                *String    `xmlrpc:"code,omitempty"`
+	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
+	DomainFormula       *String    `xmlrpc:"domain_formula,omitempty"`
+	ExpressionIds       *Relation  `xmlrpc:"expression_ids,omitempty"`
+	ExternalFormula     *String    `xmlrpc:"external_formula,omitempty"`
+	Foldable            *Bool      `xmlrpc:"foldable,omitempty"`
+	Groupby             *String    `xmlrpc:"groupby,omitempty"`
+	HideIfZero          *Bool      `xmlrpc:"hide_if_zero,omitempty"`
+	HierarchyLevel      *Int       `xmlrpc:"hierarchy_level,omitempty"`
+	HorizontalSplitSide *Selection `xmlrpc:"horizontal_split_side,omitempty"`
+	Id                  *Int       `xmlrpc:"id,omitempty"`
+	Name                *String    `xmlrpc:"name,omitempty"`
+	ParentId            *Many2One  `xmlrpc:"parent_id,omitempty"`
+	PrintOnNewPage      *Bool      `xmlrpc:"print_on_new_page,omitempty"`
+	ReportId            *Many2One  `xmlrpc:"report_id,omitempty"`
+	Sequence            *Int       `xmlrpc:"sequence,omitempty"`
+	TaxTagsFormula      *String    `xmlrpc:"tax_tags_formula,omitempty"`
+	UserGroupby         *String    `xmlrpc:"user_groupby,omitempty"`
+	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountReportLines represents array of account.report.line model.

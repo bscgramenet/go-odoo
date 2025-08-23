@@ -2,7 +2,6 @@ package odoo
 
 // MailGuest represents mail.guest model.
 type MailGuest struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	AccessToken *String    `xmlrpc:"access_token,omitempty"`
 	Avatar1024  *String    `xmlrpc:"avatar_1024,omitempty"`
 	Avatar128   *String    `xmlrpc:"avatar_128,omitempty"`

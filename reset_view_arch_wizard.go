@@ -2,7 +2,6 @@ package odoo
 
 // ResetViewArchWizard represents reset.view.arch.wizard model.
 type ResetViewArchWizard struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
 	ArchDiff      *String    `xmlrpc:"arch_diff,omitempty"`
 	ArchToCompare *String    `xmlrpc:"arch_to_compare,omitempty"`
 	CompareViewId *Many2One  `xmlrpc:"compare_view_id,omitempty"`

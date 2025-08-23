@@ -2,7 +2,6 @@ package odoo
 
 // SmsResend represents sms.resend model.
 type SmsResend struct {
-	LastUpdate             *Time     `xmlrpc:"__last_update,omitempty"`
 	CanCancel              *Bool     `xmlrpc:"can_cancel,omitempty"`
 	CanResend              *Bool     `xmlrpc:"can_resend,omitempty"`
 	CreateDate             *Time     `xmlrpc:"create_date,omitempty"`

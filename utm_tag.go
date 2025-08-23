@@ -2,7 +2,6 @@ package odoo
 
 // UtmTag represents utm.tag model.
 type UtmTag struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

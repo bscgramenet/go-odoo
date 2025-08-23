@@ -2,7 +2,6 @@ package odoo
 
 // ChangePasswordOwn represents change.password.own model.
 type ChangePasswordOwn struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
 	ConfirmPassword *String   `xmlrpc:"confirm_password,omitempty"`
 	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`

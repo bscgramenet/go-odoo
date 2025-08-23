@@ -2,16 +2,11 @@ package odoo
 
 // StockReturnPicking represents stock.return.picking model.
 type StockReturnPicking struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
 	CompanyId          *Many2One `xmlrpc:"company_id,omitempty"`
 	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
 	Id                 *Int      `xmlrpc:"id,omitempty"`
-	LocationId         *Many2One `xmlrpc:"location_id,omitempty"`
-	MoveDestExists     *Bool     `xmlrpc:"move_dest_exists,omitempty"`
-	OriginalLocationId *Many2One `xmlrpc:"original_location_id,omitempty"`
-	ParentLocationId   *Many2One `xmlrpc:"parent_location_id,omitempty"`
 	PickingId          *Many2One `xmlrpc:"picking_id,omitempty"`
 	ProductReturnMoves *Relation `xmlrpc:"product_return_moves,omitempty"`
 	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // StockRoute represents stock.route model.
 type StockRoute struct {
-	LastUpdate             *Time     `xmlrpc:"__last_update,omitempty"`
 	Active                 *Bool     `xmlrpc:"active,omitempty"`
 	CategIds               *Relation `xmlrpc:"categ_ids,omitempty"`
 	CompanyId              *Many2One `xmlrpc:"company_id,omitempty"`

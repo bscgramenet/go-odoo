@@ -2,7 +2,6 @@ package odoo
 
 // AccountPartialReconcile represents account.partial.reconcile model.
 type AccountPartialReconcile struct {
-	LastUpdate           *Time     `xmlrpc:"__last_update,omitempty"`
 	Amount               *Float    `xmlrpc:"amount,omitempty"`
 	CompanyCurrencyId    *Many2One `xmlrpc:"company_currency_id,omitempty"`
 	CompanyId            *Many2One `xmlrpc:"company_id,omitempty"`

@@ -2,12 +2,7 @@ package odoo
 
 // CrmTeamMember represents crm.team.member model.
 type CrmTeamMember struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
 	Active                   *Bool     `xmlrpc:"active,omitempty"`
-	AssignmentDomain         *String   `xmlrpc:"assignment_domain,omitempty"`
-	AssignmentEnabled        *Bool     `xmlrpc:"assignment_enabled,omitempty"`
-	AssignmentMax            *Int      `xmlrpc:"assignment_max,omitempty"`
-	AssignmentOptout         *Bool     `xmlrpc:"assignment_optout,omitempty"`
 	CompanyId                *Many2One `xmlrpc:"company_id,omitempty"`
 	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -19,7 +14,6 @@ type CrmTeamMember struct {
 	Image128                 *String   `xmlrpc:"image_128,omitempty"`
 	Image1920                *String   `xmlrpc:"image_1920,omitempty"`
 	IsMembershipMulti        *Bool     `xmlrpc:"is_membership_multi,omitempty"`
-	LeadMonthCount           *Int      `xmlrpc:"lead_month_count,omitempty"`
 	MemberWarning            *String   `xmlrpc:"member_warning,omitempty"`
 	MessageAttachmentCount   *Int      `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds       *Relation `xmlrpc:"message_follower_ids,omitempty"`
@@ -28,13 +22,13 @@ type CrmTeamMember struct {
 	MessageHasSmsError       *Bool     `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
 	Mobile                   *String   `xmlrpc:"mobile,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`
 	Phone                    *String   `xmlrpc:"phone,omitempty"`
+	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
 	UserCompanyIds           *Relation `xmlrpc:"user_company_ids,omitempty"`
 	UserId                   *Many2One `xmlrpc:"user_id,omitempty"`
 	UserInTeamsIds           *Relation `xmlrpc:"user_in_teams_ids,omitempty"`

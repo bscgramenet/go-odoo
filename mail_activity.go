@@ -2,17 +2,18 @@ package odoo
 
 // MailActivity represents mail.activity model.
 type MailActivity struct {
-	LastUpdate                *Time      `xmlrpc:"__last_update,omitempty"`
+	Active                    *Bool      `xmlrpc:"active,omitempty"`
 	ActivityCategory          *Selection `xmlrpc:"activity_category,omitempty"`
 	ActivityDecoration        *Selection `xmlrpc:"activity_decoration,omitempty"`
 	ActivityTypeId            *Many2One  `xmlrpc:"activity_type_id,omitempty"`
+	AttachmentIds             *Relation  `xmlrpc:"attachment_ids,omitempty"`
 	Automated                 *Bool      `xmlrpc:"automated,omitempty"`
-	CalendarEventId           *Many2One  `xmlrpc:"calendar_event_id,omitempty"`
 	CanWrite                  *Bool      `xmlrpc:"can_write,omitempty"`
 	ChainingType              *Selection `xmlrpc:"chaining_type,omitempty"`
 	CreateDate                *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                 *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DateDeadline              *Time      `xmlrpc:"date_deadline,omitempty"`
+	DateDone                  *Time      `xmlrpc:"date_done,omitempty"`
 	DisplayName               *String    `xmlrpc:"display_name,omitempty"`
 	HasRecommendedActivities  *Bool      `xmlrpc:"has_recommended_activities,omitempty"`
 	Icon                      *String    `xmlrpc:"icon,omitempty"`
@@ -29,6 +30,7 @@ type MailActivity struct {
 	State                     *Selection `xmlrpc:"state,omitempty"`
 	Summary                   *String    `xmlrpc:"summary,omitempty"`
 	UserId                    *Many2One  `xmlrpc:"user_id,omitempty"`
+	UserTz                    *Selection `xmlrpc:"user_tz,omitempty"`
 	WriteDate                 *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                  *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

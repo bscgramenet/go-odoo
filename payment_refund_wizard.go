@@ -2,7 +2,6 @@ package odoo
 
 // PaymentRefundWizard represents payment.refund.wizard model.
 type PaymentRefundWizard struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
 	AmountAvailableForRefund *Float     `xmlrpc:"amount_available_for_refund,omitempty"`
 	AmountToRefund           *Float     `xmlrpc:"amount_to_refund,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`

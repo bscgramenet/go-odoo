@@ -2,7 +2,6 @@ package odoo
 
 // GamificationBadgeUser represents gamification.badge.user model.
 type GamificationBadgeUser struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	BadgeId     *Many2One  `xmlrpc:"badge_id,omitempty"`
 	BadgeName   *String    `xmlrpc:"badge_name,omitempty"`
 	ChallengeId *Many2One  `xmlrpc:"challenge_id,omitempty"`

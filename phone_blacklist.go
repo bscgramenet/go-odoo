@@ -2,7 +2,6 @@ package odoo
 
 // PhoneBlacklist represents phone.blacklist model.
 type PhoneBlacklist struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
 	Active                   *Bool     `xmlrpc:"active,omitempty"`
 	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
@@ -16,11 +15,11 @@ type PhoneBlacklist struct {
 	MessageHasSmsError       *Bool     `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
 	Number                   *String   `xmlrpc:"number,omitempty"`
+	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`

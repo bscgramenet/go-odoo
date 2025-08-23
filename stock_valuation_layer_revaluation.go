@@ -2,10 +2,10 @@ package odoo
 
 // StockValuationLayerRevaluation represents stock.valuation.layer.revaluation model.
 type StockValuationLayerRevaluation struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	AccountId          *Many2One  `xmlrpc:"account_id,omitempty"`
 	AccountJournalId   *Many2One  `xmlrpc:"account_journal_id,omitempty"`
 	AddedValue         *Float     `xmlrpc:"added_value,omitempty"`
+	AdjustedLayerIds   *Relation  `xmlrpc:"adjusted_layer_ids,omitempty"`
 	CompanyId          *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -15,6 +15,7 @@ type StockValuationLayerRevaluation struct {
 	Date               *Time      `xmlrpc:"date,omitempty"`
 	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
 	Id                 *Int       `xmlrpc:"id,omitempty"`
+	LotId              *Many2One  `xmlrpc:"lot_id,omitempty"`
 	NewValue           *Float     `xmlrpc:"new_value,omitempty"`
 	NewValueByQty      *Float     `xmlrpc:"new_value_by_qty,omitempty"`
 	ProductId          *Many2One  `xmlrpc:"product_id,omitempty"`

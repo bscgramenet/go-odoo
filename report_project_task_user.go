@@ -2,9 +2,7 @@ package odoo
 
 // ReportProjectTaskUser represents report.project.task.user model.
 type ReportProjectTaskUser struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
 	Active               *Bool      `xmlrpc:"active,omitempty"`
-	AncestorId           *Many2One  `xmlrpc:"ancestor_id,omitempty"`
 	CompanyId            *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
 	DateAssign           *Time      `xmlrpc:"date_assign,omitempty"`
@@ -12,12 +10,13 @@ type ReportProjectTaskUser struct {
 	DateEnd              *Time      `xmlrpc:"date_end,omitempty"`
 	DateLastStageUpdate  *Time      `xmlrpc:"date_last_stage_update,omitempty"`
 	DelayEndingsDays     *Float     `xmlrpc:"delay_endings_days,omitempty"`
+	DependentIds         *Relation  `xmlrpc:"dependent_ids,omitempty"`
+	Description          *String    `xmlrpc:"description,omitempty"`
 	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
 	IsClosed             *Bool      `xmlrpc:"is_closed,omitempty"`
-	MilestoneDeadline    *Time      `xmlrpc:"milestone_deadline,omitempty"`
+	MessageIsFollower    *Bool      `xmlrpc:"message_is_follower,omitempty"`
 	MilestoneId          *Many2One  `xmlrpc:"milestone_id,omitempty"`
-	MilestoneReached     *Bool      `xmlrpc:"milestone_reached,omitempty"`
 	Name                 *String    `xmlrpc:"name,omitempty"`
 	Nbr                  *Int       `xmlrpc:"nbr,omitempty"`
 	ParentId             *Many2One  `xmlrpc:"parent_id,omitempty"`
@@ -26,15 +25,13 @@ type ReportProjectTaskUser struct {
 	Priority             *Selection `xmlrpc:"priority,omitempty"`
 	ProjectId            *Many2One  `xmlrpc:"project_id,omitempty"`
 	RatingAvg            *Float     `xmlrpc:"rating_avg,omitempty"`
-	RatingLastText       *Selection `xmlrpc:"rating_last_text,omitempty"`
 	RatingLastValue      *Float     `xmlrpc:"rating_last_value,omitempty"`
-	SaleLineId           *Many2One  `xmlrpc:"sale_line_id,omitempty"`
-	SaleOrderId          *Many2One  `xmlrpc:"sale_order_id,omitempty"`
 	StageId              *Many2One  `xmlrpc:"stage_id,omitempty"`
 	State                *Selection `xmlrpc:"state,omitempty"`
 	TagIds               *Relation  `xmlrpc:"tag_ids,omitempty"`
 	TaskId               *Many2One  `xmlrpc:"task_id,omitempty"`
 	UserIds              *Relation  `xmlrpc:"user_ids,omitempty"`
+	UserSkillIds         *Relation  `xmlrpc:"user_skill_ids,omitempty"`
 	WorkingDaysClose     *Float     `xmlrpc:"working_days_close,omitempty"`
 	WorkingDaysOpen      *Float     `xmlrpc:"working_days_open,omitempty"`
 	WorkingHoursClose    *Float     `xmlrpc:"working_hours_close,omitempty"`

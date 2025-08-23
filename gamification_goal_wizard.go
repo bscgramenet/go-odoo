@@ -2,7 +2,6 @@ package odoo
 
 // GamificationGoalWizard represents gamification.goal.wizard model.
 type GamificationGoalWizard struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	Current     *Float    `xmlrpc:"current,omitempty"`

@@ -2,22 +2,22 @@ package odoo
 
 // StockPutawayRule represents stock.putaway.rule model.
 type StockPutawayRule struct {
-	LastUpdate        *Time     `xmlrpc:"__last_update,omitempty"`
-	Active            *Bool     `xmlrpc:"active,omitempty"`
-	CategoryId        *Many2One `xmlrpc:"category_id,omitempty"`
-	CompanyId         *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate        *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid         *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName       *String   `xmlrpc:"display_name,omitempty"`
-	Id                *Int      `xmlrpc:"id,omitempty"`
-	LocationInId      *Many2One `xmlrpc:"location_in_id,omitempty"`
-	LocationOutId     *Many2One `xmlrpc:"location_out_id,omitempty"`
-	PackageTypeIds    *Relation `xmlrpc:"package_type_ids,omitempty"`
-	ProductId         *Many2One `xmlrpc:"product_id,omitempty"`
-	Sequence          *Int      `xmlrpc:"sequence,omitempty"`
-	StorageCategoryId *Many2One `xmlrpc:"storage_category_id,omitempty"`
-	WriteDate         *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid          *Many2One `xmlrpc:"write_uid,omitempty"`
+	Active            *Bool      `xmlrpc:"active,omitempty"`
+	CategoryId        *Many2One  `xmlrpc:"category_id,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	LocationInId      *Many2One  `xmlrpc:"location_in_id,omitempty"`
+	LocationOutId     *Many2One  `xmlrpc:"location_out_id,omitempty"`
+	PackageTypeIds    *Relation  `xmlrpc:"package_type_ids,omitempty"`
+	ProductId         *Many2One  `xmlrpc:"product_id,omitempty"`
+	Sequence          *Int       `xmlrpc:"sequence,omitempty"`
+	StorageCategoryId *Many2One  `xmlrpc:"storage_category_id,omitempty"`
+	Sublocation       *Selection `xmlrpc:"sublocation,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // StockPutawayRules represents array of stock.putaway.rule model.

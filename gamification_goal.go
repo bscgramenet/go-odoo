@@ -4,6 +4,7 @@ package odoo
 type GamificationGoal struct {
 	ChallengeId           *Many2One  `xmlrpc:"challenge_id,omitempty"`
 	Closed                *Bool      `xmlrpc:"closed,omitempty"`
+	Color                 *Int       `xmlrpc:"color,omitempty"`
 	Completeness          *Float     `xmlrpc:"completeness,omitempty"`
 	ComputationMode       *Selection `xmlrpc:"computation_mode,omitempty"`
 	CreateDate            *Time      `xmlrpc:"create_date,omitempty"`

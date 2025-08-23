@@ -2,7 +2,6 @@ package odoo
 
 // AccountFiscalPositionAccount represents account.fiscal.position.account model.
 type AccountFiscalPositionAccount struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
 	AccountDestId *Many2One `xmlrpc:"account_dest_id,omitempty"`
 	AccountSrcId  *Many2One `xmlrpc:"account_src_id,omitempty"`
 	CompanyId     *Many2One `xmlrpc:"company_id,omitempty"`

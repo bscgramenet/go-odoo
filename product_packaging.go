@@ -2,7 +2,6 @@ package odoo
 
 // ProductPackaging represents product.packaging model.
 type ProductPackaging struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
 	Barcode       *String   `xmlrpc:"barcode,omitempty"`
 	CompanyId     *Many2One `xmlrpc:"company_id,omitempty"`
 	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`

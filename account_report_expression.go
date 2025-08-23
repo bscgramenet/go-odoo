@@ -2,7 +2,6 @@ package odoo
 
 // AccountReportExpression represents account.report.expression model.
 type AccountReportExpression struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
 	Auditable       *Bool      `xmlrpc:"auditable,omitempty"`
 	BlankIfZero     *Bool      `xmlrpc:"blank_if_zero,omitempty"`
 	CarryoverTarget *String    `xmlrpc:"carryover_target,omitempty"`

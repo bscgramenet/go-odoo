@@ -2,7 +2,6 @@ package odoo
 
 // SmsTemplatePreview represents sms.template.preview model.
 type SmsTemplatePreview struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
 	Body          *String    `xmlrpc:"body,omitempty"`
 	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`

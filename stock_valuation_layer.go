@@ -2,7 +2,6 @@ package odoo
 
 // StockValuationLayer represents stock.valuation.layer model.
 type StockValuationLayer struct {
-	LastUpdate             *Time     `xmlrpc:"__last_update,omitempty"`
 	AccountMoveId          *Many2One `xmlrpc:"account_move_id,omitempty"`
 	AccountMoveLineId      *Many2One `xmlrpc:"account_move_line_id,omitempty"`
 	CategId                *Many2One `xmlrpc:"categ_id,omitempty"`
@@ -13,6 +12,7 @@ type StockValuationLayer struct {
 	Description            *String   `xmlrpc:"description,omitempty"`
 	DisplayName            *String   `xmlrpc:"display_name,omitempty"`
 	Id                     *Int      `xmlrpc:"id,omitempty"`
+	LotId                  *Many2One `xmlrpc:"lot_id,omitempty"`
 	PriceDiffValue         *Float    `xmlrpc:"price_diff_value,omitempty"`
 	ProductId              *Many2One `xmlrpc:"product_id,omitempty"`
 	ProductTmplId          *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
@@ -26,6 +26,7 @@ type StockValuationLayer struct {
 	UnitCost               *Float    `xmlrpc:"unit_cost,omitempty"`
 	UomId                  *Many2One `xmlrpc:"uom_id,omitempty"`
 	Value                  *Float    `xmlrpc:"value,omitempty"`
+	WarehouseId            *Many2One `xmlrpc:"warehouse_id,omitempty"`
 	WriteDate              *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid               *Many2One `xmlrpc:"write_uid,omitempty"`
 }

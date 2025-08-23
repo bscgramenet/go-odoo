@@ -2,9 +2,9 @@ package odoo
 
 // ReportPaperformat represents report.paperformat model.
 type ReportPaperformat struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CssMargins       *Bool      `xmlrpc:"css_margins,omitempty"`
 	Default          *Bool      `xmlrpc:"default,omitempty"`
 	DisableShrinking *Bool      `xmlrpc:"disable_shrinking,omitempty"`
 	DisplayName      *String    `xmlrpc:"display_name,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // StockRule represents stock.rule model.
 type StockRule struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
 	Action                 *Selection `xmlrpc:"action,omitempty"`
 	Active                 *Bool      `xmlrpc:"active,omitempty"`
 	Auto                   *Selection `xmlrpc:"auto,omitempty"`
@@ -14,6 +13,7 @@ type StockRule struct {
 	GroupId                *Many2One  `xmlrpc:"group_id,omitempty"`
 	GroupPropagationOption *Selection `xmlrpc:"group_propagation_option,omitempty"`
 	Id                     *Int       `xmlrpc:"id,omitempty"`
+	LocationDestFromRule   *Bool      `xmlrpc:"location_dest_from_rule,omitempty"`
 	LocationDestId         *Many2One  `xmlrpc:"location_dest_id,omitempty"`
 	LocationSrcId          *Many2One  `xmlrpc:"location_src_id,omitempty"`
 	Name                   *String    `xmlrpc:"name,omitempty"`
@@ -24,6 +24,7 @@ type StockRule struct {
 	PropagateCancel        *Bool      `xmlrpc:"propagate_cancel,omitempty"`
 	PropagateCarrier       *Bool      `xmlrpc:"propagate_carrier,omitempty"`
 	PropagateWarehouseId   *Many2One  `xmlrpc:"propagate_warehouse_id,omitempty"`
+	PushDomain             *String    `xmlrpc:"push_domain,omitempty"`
 	RouteCompanyId         *Many2One  `xmlrpc:"route_company_id,omitempty"`
 	RouteId                *Many2One  `xmlrpc:"route_id,omitempty"`
 	RouteSequence          *Int       `xmlrpc:"route_sequence,omitempty"`

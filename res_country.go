@@ -2,26 +2,26 @@ package odoo
 
 // ResCountry represents res.country model.
 type ResCountry struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	AddressFormat   *String    `xmlrpc:"address_format,omitempty"`
-	AddressViewId   *Many2One  `xmlrpc:"address_view_id,omitempty"`
-	Code            *String    `xmlrpc:"code,omitempty"`
-	CountryGroupIds *Relation  `xmlrpc:"country_group_ids,omitempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId      *Many2One  `xmlrpc:"currency_id,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	ImageUrl        *String    `xmlrpc:"image_url,omitempty"`
-	Name            *String    `xmlrpc:"name,omitempty"`
-	NamePosition    *Selection `xmlrpc:"name_position,omitempty"`
-	PhoneCode       *Int       `xmlrpc:"phone_code,omitempty"`
-	StateIds        *Relation  `xmlrpc:"state_ids,omitempty"`
-	StateRequired   *Bool      `xmlrpc:"state_required,omitempty"`
-	VatLabel        *String    `xmlrpc:"vat_label,omitempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
-	ZipRequired     *Bool      `xmlrpc:"zip_required,omitempty"`
+	AddressFormat            *String    `xmlrpc:"address_format,omitempty"`
+	AddressViewId            *Many2One  `xmlrpc:"address_view_id,omitempty"`
+	Code                     *String    `xmlrpc:"code,omitempty"`
+	CountryGroupIds          *Relation  `xmlrpc:"country_group_ids,omitempty"`
+	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CurrencyId               *Many2One  `xmlrpc:"currency_id,omitempty"`
+	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
+	Id                       *Int       `xmlrpc:"id,omitempty"`
+	ImageUrl                 *String    `xmlrpc:"image_url,omitempty"`
+	IsStripeSupportedCountry *Bool      `xmlrpc:"is_stripe_supported_country,omitempty"`
+	Name                     *String    `xmlrpc:"name,omitempty"`
+	NamePosition             *Selection `xmlrpc:"name_position,omitempty"`
+	PhoneCode                *Int       `xmlrpc:"phone_code,omitempty"`
+	StateIds                 *Relation  `xmlrpc:"state_ids,omitempty"`
+	StateRequired            *Bool      `xmlrpc:"state_required,omitempty"`
+	VatLabel                 *String    `xmlrpc:"vat_label,omitempty"`
+	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
+	ZipRequired              *Bool      `xmlrpc:"zip_required,omitempty"`
 }
 
 // ResCountrys represents array of res.country model.

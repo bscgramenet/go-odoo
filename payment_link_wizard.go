@@ -2,26 +2,31 @@ package odoo
 
 // PaymentLinkWizard represents payment.link.wizard model.
 type PaymentLinkWizard struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
-	Amount                   *Float     `xmlrpc:"amount,omitempty"`
-	AmountMax                *Float     `xmlrpc:"amount_max,omitempty"`
-	AvailableProviderIds     *Relation  `xmlrpc:"available_provider_ids,omitempty"`
-	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId               *Many2One  `xmlrpc:"currency_id,omitempty"`
-	Description              *String    `xmlrpc:"description,omitempty"`
-	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
-	HasMultipleProviders     *Bool      `xmlrpc:"has_multiple_providers,omitempty"`
-	Id                       *Int       `xmlrpc:"id,omitempty"`
-	Link                     *String    `xmlrpc:"link,omitempty"`
-	PartnerEmail             *String    `xmlrpc:"partner_email,omitempty"`
-	PartnerId                *Many2One  `xmlrpc:"partner_id,omitempty"`
-	PaymentProviderSelection *Selection `xmlrpc:"payment_provider_selection,omitempty"`
-	ResId                    *Int       `xmlrpc:"res_id,omitempty"`
-	ResModel                 *String    `xmlrpc:"res_model,omitempty"`
-	WriteDate                *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid                 *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Amount                  *Float      `xmlrpc:"amount,omitempty"`
+	AmountMax               *Float      `xmlrpc:"amount_max,omitempty"`
+	AmountPaid              *Float      `xmlrpc:"amount_paid,omitempty"`
+	CompanyId               *Many2One   `xmlrpc:"company_id,omitempty"`
+	ConfirmationMessage     *String     `xmlrpc:"confirmation_message,omitempty"`
+	CreateDate              *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid               *Many2One   `xmlrpc:"create_uid,omitempty"`
+	CurrencyId              *Many2One   `xmlrpc:"currency_id,omitempty"`
+	DiscountDate            *Time       `xmlrpc:"discount_date,omitempty"`
+	DisplayName             *String     `xmlrpc:"display_name,omitempty"`
+	DisplayOpenInstallments *Bool       `xmlrpc:"display_open_installments,omitempty"`
+	EpdInfo                 *String     `xmlrpc:"epd_info,omitempty"`
+	HasEligibleEpd          *Bool       `xmlrpc:"has_eligible_epd,omitempty"`
+	Id                      *Int        `xmlrpc:"id,omitempty"`
+	InvoiceAmountDue        *Float      `xmlrpc:"invoice_amount_due,omitempty"`
+	Link                    *String     `xmlrpc:"link,omitempty"`
+	OpenInstallments        interface{} `xmlrpc:"open_installments,omitempty"`
+	OpenInstallmentsPreview *String     `xmlrpc:"open_installments_preview,omitempty"`
+	PartnerEmail            *String     `xmlrpc:"partner_email,omitempty"`
+	PartnerId               *Many2One   `xmlrpc:"partner_id,omitempty"`
+	ResId                   *Int        `xmlrpc:"res_id,omitempty"`
+	ResModel                *String     `xmlrpc:"res_model,omitempty"`
+	WarningMessage          *String     `xmlrpc:"warning_message,omitempty"`
+	WriteDate               *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid                *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // PaymentLinkWizards represents array of payment.link.wizard model.

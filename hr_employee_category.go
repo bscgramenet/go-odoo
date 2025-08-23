@@ -2,7 +2,6 @@ package odoo
 
 // HrEmployeeCategory represents hr.employee.category model.
 type HrEmployeeCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

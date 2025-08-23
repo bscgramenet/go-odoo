@@ -2,7 +2,6 @@ package odoo
 
 // SnailmailLetter represents snailmail.letter model.
 type SnailmailLetter struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
 	AttachmentDatas *String    `xmlrpc:"attachment_datas,omitempty"`
 	AttachmentFname *String    `xmlrpc:"attachment_fname,omitempty"`
 	AttachmentId    *Many2One  `xmlrpc:"attachment_id,omitempty"`

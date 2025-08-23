@@ -2,11 +2,11 @@ package odoo
 
 // ResBank represents res.bank model.
 type ResBank struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	Bic         *String   `xmlrpc:"bic,omitempty"`
 	City        *String   `xmlrpc:"city,omitempty"`
 	Country     *Many2One `xmlrpc:"country,omitempty"`
+	CountryCode *String   `xmlrpc:"country_code,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`

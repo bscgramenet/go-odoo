@@ -2,7 +2,6 @@ package odoo
 
 // LinkTrackerClick represents link.tracker.click model.
 type LinkTrackerClick struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
 	CampaignId     *Many2One `xmlrpc:"campaign_id,omitempty"`
 	CountryId      *Many2One `xmlrpc:"country_id,omitempty"`
 	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`

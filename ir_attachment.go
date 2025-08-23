@@ -2,7 +2,6 @@ package odoo
 
 // IrAttachment represents ir.attachment model.
 type IrAttachment struct {
-	LastUpdate   *Time      `xmlrpc:"__last_update,omitempty"`
 	AccessToken  *String    `xmlrpc:"access_token,omitempty"`
 	Checksum     *String    `xmlrpc:"checksum,omitempty"`
 	CompanyId    *Many2One  `xmlrpc:"company_id,omitempty"`
@@ -31,6 +30,7 @@ type IrAttachment struct {
 	StoreFname   *String    `xmlrpc:"store_fname,omitempty"`
 	Type         *Selection `xmlrpc:"type,omitempty"`
 	Url          *String    `xmlrpc:"url,omitempty"`
+	VoiceIds     *Relation  `xmlrpc:"voice_ids,omitempty"`
 	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

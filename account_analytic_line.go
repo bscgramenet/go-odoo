@@ -2,33 +2,34 @@ package odoo
 
 // AccountAnalyticLine represents account.analytic.line model.
 type AccountAnalyticLine struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
-	AccountId            *Many2One  `xmlrpc:"account_id,omitempty"`
-	Amount               *Float     `xmlrpc:"amount,omitempty"`
-	Category             *Selection `xmlrpc:"category,omitempty"`
-	Code                 *String    `xmlrpc:"code,omitempty"`
-	CompanyId            *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CurrencyId           *Many2One  `xmlrpc:"currency_id,omitempty"`
-	Date                 *Time      `xmlrpc:"date,omitempty"`
-	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
-	GeneralAccountId     *Many2One  `xmlrpc:"general_account_id,omitempty"`
-	Id                   *Int       `xmlrpc:"id,omitempty"`
-	JournalId            *Many2One  `xmlrpc:"journal_id,omitempty"`
-	MoveLineId           *Many2One  `xmlrpc:"move_line_id,omitempty"`
-	Name                 *String    `xmlrpc:"name,omitempty"`
-	PartnerId            *Many2One  `xmlrpc:"partner_id,omitempty"`
-	PlanId               *Many2One  `xmlrpc:"plan_id,omitempty"`
-	ProductId            *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductUomCategoryId *Many2One  `xmlrpc:"product_uom_category_id,omitempty"`
-	ProductUomId         *Many2One  `xmlrpc:"product_uom_id,omitempty"`
-	Ref                  *String    `xmlrpc:"ref,omitempty"`
-	SoLine               *Many2One  `xmlrpc:"so_line,omitempty"`
-	UnitAmount           *Float     `xmlrpc:"unit_amount,omitempty"`
-	UserId               *Many2One  `xmlrpc:"user_id,omitempty"`
-	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
+	AccountId            *Many2One   `xmlrpc:"account_id,omitempty"`
+	Amount               *Float      `xmlrpc:"amount,omitempty"`
+	AnalyticDistribution interface{} `xmlrpc:"analytic_distribution,omitempty"`
+	AnalyticPrecision    *Int        `xmlrpc:"analytic_precision,omitempty"`
+	AutoAccountId        *Many2One   `xmlrpc:"auto_account_id,omitempty"`
+	Category             *Selection  `xmlrpc:"category,omitempty"`
+	Code                 *String     `xmlrpc:"code,omitempty"`
+	CompanyId            *Many2One   `xmlrpc:"company_id,omitempty"`
+	CreateDate           *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One   `xmlrpc:"create_uid,omitempty"`
+	CurrencyId           *Many2One   `xmlrpc:"currency_id,omitempty"`
+	Date                 *Time       `xmlrpc:"date,omitempty"`
+	DisplayName          *String     `xmlrpc:"display_name,omitempty"`
+	GeneralAccountId     *Many2One   `xmlrpc:"general_account_id,omitempty"`
+	Id                   *Int        `xmlrpc:"id,omitempty"`
+	JournalId            *Many2One   `xmlrpc:"journal_id,omitempty"`
+	MoveLineId           *Many2One   `xmlrpc:"move_line_id,omitempty"`
+	Name                 *String     `xmlrpc:"name,omitempty"`
+	PartnerId            *Many2One   `xmlrpc:"partner_id,omitempty"`
+	ProductId            *Many2One   `xmlrpc:"product_id,omitempty"`
+	ProductUomCategoryId *Many2One   `xmlrpc:"product_uom_category_id,omitempty"`
+	ProductUomId         *Many2One   `xmlrpc:"product_uom_id,omitempty"`
+	Ref                  *String     `xmlrpc:"ref,omitempty"`
+	SoLine               *Many2One   `xmlrpc:"so_line,omitempty"`
+	UnitAmount           *Float      `xmlrpc:"unit_amount,omitempty"`
+	UserId               *Many2One   `xmlrpc:"user_id,omitempty"`
+	WriteDate            *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountAnalyticLines represents array of account.analytic.line model.

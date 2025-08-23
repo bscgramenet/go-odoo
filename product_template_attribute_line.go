@@ -2,7 +2,6 @@ package odoo
 
 // ProductTemplateAttributeLine represents product.template.attribute.line model.
 type ProductTemplateAttributeLine struct {
-	LastUpdate              *Time     `xmlrpc:"__last_update,omitempty"`
 	Active                  *Bool     `xmlrpc:"active,omitempty"`
 	AttributeId             *Many2One `xmlrpc:"attribute_id,omitempty"`
 	CreateDate              *Time     `xmlrpc:"create_date,omitempty"`
@@ -11,6 +10,7 @@ type ProductTemplateAttributeLine struct {
 	Id                      *Int      `xmlrpc:"id,omitempty"`
 	ProductTemplateValueIds *Relation `xmlrpc:"product_template_value_ids,omitempty"`
 	ProductTmplId           *Many2One `xmlrpc:"product_tmpl_id,omitempty"`
+	Sequence                *Int      `xmlrpc:"sequence,omitempty"`
 	ValueCount              *Int      `xmlrpc:"value_count,omitempty"`
 	ValueIds                *Relation `xmlrpc:"value_ids,omitempty"`
 	WriteDate               *Time     `xmlrpc:"write_date,omitempty"`

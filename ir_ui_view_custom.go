@@ -2,7 +2,6 @@ package odoo
 
 // IrUiViewCustom represents ir.ui.view.custom model.
 type IrUiViewCustom struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Arch        *String   `xmlrpc:"arch,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

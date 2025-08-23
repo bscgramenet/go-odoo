@@ -2,7 +2,6 @@ package odoo
 
 // StockScrap represents stock.scrap model.
 type StockScrap struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
 	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -19,11 +18,10 @@ type StockScrap struct {
 	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
-	MoveId                   *Many2One  `xmlrpc:"move_id,omitempty"`
+	MoveIds                  *Relation  `xmlrpc:"move_ids,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
 	Origin                   *String    `xmlrpc:"origin,omitempty"`
 	OwnerId                  *Many2One  `xmlrpc:"owner_id,omitempty"`
@@ -32,8 +30,11 @@ type StockScrap struct {
 	ProductId                *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProductUomCategoryId     *Many2One  `xmlrpc:"product_uom_category_id,omitempty"`
 	ProductUomId             *Many2One  `xmlrpc:"product_uom_id,omitempty"`
+	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
 	ScrapLocationId          *Many2One  `xmlrpc:"scrap_location_id,omitempty"`
 	ScrapQty                 *Float     `xmlrpc:"scrap_qty,omitempty"`
+	ScrapReasonTagIds        *Relation  `xmlrpc:"scrap_reason_tag_ids,omitempty"`
+	ShouldReplenish          *Bool      `xmlrpc:"should_replenish,omitempty"`
 	State                    *Selection `xmlrpc:"state,omitempty"`
 	Tracking                 *Selection `xmlrpc:"tracking,omitempty"`
 	WebsiteMessageIds        *Relation  `xmlrpc:"website_message_ids,omitempty"`

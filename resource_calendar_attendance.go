@@ -2,7 +2,6 @@ package odoo
 
 // ResourceCalendarAttendance represents resource.calendar.attendance model.
 type ResourceCalendarAttendance struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	CalendarId       *Many2One  `xmlrpc:"calendar_id,omitempty"`
 	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -12,6 +11,8 @@ type ResourceCalendarAttendance struct {
 	Dayofweek        *Selection `xmlrpc:"dayofweek,omitempty"`
 	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
 	DisplayType      *Selection `xmlrpc:"display_type,omitempty"`
+	DurationDays     *Float     `xmlrpc:"duration_days,omitempty"`
+	DurationHours    *Float     `xmlrpc:"duration_hours,omitempty"`
 	HourFrom         *Float     `xmlrpc:"hour_from,omitempty"`
 	HourTo           *Float     `xmlrpc:"hour_to,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`

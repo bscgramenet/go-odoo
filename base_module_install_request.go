@@ -2,7 +2,6 @@ package odoo
 
 // BaseModuleInstallRequest represents base.module.install.request model.
 type BaseModuleInstallRequest struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	BodyHtml    *String   `xmlrpc:"body_html,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

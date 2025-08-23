@@ -2,7 +2,6 @@ package odoo
 
 // AccountAccountTag represents account.account.tag model.
 type AccountAccountTag struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
 	Active        *Bool      `xmlrpc:"active,omitempty"`
 	Applicability *Selection `xmlrpc:"applicability,omitempty"`
 	Color         *Int       `xmlrpc:"color,omitempty"`

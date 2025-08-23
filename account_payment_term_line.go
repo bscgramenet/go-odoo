@@ -2,22 +2,19 @@ package odoo
 
 // AccountPaymentTermLine represents account.payment.term.line model.
 type AccountPaymentTermLine struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
-	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Days               *Int       `xmlrpc:"days,omitempty"`
-	DaysAfter          *Int       `xmlrpc:"days_after,omitempty"`
-	DiscountDays       *Int       `xmlrpc:"discount_days,omitempty"`
-	DiscountPercentage *Float     `xmlrpc:"discount_percentage,omitempty"`
-	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
-	EndMonth           *Bool      `xmlrpc:"end_month,omitempty"`
-	Id                 *Int       `xmlrpc:"id,omitempty"`
-	Months             *Int       `xmlrpc:"months,omitempty"`
-	PaymentId          *Many2One  `xmlrpc:"payment_id,omitempty"`
-	Value              *Selection `xmlrpc:"value,omitempty"`
-	ValueAmount        *Float     `xmlrpc:"value_amount,omitempty"`
-	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
+	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DaysNextMonth        *String    `xmlrpc:"days_next_month,omitempty"`
+	DelayType            *Selection `xmlrpc:"delay_type,omitempty"`
+	DisplayDaysNextMonth *Bool      `xmlrpc:"display_days_next_month,omitempty"`
+	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
+	Id                   *Int       `xmlrpc:"id,omitempty"`
+	NbDays               *Int       `xmlrpc:"nb_days,omitempty"`
+	PaymentId            *Many2One  `xmlrpc:"payment_id,omitempty"`
+	Value                *Selection `xmlrpc:"value,omitempty"`
+	ValueAmount          *Float     `xmlrpc:"value_amount,omitempty"`
+	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountPaymentTermLines represents array of account.payment.term.line model.

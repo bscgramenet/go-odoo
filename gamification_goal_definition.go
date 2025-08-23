@@ -2,7 +2,6 @@ package odoo
 
 // GamificationGoalDefinition represents gamification.goal.definition model.
 type GamificationGoalDefinition struct {
-	LastUpdate            *Time      `xmlrpc:"__last_update,omitempty"`
 	ActionId              *Many2One  `xmlrpc:"action_id,omitempty"`
 	BatchDistinctiveField *Many2One  `xmlrpc:"batch_distinctive_field,omitempty"`
 	BatchMode             *Bool      `xmlrpc:"batch_mode,omitempty"`

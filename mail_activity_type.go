@@ -2,7 +2,6 @@ package odoo
 
 // MailActivityType represents mail.activity.type model.
 type MailActivityType struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
 	Active               *Bool      `xmlrpc:"active,omitempty"`
 	Category             *Selection `xmlrpc:"category,omitempty"`
 	ChainingType         *Selection `xmlrpc:"chaining_type,omitempty"`
@@ -19,6 +18,7 @@ type MailActivityType struct {
 	Icon                 *String    `xmlrpc:"icon,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
 	InitialResModel      *Selection `xmlrpc:"initial_res_model,omitempty"`
+	KeepDone             *Bool      `xmlrpc:"keep_done,omitempty"`
 	MailTemplateIds      *Relation  `xmlrpc:"mail_template_ids,omitempty"`
 	Name                 *String    `xmlrpc:"name,omitempty"`
 	PreviousTypeIds      *Relation  `xmlrpc:"previous_type_ids,omitempty"`

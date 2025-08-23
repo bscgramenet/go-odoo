@@ -2,7 +2,6 @@ package odoo
 
 // LinkTracker represents link.tracker model.
 type LinkTracker struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
 	AbsoluteUrl   *String   `xmlrpc:"absolute_url,omitempty"`
 	CampaignId    *Many2One `xmlrpc:"campaign_id,omitempty"`
 	Code          *String   `xmlrpc:"code,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // PosMakePayment represents pos.make.payment model.
 type PosMakePayment struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
 	Amount          *Float    `xmlrpc:"amount,omitempty"`
 	ConfigId        *Many2One `xmlrpc:"config_id,omitempty"`
 	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`

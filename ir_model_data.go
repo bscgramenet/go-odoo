@@ -2,7 +2,6 @@ package odoo
 
 // IrModelData represents ir.model.data model.
 type IrModelData struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
 	CompleteName *String   `xmlrpc:"complete_name,omitempty"`
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`

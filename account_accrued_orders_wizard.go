@@ -2,7 +2,6 @@ package odoo
 
 // AccountAccruedOrdersWizard represents account.accrued.orders.wizard model.
 type AccountAccruedOrdersWizard struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
 	AccountId     *Many2One `xmlrpc:"account_id,omitempty"`
 	Amount        *Float    `xmlrpc:"amount,omitempty"`
 	CompanyId     *Many2One `xmlrpc:"company_id,omitempty"`

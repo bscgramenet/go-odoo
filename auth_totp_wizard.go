@@ -2,7 +2,6 @@ package odoo
 
 // AuthTotpWizard represents auth_totp.wizard model.
 type AuthTotpWizard struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Code        *String   `xmlrpc:"code,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

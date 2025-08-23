@@ -2,7 +2,6 @@ package odoo
 
 // IrUiView represents ir.ui.view model.
 type IrUiView struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	Active             *Bool      `xmlrpc:"active,omitempty"`
 	Arch               *String    `xmlrpc:"arch,omitempty"`
 	ArchBase           *String    `xmlrpc:"arch_base,omitempty"`
@@ -14,7 +13,6 @@ type IrUiView struct {
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
 	CustomizeShow      *Bool      `xmlrpc:"customize_show,omitempty"`
 	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
-	FieldParent        *String    `xmlrpc:"field_parent,omitempty"`
 	GroupsId           *Relation  `xmlrpc:"groups_id,omitempty"`
 	Id                 *Int       `xmlrpc:"id,omitempty"`
 	InheritChildrenIds *Relation  `xmlrpc:"inherit_children_ids,omitempty"`
@@ -23,9 +21,11 @@ type IrUiView struct {
 	Mode               *Selection `xmlrpc:"mode,omitempty"`
 	Model              *String    `xmlrpc:"model,omitempty"`
 	ModelDataId        *Many2One  `xmlrpc:"model_data_id,omitempty"`
+	ModelId            *Many2One  `xmlrpc:"model_id,omitempty"`
 	Name               *String    `xmlrpc:"name,omitempty"`
 	Priority           *Int       `xmlrpc:"priority,omitempty"`
 	Type               *Selection `xmlrpc:"type,omitempty"`
+	WarningInfo        *String    `xmlrpc:"warning_info,omitempty"`
 	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 	XmlId              *String    `xmlrpc:"xml_id,omitempty"`

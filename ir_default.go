@@ -2,7 +2,6 @@ package odoo
 
 // IrDefault represents ir.default model.
 type IrDefault struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CompanyId   *Many2One `xmlrpc:"company_id,omitempty"`
 	Condition   *String   `xmlrpc:"condition,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`

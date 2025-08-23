@@ -2,7 +2,6 @@ package odoo
 
 // AccountIncoterms represents account.incoterms model.
 type AccountIncoterms struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	Code        *String   `xmlrpc:"code,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`

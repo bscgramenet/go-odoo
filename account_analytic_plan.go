@@ -2,7 +2,6 @@ package odoo
 
 // AccountAnalyticPlan represents account.analytic.plan model.
 type AccountAnalyticPlan struct {
-	LastUpdate           *Time      `xmlrpc:"__last_update,omitempty"`
 	AccountCount         *Int       `xmlrpc:"account_count,omitempty"`
 	AccountIds           *Relation  `xmlrpc:"account_ids,omitempty"`
 	AllAccountCount      *Int       `xmlrpc:"all_account_count,omitempty"`
@@ -10,7 +9,6 @@ type AccountAnalyticPlan struct {
 	ChildrenCount        *Int       `xmlrpc:"children_count,omitempty"`
 	ChildrenIds          *Relation  `xmlrpc:"children_ids,omitempty"`
 	Color                *Int       `xmlrpc:"color,omitempty"`
-	CompanyId            *Many2One  `xmlrpc:"company_id,omitempty"`
 	CompleteName         *String    `xmlrpc:"complete_name,omitempty"`
 	CreateDate           *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid            *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -21,6 +19,8 @@ type AccountAnalyticPlan struct {
 	Name                 *String    `xmlrpc:"name,omitempty"`
 	ParentId             *Many2One  `xmlrpc:"parent_id,omitempty"`
 	ParentPath           *String    `xmlrpc:"parent_path,omitempty"`
+	RootId               *Many2One  `xmlrpc:"root_id,omitempty"`
+	Sequence             *Int       `xmlrpc:"sequence,omitempty"`
 	WriteDate            *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid             *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

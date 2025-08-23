@@ -2,7 +2,6 @@ package odoo
 
 // SurveyUserInputLine represents survey.user_input.line model.
 type SurveyUserInputLine struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
 	AnswerIsCorrect   *Bool      `xmlrpc:"answer_is_correct,omitempty"`
 	AnswerScore       *Float     `xmlrpc:"answer_score,omitempty"`
 	AnswerType        *Selection `xmlrpc:"answer_type,omitempty"`
@@ -22,6 +21,7 @@ type SurveyUserInputLine struct {
 	ValueDate         *Time      `xmlrpc:"value_date,omitempty"`
 	ValueDatetime     *Time      `xmlrpc:"value_datetime,omitempty"`
 	ValueNumericalBox *Float     `xmlrpc:"value_numerical_box,omitempty"`
+	ValueScale        *Int       `xmlrpc:"value_scale,omitempty"`
 	ValueTextBox      *String    `xmlrpc:"value_text_box,omitempty"`
 	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`

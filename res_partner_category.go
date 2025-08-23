@@ -2,7 +2,6 @@ package odoo
 
 // ResPartnerCategory represents res.partner.category model.
 type ResPartnerCategory struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Active      *Bool     `xmlrpc:"active,omitempty"`
 	ChildIds    *Relation `xmlrpc:"child_ids,omitempty"`
 	Color       *Int      `xmlrpc:"color,omitempty"`

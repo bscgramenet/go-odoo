@@ -2,7 +2,6 @@ package odoo
 
 // MailMessageReaction represents mail.message.reaction model.
 type MailMessageReaction struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	Content     *String   `xmlrpc:"content,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	GuestId     *Many2One `xmlrpc:"guest_id,omitempty"`

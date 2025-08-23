@@ -2,7 +2,6 @@ package odoo
 
 // BasePartnerMergeAutomaticWizard represents base.partner.merge.automatic.wizard model.
 type BasePartnerMergeAutomaticWizard struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
 	CurrentLineId      *Many2One  `xmlrpc:"current_line_id,omitempty"`

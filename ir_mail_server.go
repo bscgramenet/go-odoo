@@ -2,7 +2,6 @@ package odoo
 
 // IrMailServer represents ir.mail_server model.
 type IrMailServer struct {
-	LastUpdate                       *Time      `xmlrpc:"__last_update,omitempty"`
 	Active                           *Bool      `xmlrpc:"active,omitempty"`
 	ActiveMailingIds                 *Relation  `xmlrpc:"active_mailing_ids,omitempty"`
 	CreateDate                       *Time      `xmlrpc:"create_date,omitempty"`
@@ -16,6 +15,7 @@ type IrMailServer struct {
 	GoogleGmailUri                   *String    `xmlrpc:"google_gmail_uri,omitempty"`
 	Id                               *Int       `xmlrpc:"id,omitempty"`
 	MailTemplateIds                  *Relation  `xmlrpc:"mail_template_ids,omitempty"`
+	MaxEmailSize                     *Float     `xmlrpc:"max_email_size,omitempty"`
 	Name                             *String    `xmlrpc:"name,omitempty"`
 	Sequence                         *Int       `xmlrpc:"sequence,omitempty"`
 	SmtpAuthentication               *Selection `xmlrpc:"smtp_authentication,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // MailMessageSubtype represents mail.message.subtype model.
 type MailMessageSubtype struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
 	Default         *Bool     `xmlrpc:"default,omitempty"`

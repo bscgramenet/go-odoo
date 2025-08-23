@@ -2,8 +2,7 @@ package odoo
 
 // ProductTag represents product.tag model.
 type ProductTag struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
-	Color              *Int      `xmlrpc:"color,omitempty"`
+	Color              *String   `xmlrpc:"color,omitempty"`
 	CreateDate         *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName        *String   `xmlrpc:"display_name,omitempty"`
@@ -12,6 +11,7 @@ type ProductTag struct {
 	ProductIds         *Relation `xmlrpc:"product_ids,omitempty"`
 	ProductProductIds  *Relation `xmlrpc:"product_product_ids,omitempty"`
 	ProductTemplateIds *Relation `xmlrpc:"product_template_ids,omitempty"`
+	Sequence           *Int      `xmlrpc:"sequence,omitempty"`
 	WriteDate          *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid           *Many2One `xmlrpc:"write_uid,omitempty"`
 }

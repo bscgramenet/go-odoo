@@ -2,7 +2,6 @@ package odoo
 
 // AccountAnalyticAccount represents account.analytic.account model.
 type AccountAnalyticAccount struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
 	Active                   *Bool     `xmlrpc:"active,omitempty"`
 	Balance                  *Float    `xmlrpc:"balance,omitempty"`
 	Code                     *String   `xmlrpc:"code,omitempty"`
@@ -25,7 +24,6 @@ type AccountAnalyticAccount struct {
 	MessageHasSmsError       *Bool     `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
@@ -34,6 +32,7 @@ type AccountAnalyticAccount struct {
 	PlanId                   *Many2One `xmlrpc:"plan_id,omitempty"`
 	ProjectCount             *Int      `xmlrpc:"project_count,omitempty"`
 	ProjectIds               *Relation `xmlrpc:"project_ids,omitempty"`
+	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
 	RootPlanId               *Many2One `xmlrpc:"root_plan_id,omitempty"`
 	VendorBillCount          *Int      `xmlrpc:"vendor_bill_count,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`

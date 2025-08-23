@@ -2,7 +2,6 @@ package odoo
 
 // BaseModuleUpdate represents base.module.update model.
 type BaseModuleUpdate struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	Added       *Int       `xmlrpc:"added,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One  `xmlrpc:"create_uid,omitempty"`

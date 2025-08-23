@@ -2,23 +2,19 @@ package odoo
 
 // SalePaymentProviderOnboardingWizard represents sale.payment.provider.onboarding.wizard model.
 type SalePaymentProviderOnboardingWizard struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
-	DataFetched         *Bool      `xmlrpc:"_data_fetched,omitempty"`
-	AccNumber           *String    `xmlrpc:"acc_number,omitempty"`
-	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid           *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName         *String    `xmlrpc:"display_name,omitempty"`
-	Id                  *Int       `xmlrpc:"id,omitempty"`
-	JournalName         *String    `xmlrpc:"journal_name,omitempty"`
-	ManualName          *String    `xmlrpc:"manual_name,omitempty"`
-	ManualPostMsg       *String    `xmlrpc:"manual_post_msg,omitempty"`
-	PaymentMethod       *Selection `xmlrpc:"payment_method,omitempty"`
-	PaypalEmailAccount  *String    `xmlrpc:"paypal_email_account,omitempty"`
-	PaypalPdtToken      *String    `xmlrpc:"paypal_pdt_token,omitempty"`
-	PaypalSellerAccount *String    `xmlrpc:"paypal_seller_account,omitempty"`
-	PaypalUserType      *Selection `xmlrpc:"paypal_user_type,omitempty"`
-	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`
+	DataFetched        *Bool      `xmlrpc:"_data_fetched,omitempty"`
+	AccNumber          *String    `xmlrpc:"acc_number,omitempty"`
+	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName        *String    `xmlrpc:"display_name,omitempty"`
+	Id                 *Int       `xmlrpc:"id,omitempty"`
+	JournalName        *String    `xmlrpc:"journal_name,omitempty"`
+	ManualName         *String    `xmlrpc:"manual_name,omitempty"`
+	ManualPostMsg      *String    `xmlrpc:"manual_post_msg,omitempty"`
+	PaymentMethod      *Selection `xmlrpc:"payment_method,omitempty"`
+	PaypalEmailAccount *String    `xmlrpc:"paypal_email_account,omitempty"`
+	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // SalePaymentProviderOnboardingWizards represents array of sale.payment.provider.onboarding.wizard model.

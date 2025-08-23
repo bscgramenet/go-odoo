@@ -2,24 +2,26 @@ package odoo
 
 // AccountAccount represents account.account model.
 type AccountAccount struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
 	AccountType              *Selection `xmlrpc:"account_type,omitempty"`
 	AllowedJournalIds        *Relation  `xmlrpc:"allowed_journal_ids,omitempty"`
 	Code                     *String    `xmlrpc:"code,omitempty"`
+	CodeMappingIds           *Relation  `xmlrpc:"code_mapping_ids,omitempty"`
+	CodeStore                *String    `xmlrpc:"code_store,omitempty"`
 	CompanyCurrencyId        *Many2One  `xmlrpc:"company_currency_id,omitempty"`
-	CompanyId                *Many2One  `xmlrpc:"company_id,omitempty"`
+	CompanyFiscalCountryCode *String    `xmlrpc:"company_fiscal_country_code,omitempty"`
+	CompanyIds               *Relation  `xmlrpc:"company_ids,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One  `xmlrpc:"create_uid,omitempty"`
 	CurrencyId               *Many2One  `xmlrpc:"currency_id,omitempty"`
 	CurrentBalance           *Float     `xmlrpc:"current_balance,omitempty"`
 	Deprecated               *Bool      `xmlrpc:"deprecated,omitempty"`
+	DisplayMappingTab        *Bool      `xmlrpc:"display_mapping_tab,omitempty"`
 	DisplayName              *String    `xmlrpc:"display_name,omitempty"`
 	GroupId                  *Many2One  `xmlrpc:"group_id,omitempty"`
 	HasMessage               *Bool      `xmlrpc:"has_message,omitempty"`
 	Id                       *Int       `xmlrpc:"id,omitempty"`
 	IncludeInitialBalance    *Bool      `xmlrpc:"include_initial_balance,omitempty"`
 	InternalGroup            *Selection `xmlrpc:"internal_group,omitempty"`
-	IsOffBalance             *Bool      `xmlrpc:"is_off_balance,omitempty"`
 	MessageAttachmentCount   *Int       `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds       *Relation  `xmlrpc:"message_follower_ids,omitempty"`
 	MessageHasError          *Bool      `xmlrpc:"message_has_error,omitempty"`
@@ -27,7 +29,6 @@ type AccountAccount struct {
 	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
@@ -37,6 +38,8 @@ type AccountAccount struct {
 	OpeningBalance           *Float     `xmlrpc:"opening_balance,omitempty"`
 	OpeningCredit            *Float     `xmlrpc:"opening_credit,omitempty"`
 	OpeningDebit             *Float     `xmlrpc:"opening_debit,omitempty"`
+	PlaceholderCode          *String    `xmlrpc:"placeholder_code,omitempty"`
+	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
 	Reconcile                *Bool      `xmlrpc:"reconcile,omitempty"`
 	RelatedTaxesAmount       *Int       `xmlrpc:"related_taxes_amount,omitempty"`
 	RootId                   *Many2One  `xmlrpc:"root_id,omitempty"`

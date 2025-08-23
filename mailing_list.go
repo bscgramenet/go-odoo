@@ -2,7 +2,6 @@ package odoo
 
 // MailingList represents mailing.list model.
 type MailingList struct {
-	LastUpdate              *Time     `xmlrpc:"__last_update,omitempty"`
 	Active                  *Bool     `xmlrpc:"active,omitempty"`
 	ContactCount            *Int      `xmlrpc:"contact_count,omitempty"`
 	ContactCountBlacklisted *Int      `xmlrpc:"contact_count_blacklisted,omitempty"`

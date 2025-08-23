@@ -2,33 +2,34 @@ package odoo
 
 // ReportPosOrder represents report.pos.order model.
 type ReportPosOrder struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	AveragePrice    *Float     `xmlrpc:"average_price,omitempty"`
-	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
-	ConfigId        *Many2One  `xmlrpc:"config_id,omitempty"`
-	Date            *Time      `xmlrpc:"date,omitempty"`
-	DelayValidation *Int       `xmlrpc:"delay_validation,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	EmployeeId      *Many2One  `xmlrpc:"employee_id,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	Invoiced        *Bool      `xmlrpc:"invoiced,omitempty"`
-	JournalId       *Many2One  `xmlrpc:"journal_id,omitempty"`
-	Margin          *Float     `xmlrpc:"margin,omitempty"`
-	NbrLines        *Int       `xmlrpc:"nbr_lines,omitempty"`
-	OrderId         *Many2One  `xmlrpc:"order_id,omitempty"`
-	PartnerId       *Many2One  `xmlrpc:"partner_id,omitempty"`
-	PosCategId      *Many2One  `xmlrpc:"pos_categ_id,omitempty"`
-	PriceSubTotal   *Float     `xmlrpc:"price_sub_total,omitempty"`
-	PriceTotal      *Float     `xmlrpc:"price_total,omitempty"`
-	PricelistId     *Many2One  `xmlrpc:"pricelist_id,omitempty"`
-	ProductCategId  *Many2One  `xmlrpc:"product_categ_id,omitempty"`
-	ProductId       *Many2One  `xmlrpc:"product_id,omitempty"`
-	ProductQty      *Int       `xmlrpc:"product_qty,omitempty"`
-	ProductTmplId   *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
-	SessionId       *Many2One  `xmlrpc:"session_id,omitempty"`
-	State           *Selection `xmlrpc:"state,omitempty"`
-	TotalDiscount   *Float     `xmlrpc:"total_discount,omitempty"`
-	UserId          *Many2One  `xmlrpc:"user_id,omitempty"`
+	AveragePrice      *Float     `xmlrpc:"average_price,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	ConfigId          *Many2One  `xmlrpc:"config_id,omitempty"`
+	Date              *Time      `xmlrpc:"date,omitempty"`
+	DelayValidation   *Int       `xmlrpc:"delay_validation,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	EmployeeId        *Many2One  `xmlrpc:"employee_id,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	Invoiced          *Bool      `xmlrpc:"invoiced,omitempty"`
+	JournalId         *Many2One  `xmlrpc:"journal_id,omitempty"`
+	Margin            *Float     `xmlrpc:"margin,omitempty"`
+	NbrLines          *Int       `xmlrpc:"nbr_lines,omitempty"`
+	OrderId           *Many2One  `xmlrpc:"order_id,omitempty"`
+	PartnerId         *Many2One  `xmlrpc:"partner_id,omitempty"`
+	PaymentMethodId   *Many2One  `xmlrpc:"payment_method_id,omitempty"`
+	PosCategId        *Many2One  `xmlrpc:"pos_categ_id,omitempty"`
+	PriceSubTotal     *Float     `xmlrpc:"price_sub_total,omitempty"`
+	PriceSubtotalExcl *Float     `xmlrpc:"price_subtotal_excl,omitempty"`
+	PriceTotal        *Float     `xmlrpc:"price_total,omitempty"`
+	PricelistId       *Many2One  `xmlrpc:"pricelist_id,omitempty"`
+	ProductCategId    *Many2One  `xmlrpc:"product_categ_id,omitempty"`
+	ProductId         *Many2One  `xmlrpc:"product_id,omitempty"`
+	ProductQty        *Int       `xmlrpc:"product_qty,omitempty"`
+	ProductTmplId     *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
+	SessionId         *Many2One  `xmlrpc:"session_id,omitempty"`
+	State             *Selection `xmlrpc:"state,omitempty"`
+	TotalDiscount     *Float     `xmlrpc:"total_discount,omitempty"`
+	UserId            *Many2One  `xmlrpc:"user_id,omitempty"`
 }
 
 // ReportPosOrders represents array of report.pos.order model.

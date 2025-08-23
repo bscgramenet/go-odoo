@@ -2,7 +2,6 @@ package odoo
 
 // MailingTraceReport represents mailing.trace.report model.
 type MailingTraceReport struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
 	Bounced       *Int       `xmlrpc:"bounced,omitempty"`
 	Campaign      *String    `xmlrpc:"campaign,omitempty"`
 	Canceled      *Int       `xmlrpc:"canceled,omitempty"`
@@ -15,6 +14,8 @@ type MailingTraceReport struct {
 	MailingType   *Selection `xmlrpc:"mailing_type,omitempty"`
 	Name          *String    `xmlrpc:"name,omitempty"`
 	Opened        *Int       `xmlrpc:"opened,omitempty"`
+	Pending       *Int       `xmlrpc:"pending,omitempty"`
+	Processing    *Int       `xmlrpc:"processing,omitempty"`
 	Replied       *Int       `xmlrpc:"replied,omitempty"`
 	Scheduled     *Int       `xmlrpc:"scheduled,omitempty"`
 	ScheduledDate *Time      `xmlrpc:"scheduled_date,omitempty"`

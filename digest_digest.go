@@ -2,7 +2,6 @@ package odoo
 
 // DigestDigest represents digest.digest model.
 type DigestDigest struct {
-	LastUpdate                  *Time      `xmlrpc:"__last_update,omitempty"`
 	AvailableFields             *String    `xmlrpc:"available_fields,omitempty"`
 	CompanyId                   *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate                  *Time      `xmlrpc:"create_date,omitempty"`
@@ -13,12 +12,6 @@ type DigestDigest struct {
 	IsSubscribed                *Bool      `xmlrpc:"is_subscribed,omitempty"`
 	KpiAccountTotalRevenue      *Bool      `xmlrpc:"kpi_account_total_revenue,omitempty"`
 	KpiAccountTotalRevenueValue *Float     `xmlrpc:"kpi_account_total_revenue_value,omitempty"`
-	KpiAllSaleTotal             *Bool      `xmlrpc:"kpi_all_sale_total,omitempty"`
-	KpiAllSaleTotalValue        *Float     `xmlrpc:"kpi_all_sale_total_value,omitempty"`
-	KpiCrmLeadCreated           *Bool      `xmlrpc:"kpi_crm_lead_created,omitempty"`
-	KpiCrmLeadCreatedValue      *Int       `xmlrpc:"kpi_crm_lead_created_value,omitempty"`
-	KpiCrmOpportunitiesWon      *Bool      `xmlrpc:"kpi_crm_opportunities_won,omitempty"`
-	KpiCrmOpportunitiesWonValue *Int       `xmlrpc:"kpi_crm_opportunities_won_value,omitempty"`
 	KpiMailMessageTotal         *Bool      `xmlrpc:"kpi_mail_message_total,omitempty"`
 	KpiMailMessageTotalValue    *Int       `xmlrpc:"kpi_mail_message_total_value,omitempty"`
 	KpiPosTotal                 *Bool      `xmlrpc:"kpi_pos_total,omitempty"`

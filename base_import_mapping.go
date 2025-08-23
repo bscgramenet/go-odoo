@@ -2,7 +2,6 @@ package odoo
 
 // BaseImportMapping represents base_import.mapping model.
 type BaseImportMapping struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	ColumnName  *String   `xmlrpc:"column_name,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`

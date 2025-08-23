@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsReport represents ir.actions.report model.
 type IrActionsReport struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	Attachment       *String    `xmlrpc:"attachment,omitempty"`
 	AttachmentUse    *Bool      `xmlrpc:"attachment_use,omitempty"`
 	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
@@ -11,14 +10,17 @@ type IrActionsReport struct {
 	CreateDate       *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid        *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName      *String    `xmlrpc:"display_name,omitempty"`
+	Domain           *String    `xmlrpc:"domain,omitempty"`
 	GroupsId         *Relation  `xmlrpc:"groups_id,omitempty"`
 	Help             *String    `xmlrpc:"help,omitempty"`
 	Id               *Int       `xmlrpc:"id,omitempty"`
+	IsInvoiceReport  *Bool      `xmlrpc:"is_invoice_report,omitempty"`
 	Model            *String    `xmlrpc:"model,omitempty"`
 	ModelId          *Many2One  `xmlrpc:"model_id,omitempty"`
 	Multi            *Bool      `xmlrpc:"multi,omitempty"`
 	Name             *String    `xmlrpc:"name,omitempty"`
 	PaperformatId    *Many2One  `xmlrpc:"paperformat_id,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
 	PrintReportName  *String    `xmlrpc:"print_report_name,omitempty"`
 	ReportFile       *String    `xmlrpc:"report_file,omitempty"`
 	ReportName       *String    `xmlrpc:"report_name,omitempty"`

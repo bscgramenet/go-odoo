@@ -2,16 +2,17 @@ package odoo
 
 // MailLinkPreview represents mail.link.preview model.
 type MailLinkPreview struct {
-	LastUpdate    *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate    *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid     *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName   *String   `xmlrpc:"display_name,omitempty"`
 	Id            *Int      `xmlrpc:"id,omitempty"`
 	ImageMimetype *String   `xmlrpc:"image_mimetype,omitempty"`
+	IsHidden      *Bool     `xmlrpc:"is_hidden,omitempty"`
 	MessageId     *Many2One `xmlrpc:"message_id,omitempty"`
 	OgDescription *String   `xmlrpc:"og_description,omitempty"`
 	OgImage       *String   `xmlrpc:"og_image,omitempty"`
 	OgMimetype    *String   `xmlrpc:"og_mimetype,omitempty"`
+	OgSiteName    *String   `xmlrpc:"og_site_name,omitempty"`
 	OgTitle       *String   `xmlrpc:"og_title,omitempty"`
 	OgType        *String   `xmlrpc:"og_type,omitempty"`
 	SourceUrl     *String   `xmlrpc:"source_url,omitempty"`

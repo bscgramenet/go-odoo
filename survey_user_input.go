@@ -2,9 +2,7 @@ package odoo
 
 // SurveyUserInput represents survey.user_input model.
 type SurveyUserInput struct {
-	LastUpdate                  *Time      `xmlrpc:"__last_update,omitempty"`
 	AccessToken                 *String    `xmlrpc:"access_token,omitempty"`
-	ActivityCalendarEventId     *Many2One  `xmlrpc:"activity_calendar_event_id,omitempty"`
 	ActivityDateDeadline        *Time      `xmlrpc:"activity_date_deadline,omitempty"`
 	ActivityExceptionDecoration *Selection `xmlrpc:"activity_exception_decoration,omitempty"`
 	ActivityExceptionIcon       *String    `xmlrpc:"activity_exception_icon,omitempty"`
@@ -36,7 +34,6 @@ type SurveyUserInput struct {
 	MessageHasSmsError          *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds                  *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower           *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId     *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction           *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter    *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds           *Relation  `xmlrpc:"message_partner_ids,omitempty"`
@@ -45,12 +42,14 @@ type SurveyUserInput struct {
 	PartnerId                   *Many2One  `xmlrpc:"partner_id,omitempty"`
 	PredefinedQuestionIds       *Relation  `xmlrpc:"predefined_question_ids,omitempty"`
 	QuestionTimeLimitReached    *Bool      `xmlrpc:"question_time_limit_reached,omitempty"`
+	RatingIds                   *Relation  `xmlrpc:"rating_ids,omitempty"`
 	ScoringPercentage           *Float     `xmlrpc:"scoring_percentage,omitempty"`
 	ScoringSuccess              *Bool      `xmlrpc:"scoring_success,omitempty"`
 	ScoringTotal                *Float     `xmlrpc:"scoring_total,omitempty"`
 	ScoringType                 *Selection `xmlrpc:"scoring_type,omitempty"`
 	StartDatetime               *Time      `xmlrpc:"start_datetime,omitempty"`
 	State                       *Selection `xmlrpc:"state,omitempty"`
+	SurveyFirstSubmitted        *Bool      `xmlrpc:"survey_first_submitted,omitempty"`
 	SurveyId                    *Many2One  `xmlrpc:"survey_id,omitempty"`
 	SurveyTimeLimitReached      *Bool      `xmlrpc:"survey_time_limit_reached,omitempty"`
 	TestEntry                   *Bool      `xmlrpc:"test_entry,omitempty"`

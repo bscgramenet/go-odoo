@@ -2,24 +2,23 @@ package odoo
 
 // WebEditorConverterTest represents web_editor.converter.test model.
 type WebEditorConverterTest struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
-	Binary        *String    `xmlrpc:"binary,omitempty"`
-	Char          *String    `xmlrpc:"char,omitempty"`
-	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
-	Date          *Time      `xmlrpc:"date,omitempty"`
-	Datetime      *Time      `xmlrpc:"datetime,omitempty"`
-	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
-	Float         *Float     `xmlrpc:"float,omitempty"`
-	Html          *String    `xmlrpc:"html,omitempty"`
-	Id            *Int       `xmlrpc:"id,omitempty"`
-	Integer       *Int       `xmlrpc:"integer,omitempty"`
-	Many2OneField *Many2One  `xmlrpc:"many2one,omitempty"`
-	Numeric       *Float     `xmlrpc:"numeric,omitempty"`
-	SelectionStr  *Selection `xmlrpc:"selection_str,omitempty"`
-	Text          *String    `xmlrpc:"text,omitempty"`
-	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Binary       *String    `xmlrpc:"binary,omitempty"`
+	Char         *String    `xmlrpc:"char,omitempty"`
+	CreateDate   *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid    *Many2One  `xmlrpc:"create_uid,omitempty"`
+	Date         *Time      `xmlrpc:"date,omitempty"`
+	Datetime     *Time      `xmlrpc:"datetime,omitempty"`
+	DisplayName  *String    `xmlrpc:"display_name,omitempty"`
+	Float        *Float     `xmlrpc:"float,omitempty"`
+	Html         *String    `xmlrpc:"html,omitempty"`
+	Id           *Int       `xmlrpc:"id,omitempty"`
+	Integer      *Int       `xmlrpc:"integer,omitempty"`
+	Many2One     *Many2One  `xmlrpc:"many2one,omitempty"`
+	Numeric      *Float     `xmlrpc:"numeric,omitempty"`
+	SelectionStr *Selection `xmlrpc:"selection_str,omitempty"`
+	Text         *String    `xmlrpc:"text,omitempty"`
+	WriteDate    *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid     *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // WebEditorConverterTests represents array of web_editor.converter.test model.

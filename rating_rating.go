@@ -2,7 +2,6 @@ package odoo
 
 // RatingRating represents rating.rating model.
 type RatingRating struct {
-	LastUpdate        *Time      `xmlrpc:"__last_update,omitempty"`
 	AccessToken       *String    `xmlrpc:"access_token,omitempty"`
 	Consumed          *Bool      `xmlrpc:"consumed,omitempty"`
 	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // IrModuleModuleDependency represents ir.module.module.dependency model.
 type IrModuleModuleDependency struct {
-	LastUpdate          *Time      `xmlrpc:"__last_update,omitempty"`
 	AutoInstallRequired *Bool      `xmlrpc:"auto_install_required,omitempty"`
 	DependId            *Many2One  `xmlrpc:"depend_id,omitempty"`
 	DisplayName         *String    `xmlrpc:"display_name,omitempty"`

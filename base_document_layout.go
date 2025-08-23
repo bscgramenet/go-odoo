@@ -2,7 +2,7 @@ package odoo
 
 // BaseDocumentLayout represents base.document.layout model.
 type BaseDocumentLayout struct {
-	LastUpdate             *Time      `xmlrpc:"__last_update,omitempty"`
+	AccountNumber          *String    `xmlrpc:"account_number,omitempty"`
 	CompanyDetails         *String    `xmlrpc:"company_details,omitempty"`
 	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
 	CountryId              *Many2One  `xmlrpc:"country_id,omitempty"`
@@ -13,6 +13,7 @@ type BaseDocumentLayout struct {
 	Email                  *String    `xmlrpc:"email,omitempty"`
 	ExternalReportLayoutId *Many2One  `xmlrpc:"external_report_layout_id,omitempty"`
 	Font                   *Selection `xmlrpc:"font,omitempty"`
+	FromInvoice            *Bool      `xmlrpc:"from_invoice,omitempty"`
 	Id                     *Int       `xmlrpc:"id,omitempty"`
 	IsCompanyDetailsEmpty  *Bool      `xmlrpc:"is_company_details_empty,omitempty"`
 	LayoutBackground       *Selection `xmlrpc:"layout_background,omitempty"`
@@ -27,6 +28,7 @@ type BaseDocumentLayout struct {
 	Preview                *String    `xmlrpc:"preview,omitempty"`
 	PreviewLogo            *String    `xmlrpc:"preview_logo,omitempty"`
 	PrimaryColor           *String    `xmlrpc:"primary_color,omitempty"`
+	QrCode                 *Bool      `xmlrpc:"qr_code,omitempty"`
 	ReportFooter           *String    `xmlrpc:"report_footer,omitempty"`
 	ReportHeader           *String    `xmlrpc:"report_header,omitempty"`
 	ReportLayoutId         *Many2One  `xmlrpc:"report_layout_id,omitempty"`

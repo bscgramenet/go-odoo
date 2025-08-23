@@ -2,7 +2,6 @@ package odoo
 
 // IrModelConstraint represents ir.model.constraint model.
 type IrModelConstraint struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	Definition  *String   `xmlrpc:"definition,omitempty"`

@@ -2,13 +2,12 @@ package odoo
 
 // LotLabelLayout represents lot.label.layout model.
 type LotLabelLayout struct {
-	LastUpdate    *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate    *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid     *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName   *String    `xmlrpc:"display_name,omitempty"`
 	Id            *Int       `xmlrpc:"id,omitempty"`
 	LabelQuantity *Selection `xmlrpc:"label_quantity,omitempty"`
-	PickingIds    *Relation  `xmlrpc:"picking_ids,omitempty"`
+	MoveLineIds   *Relation  `xmlrpc:"move_line_ids,omitempty"`
 	PrintFormat   *Selection `xmlrpc:"print_format,omitempty"`
 	WriteDate     *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid      *Many2One  `xmlrpc:"write_uid,omitempty"`

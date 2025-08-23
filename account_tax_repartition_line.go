@@ -2,7 +2,6 @@ package odoo
 
 // AccountTaxRepartitionLine represents account.tax.repartition.line model.
 type AccountTaxRepartitionLine struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
 	AccountId       *Many2One  `xmlrpc:"account_id,omitempty"`
 	CompanyId       *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
@@ -12,8 +11,6 @@ type AccountTaxRepartitionLine struct {
 	Factor          *Float     `xmlrpc:"factor,omitempty"`
 	FactorPercent   *Float     `xmlrpc:"factor_percent,omitempty"`
 	Id              *Int       `xmlrpc:"id,omitempty"`
-	InvoiceTaxId    *Many2One  `xmlrpc:"invoice_tax_id,omitempty"`
-	RefundTaxId     *Many2One  `xmlrpc:"refund_tax_id,omitempty"`
 	RepartitionType *Selection `xmlrpc:"repartition_type,omitempty"`
 	Sequence        *Int       `xmlrpc:"sequence,omitempty"`
 	TagIds          *Relation  `xmlrpc:"tag_ids,omitempty"`

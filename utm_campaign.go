@@ -2,19 +2,18 @@ package odoo
 
 // UtmCampaign represents utm.campaign model.
 type UtmCampaign struct {
-	LastUpdate                 *Time      `xmlrpc:"__last_update,omitempty"`
 	AbTestingCompleted         *Bool      `xmlrpc:"ab_testing_completed,omitempty"`
 	AbTestingMailingsCount     *Int       `xmlrpc:"ab_testing_mailings_count,omitempty"`
 	AbTestingScheduleDatetime  *Time      `xmlrpc:"ab_testing_schedule_datetime,omitempty"`
-	AbTestingTotalPc           *Int       `xmlrpc:"ab_testing_total_pc,omitempty"`
+	AbTestingWinnerMailingId   *Many2One  `xmlrpc:"ab_testing_winner_mailing_id,omitempty"`
 	AbTestingWinnerSelection   *Selection `xmlrpc:"ab_testing_winner_selection,omitempty"`
-	BouncedRatio               *Int       `xmlrpc:"bounced_ratio,omitempty"`
+	Active                     *Bool      `xmlrpc:"active,omitempty"`
+	BouncedRatio               *Float     `xmlrpc:"bounced_ratio,omitempty"`
 	ClickCount                 *Int       `xmlrpc:"click_count,omitempty"`
 	Color                      *Int       `xmlrpc:"color,omitempty"`
 	CompanyId                  *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                  *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CrmLeadCount               *Int       `xmlrpc:"crm_lead_count,omitempty"`
 	CurrencyId                 *Many2One  `xmlrpc:"currency_id,omitempty"`
 	DisplayName                *String    `xmlrpc:"display_name,omitempty"`
 	Id                         *Int       `xmlrpc:"id,omitempty"`
@@ -24,14 +23,13 @@ type UtmCampaign struct {
 	MailingMailCount           *Int       `xmlrpc:"mailing_mail_count,omitempty"`
 	MailingMailIds             *Relation  `xmlrpc:"mailing_mail_ids,omitempty"`
 	Name                       *String    `xmlrpc:"name,omitempty"`
-	OpenedRatio                *Int       `xmlrpc:"opened_ratio,omitempty"`
+	OpenedRatio                *Float     `xmlrpc:"opened_ratio,omitempty"`
 	QuotationCount             *Int       `xmlrpc:"quotation_count,omitempty"`
-	ReceivedRatio              *Int       `xmlrpc:"received_ratio,omitempty"`
-	RepliedRatio               *Int       `xmlrpc:"replied_ratio,omitempty"`
+	ReceivedRatio              *Float     `xmlrpc:"received_ratio,omitempty"`
+	RepliedRatio               *Float     `xmlrpc:"replied_ratio,omitempty"`
 	StageId                    *Many2One  `xmlrpc:"stage_id,omitempty"`
 	TagIds                     *Relation  `xmlrpc:"tag_ids,omitempty"`
 	Title                      *String    `xmlrpc:"title,omitempty"`
-	UseLeads                   *Bool      `xmlrpc:"use_leads,omitempty"`
 	UserId                     *Many2One  `xmlrpc:"user_id,omitempty"`
 	WriteDate                  *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid                   *Many2One  `xmlrpc:"write_uid,omitempty"`

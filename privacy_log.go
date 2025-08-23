@@ -2,7 +2,6 @@ package odoo
 
 // PrivacyLog represents privacy.log model.
 type PrivacyLog struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
 	AdditionalNote     *String   `xmlrpc:"additional_note,omitempty"`
 	AnonymizedEmail    *String   `xmlrpc:"anonymized_email,omitempty"`
 	AnonymizedName     *String   `xmlrpc:"anonymized_name,omitempty"`

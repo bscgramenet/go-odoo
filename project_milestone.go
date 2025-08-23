@@ -2,13 +2,12 @@ package odoo
 
 // ProjectMilestone represents project.milestone model.
 type ProjectMilestone struct {
-	LastUpdate               *Time     `xmlrpc:"__last_update,omitempty"`
-	AllowBillable            *Bool     `xmlrpc:"allow_billable,omitempty"`
 	CanBeMarkedAsDone        *Bool     `xmlrpc:"can_be_marked_as_done,omitempty"`
 	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
 	Deadline                 *Time     `xmlrpc:"deadline,omitempty"`
 	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	DoneTaskCount            *Int      `xmlrpc:"done_task_count,omitempty"`
 	HasMessage               *Bool     `xmlrpc:"has_message,omitempty"`
 	Id                       *Int      `xmlrpc:"id,omitempty"`
 	IsDeadlineExceeded       *Bool     `xmlrpc:"is_deadline_exceeded,omitempty"`
@@ -21,17 +20,13 @@ type ProjectMilestone struct {
 	MessageHasSmsError       *Bool     `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool     `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`
 	ProjectId                *Many2One `xmlrpc:"project_id,omitempty"`
-	ProjectPartnerId         *Many2One `xmlrpc:"project_partner_id,omitempty"`
-	QuantityPercentage       *Float    `xmlrpc:"quantity_percentage,omitempty"`
+	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
 	ReachedDate              *Time     `xmlrpc:"reached_date,omitempty"`
-	SaleLineId               *Many2One `xmlrpc:"sale_line_id,omitempty"`
-	SaleLineName             *String   `xmlrpc:"sale_line_name,omitempty"`
 	TaskCount                *Int      `xmlrpc:"task_count,omitempty"`
 	TaskIds                  *Relation `xmlrpc:"task_ids,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // MailingContactImport represents mailing.contact.import model.
 type MailingContactImport struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
 	ContactList    *String   `xmlrpc:"contact_list,omitempty"`
 	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // StockLocation represents stock.location model.
 type StockLocation struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
 	Active                   *Bool      `xmlrpc:"active,omitempty"`
 	Barcode                  *String    `xmlrpc:"barcode,omitempty"`
 	ChildIds                 *Relation  `xmlrpc:"child_ids,omitempty"`
@@ -17,6 +16,7 @@ type StockLocation struct {
 	ForecastWeight           *Float     `xmlrpc:"forecast_weight,omitempty"`
 	Id                       *Int       `xmlrpc:"id,omitempty"`
 	IncomingMoveLineIds      *Relation  `xmlrpc:"incoming_move_line_ids,omitempty"`
+	IsEmpty                  *Bool      `xmlrpc:"is_empty,omitempty"`
 	LastInventoryDate        *Time      `xmlrpc:"last_inventory_date,omitempty"`
 	LocationId               *Many2One  `xmlrpc:"location_id,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
@@ -31,7 +31,6 @@ type StockLocation struct {
 	QuantIds                 *Relation  `xmlrpc:"quant_ids,omitempty"`
 	RemovalStrategyId        *Many2One  `xmlrpc:"removal_strategy_id,omitempty"`
 	ReplenishLocation        *Bool      `xmlrpc:"replenish_location,omitempty"`
-	ReturnLocation           *Bool      `xmlrpc:"return_location,omitempty"`
 	ScrapLocation            *Bool      `xmlrpc:"scrap_location,omitempty"`
 	StorageCategoryId        *Many2One  `xmlrpc:"storage_category_id,omitempty"`
 	Usage                    *Selection `xmlrpc:"usage,omitempty"`

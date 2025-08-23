@@ -2,7 +2,6 @@ package odoo
 
 // StockWarehouse represents stock.warehouse model.
 type StockWarehouse struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	Active             *Bool      `xmlrpc:"active,omitempty"`
 	Code               *String    `xmlrpc:"code,omitempty"`
 	CompanyId          *Many2One  `xmlrpc:"company_id,omitempty"`
@@ -23,13 +22,14 @@ type StockWarehouse struct {
 	PartnerId          *Many2One  `xmlrpc:"partner_id,omitempty"`
 	PickTypeId         *Many2One  `xmlrpc:"pick_type_id,omitempty"`
 	PosTypeId          *Many2One  `xmlrpc:"pos_type_id,omitempty"`
+	QcTypeId           *Many2One  `xmlrpc:"qc_type_id,omitempty"`
 	ReceptionRouteId   *Many2One  `xmlrpc:"reception_route_id,omitempty"`
 	ReceptionSteps     *Selection `xmlrpc:"reception_steps,omitempty"`
 	ResupplyRouteIds   *Relation  `xmlrpc:"resupply_route_ids,omitempty"`
 	ResupplyWhIds      *Relation  `xmlrpc:"resupply_wh_ids,omitempty"`
-	ReturnTypeId       *Many2One  `xmlrpc:"return_type_id,omitempty"`
 	RouteIds           *Relation  `xmlrpc:"route_ids,omitempty"`
 	Sequence           *Int       `xmlrpc:"sequence,omitempty"`
+	StoreTypeId        *Many2One  `xmlrpc:"store_type_id,omitempty"`
 	ViewLocationId     *Many2One  `xmlrpc:"view_location_id,omitempty"`
 	WhInputStockLocId  *Many2One  `xmlrpc:"wh_input_stock_loc_id,omitempty"`
 	WhOutputStockLocId *Many2One  `xmlrpc:"wh_output_stock_loc_id,omitempty"`
@@ -37,6 +37,7 @@ type StockWarehouse struct {
 	WhQcStockLocId     *Many2One  `xmlrpc:"wh_qc_stock_loc_id,omitempty"`
 	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
+	XdockTypeId        *Many2One  `xmlrpc:"xdock_type_id,omitempty"`
 }
 
 // StockWarehouses represents array of stock.warehouse model.

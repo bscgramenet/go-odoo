@@ -2,12 +2,12 @@ package odoo
 
 // AccountPaymentMethodLine represents account.payment.method.line model.
 type AccountPaymentMethodLine struct {
-	LastUpdate                *Time      `xmlrpc:"__last_update,omitempty"`
 	AvailablePaymentMethodIds *Relation  `xmlrpc:"available_payment_method_ids,omitempty"`
 	Code                      *String    `xmlrpc:"code,omitempty"`
 	CompanyId                 *Many2One  `xmlrpc:"company_id,omitempty"`
 	CreateDate                *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                 *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DefaultAccountId          *Many2One  `xmlrpc:"default_account_id,omitempty"`
 	DisplayName               *String    `xmlrpc:"display_name,omitempty"`
 	Id                        *Int       `xmlrpc:"id,omitempty"`
 	JournalId                 *Many2One  `xmlrpc:"journal_id,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // StockTrackLine represents stock.track.line model.
 type StockTrackLine struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName        *String    `xmlrpc:"display_name,omitempty"`

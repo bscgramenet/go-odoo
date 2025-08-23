@@ -2,7 +2,6 @@ package odoo
 
 // ProductTemplateAttributeValue represents product.template.attribute.value model.
 type ProductTemplateAttributeValue struct {
-	LastUpdate              *Time      `xmlrpc:"__last_update,omitempty"`
 	AttributeId             *Many2One  `xmlrpc:"attribute_id,omitempty"`
 	AttributeLineId         *Many2One  `xmlrpc:"attribute_line_id,omitempty"`
 	Color                   *Int       `xmlrpc:"color,omitempty"`
@@ -14,6 +13,7 @@ type ProductTemplateAttributeValue struct {
 	ExcludeFor              *Relation  `xmlrpc:"exclude_for,omitempty"`
 	HtmlColor               *String    `xmlrpc:"html_color,omitempty"`
 	Id                      *Int       `xmlrpc:"id,omitempty"`
+	Image                   *String    `xmlrpc:"image,omitempty"`
 	IsCustom                *Bool      `xmlrpc:"is_custom,omitempty"`
 	Name                    *String    `xmlrpc:"name,omitempty"`
 	PriceExtra              *Float     `xmlrpc:"price_extra,omitempty"`

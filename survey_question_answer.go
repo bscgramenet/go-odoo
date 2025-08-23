@@ -2,7 +2,6 @@ package odoo
 
 // SurveyQuestionAnswer represents survey.question.answer model.
 type SurveyQuestionAnswer struct {
-	LastUpdate         *Time      `xmlrpc:"__last_update,omitempty"`
 	AnswerScore        *Float     `xmlrpc:"answer_score,omitempty"`
 	CreateDate         *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid          *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -17,6 +16,7 @@ type SurveyQuestionAnswer struct {
 	Value              *String    `xmlrpc:"value,omitempty"`
 	ValueImage         *String    `xmlrpc:"value_image,omitempty"`
 	ValueImageFilename *String    `xmlrpc:"value_image_filename,omitempty"`
+	ValueLabel         *String    `xmlrpc:"value_label,omitempty"`
 	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`
 }

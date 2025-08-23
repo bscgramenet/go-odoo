@@ -2,7 +2,6 @@ package odoo
 
 // SnailmailLetterMissingRequiredFields represents snailmail.letter.missing.required.fields model.
 type SnailmailLetterMissingRequiredFields struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	City        *String   `xmlrpc:"city,omitempty"`
 	CountryId   *Many2One `xmlrpc:"country_id,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`

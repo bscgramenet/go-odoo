@@ -2,30 +2,39 @@ package odoo
 
 // PosPayment represents pos.payment model.
 type PosPayment struct {
-	LastUpdate      *Time     `xmlrpc:"__last_update,omitempty"`
-	AccountMoveId   *Many2One `xmlrpc:"account_move_id,omitempty"`
-	Amount          *Float    `xmlrpc:"amount,omitempty"`
-	CardType        *String   `xmlrpc:"card_type,omitempty"`
-	CardholderName  *String   `xmlrpc:"cardholder_name,omitempty"`
-	CompanyId       *Many2One `xmlrpc:"company_id,omitempty"`
-	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
-	CurrencyId      *Many2One `xmlrpc:"currency_id,omitempty"`
-	CurrencyRate    *Float    `xmlrpc:"currency_rate,omitempty"`
-	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
-	Id              *Int      `xmlrpc:"id,omitempty"`
-	IsChange        *Bool     `xmlrpc:"is_change,omitempty"`
-	Name            *String   `xmlrpc:"name,omitempty"`
-	PartnerId       *Many2One `xmlrpc:"partner_id,omitempty"`
-	PaymentDate     *Time     `xmlrpc:"payment_date,omitempty"`
-	PaymentMethodId *Many2One `xmlrpc:"payment_method_id,omitempty"`
-	PaymentStatus   *String   `xmlrpc:"payment_status,omitempty"`
-	PosOrderId      *Many2One `xmlrpc:"pos_order_id,omitempty"`
-	SessionId       *Many2One `xmlrpc:"session_id,omitempty"`
-	Ticket          *String   `xmlrpc:"ticket,omitempty"`
-	TransactionId   *String   `xmlrpc:"transaction_id,omitempty"`
-	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
+	AccountMoveId            *Many2One `xmlrpc:"account_move_id,omitempty"`
+	Amount                   *Float    `xmlrpc:"amount,omitempty"`
+	CardBrand                *String   `xmlrpc:"card_brand,omitempty"`
+	CardNo                   *String   `xmlrpc:"card_no,omitempty"`
+	CardType                 *String   `xmlrpc:"card_type,omitempty"`
+	CardholderName           *String   `xmlrpc:"cardholder_name,omitempty"`
+	CompanyId                *Many2One `xmlrpc:"company_id,omitempty"`
+	CreateDate               *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid                *Many2One `xmlrpc:"create_uid,omitempty"`
+	CurrencyId               *Many2One `xmlrpc:"currency_id,omitempty"`
+	CurrencyRate             *Float    `xmlrpc:"currency_rate,omitempty"`
+	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	EmployeeId               *Many2One `xmlrpc:"employee_id,omitempty"`
+	Id                       *Int      `xmlrpc:"id,omitempty"`
+	IsChange                 *Bool     `xmlrpc:"is_change,omitempty"`
+	Name                     *String   `xmlrpc:"name,omitempty"`
+	OnlineAccountPaymentId   *Many2One `xmlrpc:"online_account_payment_id,omitempty"`
+	PartnerId                *Many2One `xmlrpc:"partner_id,omitempty"`
+	PaymentDate              *Time     `xmlrpc:"payment_date,omitempty"`
+	PaymentMethodAuthcode    *String   `xmlrpc:"payment_method_authcode,omitempty"`
+	PaymentMethodId          *Many2One `xmlrpc:"payment_method_id,omitempty"`
+	PaymentMethodIssuerBank  *String   `xmlrpc:"payment_method_issuer_bank,omitempty"`
+	PaymentMethodPaymentMode *String   `xmlrpc:"payment_method_payment_mode,omitempty"`
+	PaymentRefNo             *String   `xmlrpc:"payment_ref_no,omitempty"`
+	PaymentStatus            *String   `xmlrpc:"payment_status,omitempty"`
+	PosOrderId               *Many2One `xmlrpc:"pos_order_id,omitempty"`
+	SessionId                *Many2One `xmlrpc:"session_id,omitempty"`
+	Ticket                   *String   `xmlrpc:"ticket,omitempty"`
+	TransactionId            *String   `xmlrpc:"transaction_id,omitempty"`
+	UserId                   *Many2One `xmlrpc:"user_id,omitempty"`
+	Uuid                     *String   `xmlrpc:"uuid,omitempty"`
+	WriteDate                *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid                 *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // PosPayments represents array of pos.payment model.

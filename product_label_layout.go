@@ -2,22 +2,22 @@ package odoo
 
 // ProductLabelLayout represents product.label.layout model.
 type ProductLabelLayout struct {
-	LastUpdate      *Time      `xmlrpc:"__last_update,omitempty"`
-	Columns         *Int       `xmlrpc:"columns,omitempty"`
-	CreateDate      *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid       *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CustomQuantity  *Int       `xmlrpc:"custom_quantity,omitempty"`
-	DisplayName     *String    `xmlrpc:"display_name,omitempty"`
-	ExtraHtml       *String    `xmlrpc:"extra_html,omitempty"`
-	Id              *Int       `xmlrpc:"id,omitempty"`
-	MoveLineIds     *Relation  `xmlrpc:"move_line_ids,omitempty"`
-	PickingQuantity *Selection `xmlrpc:"picking_quantity,omitempty"`
-	PrintFormat     *Selection `xmlrpc:"print_format,omitempty"`
-	ProductIds      *Relation  `xmlrpc:"product_ids,omitempty"`
-	ProductTmplIds  *Relation  `xmlrpc:"product_tmpl_ids,omitempty"`
-	Rows            *Int       `xmlrpc:"rows,omitempty"`
-	WriteDate       *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid        *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Columns        *Int       `xmlrpc:"columns,omitempty"`
+	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CustomQuantity *Int       `xmlrpc:"custom_quantity,omitempty"`
+	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
+	ExtraHtml      *String    `xmlrpc:"extra_html,omitempty"`
+	Id             *Int       `xmlrpc:"id,omitempty"`
+	MoveIds        *Relation  `xmlrpc:"move_ids,omitempty"`
+	MoveQuantity   *Selection `xmlrpc:"move_quantity,omitempty"`
+	PricelistId    *Many2One  `xmlrpc:"pricelist_id,omitempty"`
+	PrintFormat    *Selection `xmlrpc:"print_format,omitempty"`
+	ProductIds     *Relation  `xmlrpc:"product_ids,omitempty"`
+	ProductTmplIds *Relation  `xmlrpc:"product_tmpl_ids,omitempty"`
+	Rows           *Int       `xmlrpc:"rows,omitempty"`
+	WriteDate      *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid       *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // ProductLabelLayouts represents array of product.label.layout model.

@@ -2,7 +2,6 @@ package odoo
 
 // IrActionsClient represents ir.actions.client model.
 type IrActionsClient struct {
-	LastUpdate       *Time      `xmlrpc:"__last_update,omitempty"`
 	BindingModelId   *Many2One  `xmlrpc:"binding_model_id,omitempty"`
 	BindingType      *Selection `xmlrpc:"binding_type,omitempty"`
 	BindingViewTypes *String    `xmlrpc:"binding_view_types,omitempty"`
@@ -15,6 +14,7 @@ type IrActionsClient struct {
 	Name             *String    `xmlrpc:"name,omitempty"`
 	Params           *String    `xmlrpc:"params,omitempty"`
 	ParamsStore      *String    `xmlrpc:"params_store,omitempty"`
+	Path             *String    `xmlrpc:"path,omitempty"`
 	ResModel         *String    `xmlrpc:"res_model,omitempty"`
 	Tag              *String    `xmlrpc:"tag,omitempty"`
 	Target           *Selection `xmlrpc:"target,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // IrLogging represents ir.logging model.
 type IrLogging struct {
-	LastUpdate  *Time      `xmlrpc:"__last_update,omitempty"`
 	CreateDate  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Int       `xmlrpc:"create_uid,omitempty"`
 	Dbname      *String    `xmlrpc:"dbname,omitempty"`

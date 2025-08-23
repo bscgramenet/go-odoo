@@ -2,7 +2,6 @@ package odoo
 
 // FetchmailServer represents fetchmail.server model.
 type FetchmailServer struct {
-	LastUpdate                       *Time      `xmlrpc:"__last_update,omitempty"`
 	Active                           *Bool      `xmlrpc:"active,omitempty"`
 	Attach                           *Bool      `xmlrpc:"attach,omitempty"`
 	Configuration                    *String    `xmlrpc:"configuration,omitempty"`

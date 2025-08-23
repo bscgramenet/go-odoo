@@ -2,19 +2,21 @@ package odoo
 
 // MailResendPartner represents mail.resend.partner model.
 type MailResendPartner struct {
-	LastUpdate     *Time     `xmlrpc:"__last_update,omitempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
-	Email          *String   `xmlrpc:"email,omitempty"`
-	Id             *Int      `xmlrpc:"id,omitempty"`
-	Message        *String   `xmlrpc:"message,omitempty"`
-	Name           *String   `xmlrpc:"name,omitempty"`
-	PartnerId      *Many2One `xmlrpc:"partner_id,omitempty"`
-	Resend         *Bool     `xmlrpc:"resend,omitempty"`
-	ResendWizardId *Many2One `xmlrpc:"resend_wizard_id,omitempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
+	CreateDate      *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid       *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName     *String   `xmlrpc:"display_name,omitempty"`
+	Email           *String   `xmlrpc:"email,omitempty"`
+	FailureReason   *String   `xmlrpc:"failure_reason,omitempty"`
+	Id              *Int      `xmlrpc:"id,omitempty"`
+	Message         *String   `xmlrpc:"message,omitempty"`
+	Name            *String   `xmlrpc:"name,omitempty"`
+	NotificationId  *Many2One `xmlrpc:"notification_id,omitempty"`
+	PartnerId       *Many2One `xmlrpc:"partner_id,omitempty"`
+	PartnerReadonly *Bool     `xmlrpc:"partner_readonly,omitempty"`
+	Resend          *Bool     `xmlrpc:"resend,omitempty"`
+	ResendWizardId  *Many2One `xmlrpc:"resend_wizard_id,omitempty"`
+	WriteDate       *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid        *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // MailResendPartners represents array of mail.resend.partner model.

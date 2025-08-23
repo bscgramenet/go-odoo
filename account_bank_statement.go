@@ -2,7 +2,6 @@ package odoo
 
 // AccountBankStatement represents account.bank.statement model.
 type AccountBankStatement struct {
-	LastUpdate         *Time     `xmlrpc:"__last_update,omitempty"`
 	AttachmentIds      *Relation `xmlrpc:"attachment_ids,omitempty"`
 	BalanceEnd         *Float    `xmlrpc:"balance_end,omitempty"`
 	BalanceEndReal     *Float    `xmlrpc:"balance_end_real,omitempty"`

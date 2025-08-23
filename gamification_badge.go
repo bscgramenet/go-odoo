@@ -2,7 +2,6 @@ package odoo
 
 // GamificationBadge represents gamification.badge model.
 type GamificationBadge struct {
-	LastUpdate               *Time      `xmlrpc:"__last_update,omitempty"`
 	Active                   *Bool      `xmlrpc:"active,omitempty"`
 	ChallengeIds             *Relation  `xmlrpc:"challenge_ids,omitempty"`
 	CreateDate               *Time      `xmlrpc:"create_date,omitempty"`
@@ -28,12 +27,12 @@ type GamificationBadge struct {
 	MessageHasSmsError       *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds               *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower        *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId  *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction        *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation  `xmlrpc:"message_partner_ids,omitempty"`
 	Name                     *String    `xmlrpc:"name,omitempty"`
 	OwnerIds                 *Relation  `xmlrpc:"owner_ids,omitempty"`
+	RatingIds                *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RemainingSending         *Int       `xmlrpc:"remaining_sending,omitempty"`
 	RuleAuth                 *Selection `xmlrpc:"rule_auth,omitempty"`
 	RuleAuthBadgeIds         *Relation  `xmlrpc:"rule_auth_badge_ids,omitempty"`

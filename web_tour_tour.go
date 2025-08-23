@@ -2,11 +2,20 @@ package odoo
 
 // WebTourTour represents web_tour.tour model.
 type WebTourTour struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	UserId      *Many2One `xmlrpc:"user_id,omitempty"`
+	CreateDate        *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One `xmlrpc:"create_uid,omitempty"`
+	Custom            *Bool     `xmlrpc:"custom,omitempty"`
+	DisplayName       *String   `xmlrpc:"display_name,omitempty"`
+	Id                *Int      `xmlrpc:"id,omitempty"`
+	Name              *String   `xmlrpc:"name,omitempty"`
+	RainbowManMessage *String   `xmlrpc:"rainbow_man_message,omitempty"`
+	Sequence          *Int      `xmlrpc:"sequence,omitempty"`
+	SharingUrl        *String   `xmlrpc:"sharing_url,omitempty"`
+	StepIds           *Relation `xmlrpc:"step_ids,omitempty"`
+	Url               *String   `xmlrpc:"url,omitempty"`
+	UserConsumedIds   *Relation `xmlrpc:"user_consumed_ids,omitempty"`
+	WriteDate         *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // WebTourTours represents array of web_tour.tour model.

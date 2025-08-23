@@ -2,16 +2,15 @@ package odoo
 
 // MailingMailing represents mailing.mailing model.
 type MailingMailing struct {
-	LastUpdate                  *Time      `xmlrpc:"__last_update,omitempty"`
 	AbTestingCompleted          *Bool      `xmlrpc:"ab_testing_completed,omitempty"`
 	AbTestingDescription        *String    `xmlrpc:"ab_testing_description,omitempty"`
 	AbTestingEnabled            *Bool      `xmlrpc:"ab_testing_enabled,omitempty"`
+	AbTestingIsWinnerMailing    *Bool      `xmlrpc:"ab_testing_is_winner_mailing,omitempty"`
 	AbTestingMailingsCount      *Int       `xmlrpc:"ab_testing_mailings_count,omitempty"`
 	AbTestingPc                 *Int       `xmlrpc:"ab_testing_pc,omitempty"`
 	AbTestingScheduleDatetime   *Time      `xmlrpc:"ab_testing_schedule_datetime,omitempty"`
 	AbTestingWinnerSelection    *Selection `xmlrpc:"ab_testing_winner_selection,omitempty"`
 	Active                      *Bool      `xmlrpc:"active,omitempty"`
-	ActivityCalendarEventId     *Many2One  `xmlrpc:"activity_calendar_event_id,omitempty"`
 	ActivityDateDeadline        *Time      `xmlrpc:"activity_date_deadline,omitempty"`
 	ActivityExceptionDecoration *Selection `xmlrpc:"activity_exception_decoration,omitempty"`
 	ActivityExceptionIcon       *String    `xmlrpc:"activity_exception_icon,omitempty"`
@@ -25,17 +24,16 @@ type MailingMailing struct {
 	BodyArch                    *String    `xmlrpc:"body_arch,omitempty"`
 	BodyHtml                    *String    `xmlrpc:"body_html,omitempty"`
 	Bounced                     *Int       `xmlrpc:"bounced,omitempty"`
-	BouncedRatio                *Int       `xmlrpc:"bounced_ratio,omitempty"`
+	BouncedRatio                *Float     `xmlrpc:"bounced_ratio,omitempty"`
 	CalendarDate                *Time      `xmlrpc:"calendar_date,omitempty"`
 	CampaignId                  *Many2One  `xmlrpc:"campaign_id,omitempty"`
 	Canceled                    *Int       `xmlrpc:"canceled,omitempty"`
 	Clicked                     *Int       `xmlrpc:"clicked,omitempty"`
-	ClicksRatio                 *Int       `xmlrpc:"clicks_ratio,omitempty"`
+	ClicksRatio                 *Float     `xmlrpc:"clicks_ratio,omitempty"`
 	Color                       *Int       `xmlrpc:"color,omitempty"`
 	ContactListIds              *Relation  `xmlrpc:"contact_list_ids,omitempty"`
 	CreateDate                  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                   *Many2One  `xmlrpc:"create_uid,omitempty"`
-	CrmLeadCount                *Int       `xmlrpc:"crm_lead_count,omitempty"`
 	Delivered                   *Int       `xmlrpc:"delivered,omitempty"`
 	DisplayName                 *String    `xmlrpc:"display_name,omitempty"`
 	EmailFrom                   *String    `xmlrpc:"email_from,omitempty"`
@@ -45,10 +43,12 @@ type MailingMailing struct {
 	FavoriteDate                *Time      `xmlrpc:"favorite_date,omitempty"`
 	HasMessage                  *Bool      `xmlrpc:"has_message,omitempty"`
 	Id                          *Int       `xmlrpc:"id,omitempty"`
+	IsAbTestSent                *Bool      `xmlrpc:"is_ab_test_sent,omitempty"`
 	IsBodyEmpty                 *Bool      `xmlrpc:"is_body_empty,omitempty"`
 	KeepArchives                *Bool      `xmlrpc:"keep_archives,omitempty"`
 	KpiMailRequired             *Bool      `xmlrpc:"kpi_mail_required,omitempty"`
 	Lang                        *String    `xmlrpc:"lang,omitempty"`
+	LinkTrackersCount           *Int       `xmlrpc:"link_trackers_count,omitempty"`
 	MailServerAvailable         *Bool      `xmlrpc:"mail_server_available,omitempty"`
 	MailServerId                *Many2One  `xmlrpc:"mail_server_id,omitempty"`
 	MailingDomain               *String    `xmlrpc:"mailing_domain,omitempty"`
@@ -58,6 +58,7 @@ type MailingMailing struct {
 	MailingModelId              *Many2One  `xmlrpc:"mailing_model_id,omitempty"`
 	MailingModelName            *String    `xmlrpc:"mailing_model_name,omitempty"`
 	MailingModelReal            *String    `xmlrpc:"mailing_model_real,omitempty"`
+	MailingOnMailingList        *Bool      `xmlrpc:"mailing_on_mailing_list,omitempty"`
 	MailingTraceIds             *Relation  `xmlrpc:"mailing_trace_ids,omitempty"`
 	MailingType                 *Selection `xmlrpc:"mailing_type,omitempty"`
 	MailingTypeDescription      *String    `xmlrpc:"mailing_type_description,omitempty"`
@@ -69,20 +70,23 @@ type MailingMailing struct {
 	MessageHasSmsError          *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds                  *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower           *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId     *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction           *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter    *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds           *Relation  `xmlrpc:"message_partner_ids,omitempty"`
 	MyActivityDateDeadline      *Time      `xmlrpc:"my_activity_date_deadline,omitempty"`
 	Name                        *String    `xmlrpc:"name,omitempty"`
 	NextDeparture               *Time      `xmlrpc:"next_departure,omitempty"`
+	NextDepartureIsPast         *Bool      `xmlrpc:"next_departure_is_past,omitempty"`
 	Opened                      *Int       `xmlrpc:"opened,omitempty"`
-	OpenedRatio                 *Int       `xmlrpc:"opened_ratio,omitempty"`
+	OpenedRatio                 *Float     `xmlrpc:"opened_ratio,omitempty"`
+	Pending                     *Int       `xmlrpc:"pending,omitempty"`
 	Preview                     *String    `xmlrpc:"preview,omitempty"`
-	ReceivedRatio               *Int       `xmlrpc:"received_ratio,omitempty"`
+	Process                     *Int       `xmlrpc:"process,omitempty"`
+	RatingIds                   *Relation  `xmlrpc:"rating_ids,omitempty"`
+	ReceivedRatio               *Float     `xmlrpc:"received_ratio,omitempty"`
 	RenderModel                 *String    `xmlrpc:"render_model,omitempty"`
 	Replied                     *Int       `xmlrpc:"replied,omitempty"`
-	RepliedRatio                *Int       `xmlrpc:"replied_ratio,omitempty"`
+	RepliedRatio                *Float     `xmlrpc:"replied_ratio,omitempty"`
 	ReplyTo                     *String    `xmlrpc:"reply_to,omitempty"`
 	ReplyToMode                 *Selection `xmlrpc:"reply_to_mode,omitempty"`
 	SaleInvoicedAmount          *Int       `xmlrpc:"sale_invoiced_amount,omitempty"`
@@ -96,7 +100,6 @@ type MailingMailing struct {
 	State                       *Selection `xmlrpc:"state,omitempty"`
 	Subject                     *String    `xmlrpc:"subject,omitempty"`
 	Total                       *Int       `xmlrpc:"total,omitempty"`
-	UseLeads                    *Bool      `xmlrpc:"use_leads,omitempty"`
 	UserId                      *Many2One  `xmlrpc:"user_id,omitempty"`
 	WarningMessage              *String    `xmlrpc:"warning_message,omitempty"`
 	WebsiteMessageIds           *Relation  `xmlrpc:"website_message_ids,omitempty"`

@@ -2,10 +2,13 @@ package odoo
 
 // AccountJournal represents account.journal model.
 type AccountJournal struct {
-	LastUpdate                   *Time      `xmlrpc:"__last_update,omitempty"`
+	AccessToken                  *String    `xmlrpc:"access_token,omitempty"`
+	AccessUrl                    *String    `xmlrpc:"access_url,omitempty"`
+	AccessWarning                *String    `xmlrpc:"access_warning,omitempty"`
 	AccountControlIds            *Relation  `xmlrpc:"account_control_ids,omitempty"`
+	AccountPeppolProxyState      *Selection `xmlrpc:"account_peppol_proxy_state,omitempty"`
+	AccountingDate               *Time      `xmlrpc:"accounting_date,omitempty"`
 	Active                       *Bool      `xmlrpc:"active,omitempty"`
-	ActivityCalendarEventId      *Many2One  `xmlrpc:"activity_calendar_event_id,omitempty"`
 	ActivityDateDeadline         *Time      `xmlrpc:"activity_date_deadline,omitempty"`
 	ActivityExceptionDecoration  *Selection `xmlrpc:"activity_exception_decoration,omitempty"`
 	ActivityExceptionIcon        *String    `xmlrpc:"activity_exception_icon,omitempty"`
@@ -15,9 +18,13 @@ type AccountJournal struct {
 	ActivityTypeIcon             *String    `xmlrpc:"activity_type_icon,omitempty"`
 	ActivityTypeId               *Many2One  `xmlrpc:"activity_type_id,omitempty"`
 	ActivityUserId               *Many2One  `xmlrpc:"activity_user_id,omitempty"`
+	AliasDefaults                *String    `xmlrpc:"alias_defaults,omitempty"`
 	AliasDomain                  *String    `xmlrpc:"alias_domain,omitempty"`
+	AliasDomainId                *Many2One  `xmlrpc:"alias_domain_id,omitempty"`
+	AliasEmail                   *String    `xmlrpc:"alias_email,omitempty"`
 	AliasId                      *Many2One  `xmlrpc:"alias_id,omitempty"`
 	AliasName                    *String    `xmlrpc:"alias_name,omitempty"`
+	AutocheckOnPost              *Bool      `xmlrpc:"autocheck_on_post,omitempty"`
 	AvailablePaymentMethodIds    *Relation  `xmlrpc:"available_payment_method_ids,omitempty"`
 	BankAccNumber                *String    `xmlrpc:"bank_acc_number,omitempty"`
 	BankAccountId                *Many2One  `xmlrpc:"bank_account_id,omitempty"`
@@ -27,7 +34,6 @@ type AccountJournal struct {
 	Color                        *Int       `xmlrpc:"color,omitempty"`
 	CompanyId                    *Many2One  `xmlrpc:"company_id,omitempty"`
 	CompanyPartnerId             *Many2One  `xmlrpc:"company_partner_id,omitempty"`
-	CompatibleEdiIds             *Relation  `xmlrpc:"compatible_edi_ids,omitempty"`
 	CountryCode                  *String    `xmlrpc:"country_code,omitempty"`
 	CreateDate                   *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                    *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -35,20 +41,25 @@ type AccountJournal struct {
 	CurrentStatementBalance      *Float     `xmlrpc:"current_statement_balance,omitempty"`
 	DefaultAccountId             *Many2One  `xmlrpc:"default_account_id,omitempty"`
 	DefaultAccountType           *String    `xmlrpc:"default_account_type,omitempty"`
+	DisplayAliasFields           *Bool      `xmlrpc:"display_alias_fields,omitempty"`
 	DisplayName                  *String    `xmlrpc:"display_name,omitempty"`
-	EdiFormatIds                 *Relation  `xmlrpc:"edi_format_ids,omitempty"`
 	EntriesCount                 *Int       `xmlrpc:"entries_count,omitempty"`
+	HasEntries                   *Bool      `xmlrpc:"has_entries,omitempty"`
 	HasMessage                   *Bool      `xmlrpc:"has_message,omitempty"`
+	HasPostedEntries             *Bool      `xmlrpc:"has_posted_entries,omitempty"`
 	HasSequenceHoles             *Bool      `xmlrpc:"has_sequence_holes,omitempty"`
 	HasStatementLines            *Bool      `xmlrpc:"has_statement_lines,omitempty"`
+	HasUnhashedEntries           *Bool      `xmlrpc:"has_unhashed_entries,omitempty"`
 	Id                           *Int       `xmlrpc:"id,omitempty"`
 	InboundPaymentMethodLineIds  *Relation  `xmlrpc:"inbound_payment_method_line_ids,omitempty"`
 	InvoiceReferenceModel        *Selection `xmlrpc:"invoice_reference_model,omitempty"`
 	InvoiceReferenceType         *Selection `xmlrpc:"invoice_reference_type,omitempty"`
+	IsPeppolJournal              *Bool      `xmlrpc:"is_peppol_journal,omitempty"`
 	JournalGroupIds              *Relation  `xmlrpc:"journal_group_ids,omitempty"`
 	JsonActivityData             *String    `xmlrpc:"json_activity_data,omitempty"`
 	KanbanDashboard              *String    `xmlrpc:"kanban_dashboard,omitempty"`
 	KanbanDashboardGraph         *String    `xmlrpc:"kanban_dashboard_graph,omitempty"`
+	LastStatementId              *Many2One  `xmlrpc:"last_statement_id,omitempty"`
 	LossAccountId                *Many2One  `xmlrpc:"loss_account_id,omitempty"`
 	MessageAttachmentCount       *Int       `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds           *Relation  `xmlrpc:"message_follower_ids,omitempty"`
@@ -57,7 +68,6 @@ type AccountJournal struct {
 	MessageHasSmsError           *Bool      `xmlrpc:"message_has_sms_error,omitempty"`
 	MessageIds                   *Relation  `xmlrpc:"message_ids,omitempty"`
 	MessageIsFollower            *Bool      `xmlrpc:"message_is_follower,omitempty"`
-	MessageMainAttachmentId      *Many2One  `xmlrpc:"message_main_attachment_id,omitempty"`
 	MessageNeedaction            *Bool      `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter     *Int       `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds            *Relation  `xmlrpc:"message_partner_ids,omitempty"`
@@ -67,12 +77,9 @@ type AccountJournal struct {
 	PaymentSequence              *Bool      `xmlrpc:"payment_sequence,omitempty"`
 	PosPaymentMethodIds          *Relation  `xmlrpc:"pos_payment_method_ids,omitempty"`
 	ProfitAccountId              *Many2One  `xmlrpc:"profit_account_id,omitempty"`
+	RatingIds                    *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RefundSequence               *Bool      `xmlrpc:"refund_sequence,omitempty"`
 	RestrictModeHashTable        *Bool      `xmlrpc:"restrict_mode_hash_table,omitempty"`
-	SaleActivityNote             *String    `xmlrpc:"sale_activity_note,omitempty"`
-	SaleActivityTypeId           *Many2One  `xmlrpc:"sale_activity_type_id,omitempty"`
-	SaleActivityUserId           *Many2One  `xmlrpc:"sale_activity_user_id,omitempty"`
-	SecureSequenceId             *Many2One  `xmlrpc:"secure_sequence_id,omitempty"`
 	SelectedPaymentMethodCodes   *String    `xmlrpc:"selected_payment_method_codes,omitempty"`
 	Sequence                     *Int       `xmlrpc:"sequence,omitempty"`
 	SequenceOverrideRegex        *String    `xmlrpc:"sequence_override_regex,omitempty"`

@@ -2,7 +2,6 @@ package odoo
 
 // StockRequestCount represents stock.request.count model.
 type StockRequestCount struct {
-	LastUpdate     *Time      `xmlrpc:"__last_update,omitempty"`
 	AccountingDate *Time      `xmlrpc:"accounting_date,omitempty"`
 	CreateDate     *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid      *Many2One  `xmlrpc:"create_uid,omitempty"`

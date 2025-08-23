@@ -2,7 +2,6 @@ package odoo
 
 // ResCountryGroup represents res.country.group model.
 type ResCountryGroup struct {
-	LastUpdate   *Time     `xmlrpc:"__last_update,omitempty"`
 	CountryIds   *Relation `xmlrpc:"country_ids,omitempty"`
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`

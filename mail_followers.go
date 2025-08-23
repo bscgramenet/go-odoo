@@ -2,7 +2,6 @@ package odoo
 
 // MailFollowers represents mail.followers model.
 type MailFollowers struct {
-	LastUpdate  *Time     `xmlrpc:"__last_update,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`
 	Email       *String   `xmlrpc:"email,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`

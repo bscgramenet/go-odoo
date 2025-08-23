@@ -2,7 +2,6 @@ package odoo
 
 // StockBackorderConfirmation represents stock.backorder.confirmation model.
 type StockBackorderConfirmation struct {
-	LastUpdate                   *Time     `xmlrpc:"__last_update,omitempty"`
 	BackorderConfirmationLineIds *Relation `xmlrpc:"backorder_confirmation_line_ids,omitempty"`
 	CreateDate                   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid                    *Many2One `xmlrpc:"create_uid,omitempty"`
