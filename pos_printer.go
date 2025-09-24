@@ -9,6 +9,7 @@ type PosPrinter struct {
 	EpsonPrinterIp       *String    `xmlrpc:"epson_printer_ip,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
 	Name                 *String    `xmlrpc:"name,omitempty"`
+	PosConfigIds         *Relation  `xmlrpc:"pos_config_ids,omitempty"`
 	PrinterType          *Selection `xmlrpc:"printer_type,omitempty"`
 	ProductCategoriesIds *Relation  `xmlrpc:"product_categories_ids,omitempty"`
 	ProxyIp              *String    `xmlrpc:"proxy_ip,omitempty"`

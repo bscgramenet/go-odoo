@@ -11,7 +11,6 @@ type CrmTeam struct {
 	CrmTeamMemberIds         *Relation `xmlrpc:"crm_team_member_ids,omitempty"`
 	CurrencyId               *Many2One `xmlrpc:"currency_id,omitempty"`
 	DashboardButtonName      *String   `xmlrpc:"dashboard_button_name,omitempty"`
-	DashboardGraphData       *String   `xmlrpc:"dashboard_graph_data,omitempty"`
 	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
 	FavoriteUserIds          *Relation `xmlrpc:"favorite_user_ids,omitempty"`
 	HasMessage               *Bool     `xmlrpc:"has_message,omitempty"`
@@ -34,11 +33,8 @@ type CrmTeam struct {
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`
-	QuotationsAmount         *Float    `xmlrpc:"quotations_amount,omitempty"`
-	QuotationsCount          *Int      `xmlrpc:"quotations_count,omitempty"`
-	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
+	PosConfigIds             *Relation `xmlrpc:"pos_config_ids,omitempty"`
 	SaleOrderCount           *Int      `xmlrpc:"sale_order_count,omitempty"`
-	SalesToInvoiceCount      *Int      `xmlrpc:"sales_to_invoice_count,omitempty"`
 	Sequence                 *Int      `xmlrpc:"sequence,omitempty"`
 	UserId                   *Many2One `xmlrpc:"user_id,omitempty"`
 	WebsiteMessageIds        *Relation `xmlrpc:"website_message_ids,omitempty"`

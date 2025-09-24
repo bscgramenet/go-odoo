@@ -2,34 +2,35 @@ package odoo
 
 // PosPaymentMethod represents pos.payment.method model.
 type PosPaymentMethod struct {
-	Active                     *Bool      `xmlrpc:"active,omitempty"`
-	CompanyId                  *Many2One  `xmlrpc:"company_id,omitempty"`
-	ConfigIds                  *Relation  `xmlrpc:"config_ids,omitempty"`
-	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid                  *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DefaultQr                  *String    `xmlrpc:"default_qr,omitempty"`
-	DisplayName                *String    `xmlrpc:"display_name,omitempty"`
-	HasAnOnlinePaymentProvider *Bool      `xmlrpc:"has_an_online_payment_provider,omitempty"`
-	HideQrCodeMethod           *Bool      `xmlrpc:"hide_qr_code_method,omitempty"`
-	HideUsePaymentTerminal     *Bool      `xmlrpc:"hide_use_payment_terminal,omitempty"`
-	Id                         *Int       `xmlrpc:"id,omitempty"`
-	Image                      *String    `xmlrpc:"image,omitempty"`
-	IsCashCount                *Bool      `xmlrpc:"is_cash_count,omitempty"`
-	IsOnlinePayment            *Bool      `xmlrpc:"is_online_payment,omitempty"`
-	JournalId                  *Many2One  `xmlrpc:"journal_id,omitempty"`
-	Name                       *String    `xmlrpc:"name,omitempty"`
-	OnlinePaymentProviderIds   *Relation  `xmlrpc:"online_payment_provider_ids,omitempty"`
-	OpenSessionIds             *Relation  `xmlrpc:"open_session_ids,omitempty"`
-	OutstandingAccountId       *Many2One  `xmlrpc:"outstanding_account_id,omitempty"`
-	PaymentMethodType          *Selection `xmlrpc:"payment_method_type,omitempty"`
-	QrCodeMethod               *Selection `xmlrpc:"qr_code_method,omitempty"`
-	ReceivableAccountId        *Many2One  `xmlrpc:"receivable_account_id,omitempty"`
-	Sequence                   *Int       `xmlrpc:"sequence,omitempty"`
-	SplitTransactions          *Bool      `xmlrpc:"split_transactions,omitempty"`
-	Type                       *Selection `xmlrpc:"type,omitempty"`
-	UsePaymentTerminal         *Selection `xmlrpc:"use_payment_terminal,omitempty"`
-	WriteDate                  *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid                   *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active                          *Bool      `xmlrpc:"active,omitempty"`
+	CompanyId                       *Many2One  `xmlrpc:"company_id,omitempty"`
+	ConfigIds                       *Relation  `xmlrpc:"config_ids,omitempty"`
+	CreateDate                      *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid                       *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DefaultPosReceivableAccountName *String    `xmlrpc:"default_pos_receivable_account_name,omitempty"`
+	DefaultQr                       *String    `xmlrpc:"default_qr,omitempty"`
+	DisplayName                     *String    `xmlrpc:"display_name,omitempty"`
+	HasAnOnlinePaymentProvider      *Bool      `xmlrpc:"has_an_online_payment_provider,omitempty"`
+	HideQrCodeMethod                *Bool      `xmlrpc:"hide_qr_code_method,omitempty"`
+	HideUsePaymentTerminal          *Bool      `xmlrpc:"hide_use_payment_terminal,omitempty"`
+	Id                              *Int       `xmlrpc:"id,omitempty"`
+	Image                           *String    `xmlrpc:"image,omitempty"`
+	IsCashCount                     *Bool      `xmlrpc:"is_cash_count,omitempty"`
+	IsOnlinePayment                 *Bool      `xmlrpc:"is_online_payment,omitempty"`
+	JournalId                       *Many2One  `xmlrpc:"journal_id,omitempty"`
+	Name                            *String    `xmlrpc:"name,omitempty"`
+	OnlinePaymentProviderIds        *Relation  `xmlrpc:"online_payment_provider_ids,omitempty"`
+	OpenSessionIds                  *Relation  `xmlrpc:"open_session_ids,omitempty"`
+	OutstandingAccountId            *Many2One  `xmlrpc:"outstanding_account_id,omitempty"`
+	PaymentMethodType               *Selection `xmlrpc:"payment_method_type,omitempty"`
+	QrCodeMethod                    *Selection `xmlrpc:"qr_code_method,omitempty"`
+	ReceivableAccountId             *Many2One  `xmlrpc:"receivable_account_id,omitempty"`
+	Sequence                        *Int       `xmlrpc:"sequence,omitempty"`
+	SplitTransactions               *Bool      `xmlrpc:"split_transactions,omitempty"`
+	Type                            *Selection `xmlrpc:"type,omitempty"`
+	UsePaymentTerminal              *Selection `xmlrpc:"use_payment_terminal,omitempty"`
+	WriteDate                       *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid                        *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // PosPaymentMethods represents array of pos.payment.method model.

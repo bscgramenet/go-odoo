@@ -19,6 +19,8 @@ type ResPartnerBank struct {
 	BankBic                         *String    `xmlrpc:"bank_bic,omitempty"`
 	BankId                          *Many2One  `xmlrpc:"bank_id,omitempty"`
 	BankName                        *String    `xmlrpc:"bank_name,omitempty"`
+	ClearingNumber                  *String    `xmlrpc:"clearing_number,omitempty"`
+	Color                           *Int       `xmlrpc:"color,omitempty"`
 	CompanyId                       *Many2One  `xmlrpc:"company_id,omitempty"`
 	CountryCode                     *String    `xmlrpc:"country_code,omitempty"`
 	CreateDate                      *Time      `xmlrpc:"create_date,omitempty"`
@@ -44,11 +46,11 @@ type ResPartnerBank struct {
 	MessagePartnerIds               *Relation  `xmlrpc:"message_partner_ids,omitempty"`
 	MoneyTransferService            *String    `xmlrpc:"money_transfer_service,omitempty"`
 	MyActivityDateDeadline          *Time      `xmlrpc:"my_activity_date_deadline,omitempty"`
+	Note                            *String    `xmlrpc:"note,omitempty"`
 	PartnerCountryName              *String    `xmlrpc:"partner_country_name,omitempty"`
 	PartnerCustomerRank             *Int       `xmlrpc:"partner_customer_rank,omitempty"`
 	PartnerId                       *Many2One  `xmlrpc:"partner_id,omitempty"`
 	PartnerSupplierRank             *Int       `xmlrpc:"partner_supplier_rank,omitempty"`
-	RatingIds                       *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RelatedMoves                    *Relation  `xmlrpc:"related_moves,omitempty"`
 	SanitizedAccNumber              *String    `xmlrpc:"sanitized_acc_number,omitempty"`
 	Sequence                        *Int       `xmlrpc:"sequence,omitempty"`

@@ -5,7 +5,6 @@ type IrModelFields struct {
 	Column1             *String    `xmlrpc:"column1,omitempty"`
 	Column2             *String    `xmlrpc:"column2,omitempty"`
 	CompanyDependent    *Bool      `xmlrpc:"company_dependent,omitempty"`
-	CompleteName        *String    `xmlrpc:"complete_name,omitempty"`
 	Compute             *String    `xmlrpc:"compute,omitempty"`
 	Copied              *Bool      `xmlrpc:"copied,omitempty"`
 	CreateDate          *Time      `xmlrpc:"create_date,omitempty"`
@@ -48,7 +47,7 @@ type IrModelFields struct {
 	StripClasses        *Bool      `xmlrpc:"strip_classes,omitempty"`
 	StripStyle          *Bool      `xmlrpc:"strip_style,omitempty"`
 	Tracking            *Int       `xmlrpc:"tracking,omitempty"`
-	Translate           *Bool      `xmlrpc:"translate,omitempty"`
+	Translate           *Selection `xmlrpc:"translate,omitempty"`
 	Ttype               *Selection `xmlrpc:"ttype,omitempty"`
 	WriteDate           *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid            *Many2One  `xmlrpc:"write_uid,omitempty"`

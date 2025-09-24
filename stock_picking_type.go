@@ -3,7 +3,6 @@ package odoo
 // StockPickingType represents stock.picking.type model.
 type StockPickingType struct {
 	Active                         *Bool       `xmlrpc:"active,omitempty"`
-	AnalyticCosts                  *Bool       `xmlrpc:"analytic_costs,omitempty"`
 	AutoPrintDeliverySlip          *Bool       `xmlrpc:"auto_print_delivery_slip,omitempty"`
 	AutoPrintLotLabels             *Bool       `xmlrpc:"auto_print_lot_labels,omitempty"`
 	AutoPrintPackageLabel          *Bool       `xmlrpc:"auto_print_package_label,omitempty"`
@@ -24,6 +23,7 @@ type StockPickingType struct {
 	CountPickingLate               *Int        `xmlrpc:"count_picking_late,omitempty"`
 	CountPickingReady              *Int        `xmlrpc:"count_picking_ready,omitempty"`
 	CountPickingWaiting            *Int        `xmlrpc:"count_picking_waiting,omitempty"`
+	CountryCode                    *String     `xmlrpc:"country_code,omitempty"`
 	CreateBackorder                *Selection  `xmlrpc:"create_backorder,omitempty"`
 	CreateDate                     *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                      *Many2One   `xmlrpc:"create_uid,omitempty"`
@@ -49,6 +49,7 @@ type StockPickingType struct {
 	Sequence                       *Int        `xmlrpc:"sequence,omitempty"`
 	SequenceCode                   *String     `xmlrpc:"sequence_code,omitempty"`
 	SequenceId                     *Many2One   `xmlrpc:"sequence_id,omitempty"`
+	SetPackageType                 *Bool       `xmlrpc:"set_package_type,omitempty"`
 	ShowEntirePacks                *Bool       `xmlrpc:"show_entire_packs,omitempty"`
 	ShowOperations                 *Bool       `xmlrpc:"show_operations,omitempty"`
 	ShowPickingType                *Bool       `xmlrpc:"show_picking_type,omitempty"`

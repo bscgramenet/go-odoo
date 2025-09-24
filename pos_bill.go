@@ -5,7 +5,6 @@ type PosBill struct {
 	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	ForAllConfig *Bool     `xmlrpc:"for_all_config,omitempty"`
 	Id           *Int      `xmlrpc:"id,omitempty"`
 	Name         *String   `xmlrpc:"name,omitempty"`
 	PosConfigIds *Relation `xmlrpc:"pos_config_ids,omitempty"`

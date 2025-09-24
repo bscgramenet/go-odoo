@@ -19,6 +19,8 @@ type AccountSetupBankManualConfig struct {
 	BankBic                         *String    `xmlrpc:"bank_bic,omitempty"`
 	BankId                          *Many2One  `xmlrpc:"bank_id,omitempty"`
 	BankName                        *String    `xmlrpc:"bank_name,omitempty"`
+	ClearingNumber                  *String    `xmlrpc:"clearing_number,omitempty"`
+	Color                           *Int       `xmlrpc:"color,omitempty"`
 	CompanyId                       *Many2One  `xmlrpc:"company_id,omitempty"`
 	CountryCode                     *String    `xmlrpc:"country_code,omitempty"`
 	CreateDate                      *Time      `xmlrpc:"create_date,omitempty"`
@@ -46,12 +48,13 @@ type AccountSetupBankManualConfig struct {
 	MoneyTransferService            *String    `xmlrpc:"money_transfer_service,omitempty"`
 	MyActivityDateDeadline          *Time      `xmlrpc:"my_activity_date_deadline,omitempty"`
 	NewJournalName                  *String    `xmlrpc:"new_journal_name,omitempty"`
-	NumJournalsWithoutAccount       *Int       `xmlrpc:"num_journals_without_account,omitempty"`
+	Note                            *String    `xmlrpc:"note,omitempty"`
+	NumJournalsWithoutAccountBank   *Int       `xmlrpc:"num_journals_without_account_bank,omitempty"`
+	NumJournalsWithoutAccountCredit *Int       `xmlrpc:"num_journals_without_account_credit,omitempty"`
 	PartnerCountryName              *String    `xmlrpc:"partner_country_name,omitempty"`
 	PartnerCustomerRank             *Int       `xmlrpc:"partner_customer_rank,omitempty"`
 	PartnerId                       *Many2One  `xmlrpc:"partner_id,omitempty"`
 	PartnerSupplierRank             *Int       `xmlrpc:"partner_supplier_rank,omitempty"`
-	RatingIds                       *Relation  `xmlrpc:"rating_ids,omitempty"`
 	RelatedMoves                    *Relation  `xmlrpc:"related_moves,omitempty"`
 	ResPartnerBankId                *Many2One  `xmlrpc:"res_partner_bank_id,omitempty"`
 	SanitizedAccNumber              *String    `xmlrpc:"sanitized_acc_number,omitempty"`

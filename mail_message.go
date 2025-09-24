@@ -3,17 +3,19 @@ package odoo
 // MailMessage represents mail.message model.
 type MailMessage struct {
 	AccountAuditLogAccountId   *Many2One  `xmlrpc:"account_audit_log_account_id,omitempty"`
-	AccountAuditLogActivated   *Bool      `xmlrpc:"account_audit_log_activated,omitempty"`
 	AccountAuditLogCompanyId   *Many2One  `xmlrpc:"account_audit_log_company_id,omitempty"`
 	AccountAuditLogMoveId      *Many2One  `xmlrpc:"account_audit_log_move_id,omitempty"`
 	AccountAuditLogPartnerId   *Many2One  `xmlrpc:"account_audit_log_partner_id,omitempty"`
 	AccountAuditLogPreview     *String    `xmlrpc:"account_audit_log_preview,omitempty"`
+	AccountAuditLogRestricted  *Bool      `xmlrpc:"account_audit_log_restricted,omitempty"`
 	AccountAuditLogTaxId       *Many2One  `xmlrpc:"account_audit_log_tax_id,omitempty"`
 	AttachmentIds              *Relation  `xmlrpc:"attachment_ids,omitempty"`
 	AuthorAvatar               *String    `xmlrpc:"author_avatar,omitempty"`
 	AuthorGuestId              *Many2One  `xmlrpc:"author_guest_id,omitempty"`
 	AuthorId                   *Many2One  `xmlrpc:"author_id,omitempty"`
 	Body                       *String    `xmlrpc:"body,omitempty"`
+	CallHistoryIds             *Relation  `xmlrpc:"call_history_ids,omitempty"`
+	ChannelId                  *Many2One  `xmlrpc:"channel_id,omitempty"`
 	ChildIds                   *Relation  `xmlrpc:"child_ids,omitempty"`
 	CreateDate                 *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                  *Many2One  `xmlrpc:"create_uid,omitempty"`
@@ -25,26 +27,27 @@ type MailMessage struct {
 	HasError                   *Bool      `xmlrpc:"has_error,omitempty"`
 	HasSmsError                *Bool      `xmlrpc:"has_sms_error,omitempty"`
 	Id                         *Int       `xmlrpc:"id,omitempty"`
+	IncomingEmailCc            *String    `xmlrpc:"incoming_email_cc,omitempty"`
+	IncomingEmailTo            *String    `xmlrpc:"incoming_email_to,omitempty"`
 	IsCurrentUserOrGuestAuthor *Bool      `xmlrpc:"is_current_user_or_guest_author,omitempty"`
 	IsInternal                 *Bool      `xmlrpc:"is_internal,omitempty"`
 	LetterIds                  *Relation  `xmlrpc:"letter_ids,omitempty"`
-	LinkPreviewIds             *Relation  `xmlrpc:"link_preview_ids,omitempty"`
+	LinkedMessageIds           *Relation  `xmlrpc:"linked_message_ids,omitempty"`
 	MailActivityTypeId         *Many2One  `xmlrpc:"mail_activity_type_id,omitempty"`
 	MailIds                    *Relation  `xmlrpc:"mail_ids,omitempty"`
 	MailServerId               *Many2One  `xmlrpc:"mail_server_id,omitempty"`
 	MessageId                  *String    `xmlrpc:"message_id,omitempty"`
+	MessageLinkPreviewIds      *Relation  `xmlrpc:"message_link_preview_ids,omitempty"`
 	MessageType                *Selection `xmlrpc:"message_type,omitempty"`
 	Model                      *String    `xmlrpc:"model,omitempty"`
 	Needaction                 *Bool      `xmlrpc:"needaction,omitempty"`
 	NotificationIds            *Relation  `xmlrpc:"notification_ids,omitempty"`
 	NotifiedPartnerIds         *Relation  `xmlrpc:"notified_partner_ids,omitempty"`
+	OutgoingEmailTo            *String    `xmlrpc:"outgoing_email_to,omitempty"`
 	ParentId                   *Many2One  `xmlrpc:"parent_id,omitempty"`
 	PartnerIds                 *Relation  `xmlrpc:"partner_ids,omitempty"`
 	PinnedAt                   *Time      `xmlrpc:"pinned_at,omitempty"`
 	Preview                    *String    `xmlrpc:"preview,omitempty"`
-	RatingId                   *Many2One  `xmlrpc:"rating_id,omitempty"`
-	RatingIds                  *Relation  `xmlrpc:"rating_ids,omitempty"`
-	RatingValue                *Float     `xmlrpc:"rating_value,omitempty"`
 	ReactionIds                *Relation  `xmlrpc:"reaction_ids,omitempty"`
 	RecordAliasDomainId        *Many2One  `xmlrpc:"record_alias_domain_id,omitempty"`
 	RecordCompanyId            *Many2One  `xmlrpc:"record_company_id,omitempty"`

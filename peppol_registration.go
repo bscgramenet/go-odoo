@@ -2,25 +2,30 @@ package odoo
 
 // PeppolRegistration represents peppol.registration model.
 type PeppolRegistration struct {
-	AccountPeppolMigrationKey *String     `xmlrpc:"account_peppol_migration_key,omitempty"`
-	AccountPeppolProxyState   *Selection  `xmlrpc:"account_peppol_proxy_state,omitempty"`
-	CompanyId                 *Many2One   `xmlrpc:"company_id,omitempty"`
-	ContactEmail              *String     `xmlrpc:"contact_email,omitempty"`
-	CreateDate                *Time       `xmlrpc:"create_date,omitempty"`
-	CreateUid                 *Many2One   `xmlrpc:"create_uid,omitempty"`
-	DisplayName               *String     `xmlrpc:"display_name,omitempty"`
-	EdiMode                   *Selection  `xmlrpc:"edi_mode,omitempty"`
-	EdiModeConstraint         *Selection  `xmlrpc:"edi_mode_constraint,omitempty"`
-	EdiUserId                 *Many2One   `xmlrpc:"edi_user_id,omitempty"`
-	Id                        *Int        `xmlrpc:"id,omitempty"`
-	PeppolEas                 *Selection  `xmlrpc:"peppol_eas,omitempty"`
-	PeppolEndpoint            *String     `xmlrpc:"peppol_endpoint,omitempty"`
-	PeppolWarnings            interface{} `xmlrpc:"peppol_warnings,omitempty"`
-	PhoneNumber               *String     `xmlrpc:"phone_number,omitempty"`
-	SmpRegistration           *Bool       `xmlrpc:"smp_registration,omitempty"`
-	VerificationCode          *String     `xmlrpc:"verification_code,omitempty"`
-	WriteDate                 *Time       `xmlrpc:"write_date,omitempty"`
-	WriteUid                  *Many2One   `xmlrpc:"write_uid,omitempty"`
+	AccountPeppolProxyState      *Selection  `xmlrpc:"account_peppol_proxy_state,omitempty"`
+	ActiveParentCompany          *Many2One   `xmlrpc:"active_parent_company,omitempty"`
+	ActiveParentCompanyName      *String     `xmlrpc:"active_parent_company_name,omitempty"`
+	CanUseParentConnection       *Bool       `xmlrpc:"can_use_parent_connection,omitempty"`
+	CompanyId                    *Many2One   `xmlrpc:"company_id,omitempty"`
+	ContactEmail                 *String     `xmlrpc:"contact_email,omitempty"`
+	CreateDate                   *Time       `xmlrpc:"create_date,omitempty"`
+	CreateUid                    *Many2One   `xmlrpc:"create_uid,omitempty"`
+	DisplayName                  *String     `xmlrpc:"display_name,omitempty"`
+	EdiMode                      *Selection  `xmlrpc:"edi_mode,omitempty"`
+	EdiUserId                    *Many2One   `xmlrpc:"edi_user_id,omitempty"`
+	Id                           *Int        `xmlrpc:"id,omitempty"`
+	IsBranchCompany              *Bool       `xmlrpc:"is_branch_company,omitempty"`
+	PeppolEas                    *Selection  `xmlrpc:"peppol_eas,omitempty"`
+	PeppolEndpoint               *String     `xmlrpc:"peppol_endpoint,omitempty"`
+	PeppolExternalProvider       *String     `xmlrpc:"peppol_external_provider,omitempty"`
+	PeppolWarnings               interface{} `xmlrpc:"peppol_warnings,omitempty"`
+	PhoneNumber                  *String     `xmlrpc:"phone_number,omitempty"`
+	SelectedCompanyId            *Many2One   `xmlrpc:"selected_company_id,omitempty"`
+	SmpRegistration              *Bool       `xmlrpc:"smp_registration,omitempty"`
+	UseParentConnection          *Bool       `xmlrpc:"use_parent_connection,omitempty"`
+	UseParentConnectionSelection *Selection  `xmlrpc:"use_parent_connection_selection,omitempty"`
+	WriteDate                    *Time       `xmlrpc:"write_date,omitempty"`
+	WriteUid                     *Many2One   `xmlrpc:"write_uid,omitempty"`
 }
 
 // PeppolRegistrations represents array of peppol.registration model.

@@ -12,12 +12,12 @@ type DigestDigest struct {
 	IsSubscribed                *Bool      `xmlrpc:"is_subscribed,omitempty"`
 	KpiAccountTotalRevenue      *Bool      `xmlrpc:"kpi_account_total_revenue,omitempty"`
 	KpiAccountTotalRevenueValue *Float     `xmlrpc:"kpi_account_total_revenue_value,omitempty"`
+	KpiAllSaleTotal             *Bool      `xmlrpc:"kpi_all_sale_total,omitempty"`
+	KpiAllSaleTotalValue        *Float     `xmlrpc:"kpi_all_sale_total_value,omitempty"`
 	KpiMailMessageTotal         *Bool      `xmlrpc:"kpi_mail_message_total,omitempty"`
 	KpiMailMessageTotalValue    *Int       `xmlrpc:"kpi_mail_message_total_value,omitempty"`
 	KpiPosTotal                 *Bool      `xmlrpc:"kpi_pos_total,omitempty"`
 	KpiPosTotalValue            *Float     `xmlrpc:"kpi_pos_total_value,omitempty"`
-	KpiProjectTaskOpened        *Bool      `xmlrpc:"kpi_project_task_opened,omitempty"`
-	KpiProjectTaskOpenedValue   *Int       `xmlrpc:"kpi_project_task_opened_value,omitempty"`
 	KpiResUsersConnected        *Bool      `xmlrpc:"kpi_res_users_connected,omitempty"`
 	KpiResUsersConnectedValue   *Int       `xmlrpc:"kpi_res_users_connected_value,omitempty"`
 	Name                        *String    `xmlrpc:"name,omitempty"`

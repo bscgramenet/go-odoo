@@ -28,7 +28,7 @@ type SaleReport struct {
 	PricelistId            *Many2One  `xmlrpc:"pricelist_id,omitempty"`
 	ProductId              *Many2One  `xmlrpc:"product_id,omitempty"`
 	ProductTmplId          *Many2One  `xmlrpc:"product_tmpl_id,omitempty"`
-	ProductUom             *Many2One  `xmlrpc:"product_uom,omitempty"`
+	ProductUomId           *Many2One  `xmlrpc:"product_uom_id,omitempty"`
 	ProductUomQty          *Float     `xmlrpc:"product_uom_qty,omitempty"`
 	QtyDelivered           *Float     `xmlrpc:"qty_delivered,omitempty"`
 	QtyInvoiced            *Float     `xmlrpc:"qty_invoiced,omitempty"`

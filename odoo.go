@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"reflect"
 	"sync"
 
 	"github.com/kolo/xmlrpc"
@@ -289,6 +290,21 @@ func (c *Client) SearchRead(model string, criteria *Criteria, options *Options, 
 	resp, err := c.ExecuteKw("search_read", model, argsFromCriteria(criteria), options)
 	if err != nil {
 		return err
+	}
+	if debugEnabled() && model == "ir.model.fields" { // 调试输出首条记录的字段类型，帮助定位 Odoo 19 类型变化
+		if arr, ok := resp.([]interface{}); ok && len(arr) > 0 {
+			if first, ok2 := arr[0].(map[string]interface{}); ok2 {
+				log.Printf("[go-odoo][debug] ir.model.fields first record keys=%d", len(first))
+				count := 0
+				for k, v := range first {
+					log.Printf("[go-odoo][debug] field=%s dynType=%T kind=%s", k, v, reflect.TypeOf(v).Kind())
+					count++
+					if count >= 25 { // 避免日志过多
+						break
+					}
+				}
+			}
+		}
 	}
 	respLen := len(resp.([]interface{}))
 	if respLen == 0 {

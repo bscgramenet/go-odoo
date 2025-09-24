@@ -70,7 +70,6 @@ type AccountPayment struct {
 	PosPaymentMethodId              *Many2One  `xmlrpc:"pos_payment_method_id,omitempty"`
 	PosSessionId                    *Many2One  `xmlrpc:"pos_session_id,omitempty"`
 	QrCode                          *String    `xmlrpc:"qr_code,omitempty"`
-	RatingIds                       *Relation  `xmlrpc:"rating_ids,omitempty"`
 	ReconciledBillIds               *Relation  `xmlrpc:"reconciled_bill_ids,omitempty"`
 	ReconciledBillsCount            *Int       `xmlrpc:"reconciled_bills_count,omitempty"`
 	ReconciledInvoiceIds            *Relation  `xmlrpc:"reconciled_invoice_ids,omitempty"`

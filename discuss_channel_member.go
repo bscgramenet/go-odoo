@@ -9,7 +9,6 @@ type DiscussChannelMember struct {
 	CustomNotifications  *Selection `xmlrpc:"custom_notifications,omitempty"`
 	DisplayName          *String    `xmlrpc:"display_name,omitempty"`
 	FetchedMessageId     *Many2One  `xmlrpc:"fetched_message_id,omitempty"`
-	FoldState            *Selection `xmlrpc:"fold_state,omitempty"`
 	GuestId              *Many2One  `xmlrpc:"guest_id,omitempty"`
 	Id                   *Int       `xmlrpc:"id,omitempty"`
 	IsPinned             *Bool      `xmlrpc:"is_pinned,omitempty"`

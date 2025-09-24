@@ -3,8 +3,12 @@ package odoo
 import (
 	"errors"
 	"fmt"
+	"log"
+	"os"
 	"reflect"
+	"strconv"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -127,6 +131,14 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 				staticValue = NewInt(v)
 			case float64:
 				staticValue = NewInt(int64(v))
+			case int:
+				staticValue = NewInt(int64(v))
+			case string:
+				if iv, err := strconv.ParseInt(v, 10, 64); err == nil {
+					staticValue = NewInt(iv)
+				} else if debugEnabled() {
+					logTypeMismatch("Int", fmt.Sprintf("string(%s)", v), "int64", dynamicValue)
+				}
 			default:
 				// 其它类型可选处理
 			}
@@ -139,34 +151,160 @@ func convertFromDynamicToStaticValue(staticType reflect.Type, dynamicValue inter
 				staticValue = NewFloat(v)
 			case int64:
 				staticValue = NewFloat(float64(v))
+			case int:
+				staticValue = NewFloat(float64(v))
+			case string:
+				if fv, err := strconv.ParseFloat(v, 64); err == nil {
+					staticValue = NewFloat(fv)
+				} else if debugEnabled() {
+					logTypeMismatch("Float", fmt.Sprintf("string(%s)", v), "float64", dynamicValue)
+				}
 			default:
 				// 其它类型直接丢弃或报错
 			}
 		case "Time":
+			if dynamicValue == nil || dynamicValue == false {
+				break
+			}
+			str, ok := dynamicValue.(string)
+			if !ok {
+				if debugEnabled() {
+					logTypeMismatch("Time", fmt.Sprintf("%T", dynamicValue), "string(yyyy-mm-dd[ hh:mm:ss])", dynamicValue)
+				}
+				break
+			}
+			str = strings.TrimSpace(str)
+			if str == "" {
+				break
+			}
 			format := dateFormat
-			if len(dynamicValue.(string)) > 10 {
+			if len(str) > 10 {
 				format = datetimeFormat
 			}
-			t, _ := time.Parse(format, dynamicValue.(string))
-			staticValue = NewTime(t)
+			if t, err := time.Parse(format, str); err == nil {
+				staticValue = NewTime(t)
+			} else if debugEnabled() {
+				logTypeMismatch("Time", str, format, dynamicValue)
+			}
 		case "Many2One":
-			if intVal, ok := dynamicValue.(int64); ok {
-				// for many2one_reference field type
-				staticValue = NewMany2One(intVal, "")
-			} else {
-				name, _ := dynamicValue.([]interface{})[1].(string)
-				staticValue = NewMany2One(dynamicValue.([]interface{})[0].(int64), name)
+			if dynamicValue == nil || dynamicValue == false {
+				staticValue = NewMany2One(0, "")
+				break
+			}
+			switch v := dynamicValue.(type) {
+			case int64:
+				staticValue = NewMany2One(v, "")
+			case []interface{}:
+				if len(v) > 0 {
+					idVal, _ := v[0].(int64)
+					nameVal := ""
+					if len(v) > 1 {
+						nameVal, _ = v[1].(string)
+					}
+					staticValue = NewMany2One(idVal, nameVal)
+				}
+			default:
+				if debugEnabled() {
+					logTypeMismatch("Many2One", fmt.Sprintf("%T", dynamicValue), "int64|[id,name]", dynamicValue)
+				}
 			}
 		case "Relation":
-			staticValue = NewRelation()
-			staticValue.(*Relation).ids = sliceInterfaceToInt64Slice(dynamicValue.([]interface{}))
+			rel := NewRelation()
+			if dynamicValue == nil || dynamicValue == false {
+				staticValue = rel
+				break
+			}
+			if arr, ok := dynamicValue.([]interface{}); ok {
+				rel.ids = sliceInterfaceToInt64Slice(arr)
+				staticValue = rel
+			} else if debugEnabled() {
+				logTypeMismatch("Relation", fmt.Sprintf("%T", dynamicValue), "[]interface{}", dynamicValue)
+			}
 		case "Bool":
-			staticValue = NewBool(dynamicValue.(bool))
+			if bv, ok := parseBoolLike(dynamicValue); ok {
+				staticValue = NewBool(bv)
+			} else {
+				if debugEnabled() {
+					logTypeMismatch("Bool", fmt.Sprintf("%T", dynamicValue), "bool", dynamicValue)
+				}
+				// 返回 nil 不设置该字段，保持兼容
+			}
 		default:
 			staticValue = dynamicValue
 		}
 	}
 	return staticValue
+}
+
+// ---- Debug & Parsing Helpers (added for Odoo 19 compatibility) ----
+
+var (
+	debugOnce    sync.Once
+	mismatchMu   sync.Mutex
+	mismatchSeen = map[string]struct{}{}
+)
+
+func debugEnabled() bool {
+	v := os.Getenv("GO_ODOO_DEBUG_CONVERSION")
+	if v == "" {
+		return false
+	}
+	vv := strings.ToLower(strings.TrimSpace(v))
+	switch vv {
+	case "1", "true", "on", "yes", "y":
+		return true
+	default:
+		return false
+	}
+}
+
+// parseBoolLike attempts to interpret various dynamic forms as bool.
+func parseBoolLike(v interface{}) (bool, bool) {
+	switch b := v.(type) {
+	case bool:
+		return b, true
+	case int:
+		return b != 0, true
+	case int64:
+		return b != 0, true
+	case float64:
+		return b != 0, true
+	case string:
+		s := strings.ToLower(strings.TrimSpace(b))
+		switch s {
+		case "1", "true", "t", "y", "yes", "on":
+			return true, true
+		case "0", "false", "f", "n", "no", "off", "":
+			return false, true
+		default:
+			return false, false
+		}
+	case []byte:
+		s := strings.ToLower(strings.TrimSpace(string(b)))
+		switch s {
+		case "1", "true", "t", "y", "yes", "on":
+			return true, true
+		case "0", "false", "f", "n", "no", "off", "":
+			return false, true
+		default:
+			return false, false
+		}
+	default:
+		return false, false
+	}
+}
+
+// logTypeMismatch prints a one-time debug line per unique key.
+func logTypeMismatch(kind, gotRepr, expect string, raw interface{}) {
+	key := kind + "|" + gotRepr + "|" + expect
+	mismatchMu.Lock()
+	if _, ok := mismatchSeen[key]; ok {
+		mismatchMu.Unlock()
+		return
+	}
+	mismatchSeen[key] = struct{}{}
+	mismatchMu.Unlock()
+	log.Printf("[go-odoo][debug] type mismatch converting %s expect=%s got=%s valueType=%T", kind, expect, gotRepr, raw)
 }
 
 func scanStaticModelValues(typ reflect.Type, s reflect.Value) map[string]reflect.Value {

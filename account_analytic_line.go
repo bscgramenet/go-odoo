@@ -15,6 +15,7 @@ type AccountAnalyticLine struct {
 	CurrencyId           *Many2One   `xmlrpc:"currency_id,omitempty"`
 	Date                 *Time       `xmlrpc:"date,omitempty"`
 	DisplayName          *String     `xmlrpc:"display_name,omitempty"`
+	FiscalYearSearch     *Bool       `xmlrpc:"fiscal_year_search,omitempty"`
 	GeneralAccountId     *Many2One   `xmlrpc:"general_account_id,omitempty"`
 	Id                   *Int        `xmlrpc:"id,omitempty"`
 	JournalId            *Many2One   `xmlrpc:"journal_id,omitempty"`
@@ -22,7 +23,6 @@ type AccountAnalyticLine struct {
 	Name                 *String     `xmlrpc:"name,omitempty"`
 	PartnerId            *Many2One   `xmlrpc:"partner_id,omitempty"`
 	ProductId            *Many2One   `xmlrpc:"product_id,omitempty"`
-	ProductUomCategoryId *Many2One   `xmlrpc:"product_uom_category_id,omitempty"`
 	ProductUomId         *Many2One   `xmlrpc:"product_uom_id,omitempty"`
 	Ref                  *String     `xmlrpc:"ref,omitempty"`
 	SoLine               *Many2One   `xmlrpc:"so_line,omitempty"`

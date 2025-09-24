@@ -25,10 +25,8 @@ type CrmTeamMember struct {
 	MessageNeedaction        *Bool     `xmlrpc:"message_needaction,omitempty"`
 	MessageNeedactionCounter *Int      `xmlrpc:"message_needaction_counter,omitempty"`
 	MessagePartnerIds        *Relation `xmlrpc:"message_partner_ids,omitempty"`
-	Mobile                   *String   `xmlrpc:"mobile,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`
 	Phone                    *String   `xmlrpc:"phone,omitempty"`
-	RatingIds                *Relation `xmlrpc:"rating_ids,omitempty"`
 	UserCompanyIds           *Relation `xmlrpc:"user_company_ids,omitempty"`
 	UserId                   *Many2One `xmlrpc:"user_id,omitempty"`
 	UserInTeamsIds           *Relation `xmlrpc:"user_in_teams_ids,omitempty"`

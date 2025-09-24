@@ -14,6 +14,8 @@ type ProductDocument struct {
 	Description    *String    `xmlrpc:"description,omitempty"`
 	DisplayName    *String    `xmlrpc:"display_name,omitempty"`
 	FileSize       *Int       `xmlrpc:"file_size,omitempty"`
+	FormFieldIds   *Relation  `xmlrpc:"form_field_ids,omitempty"`
+	HasThumbnail   *Bool      `xmlrpc:"has_thumbnail,omitempty"`
 	Id             *Int       `xmlrpc:"id,omitempty"`
 	ImageHeight    *Int       `xmlrpc:"image_height,omitempty"`
 	ImageSrc       *String    `xmlrpc:"image_src,omitempty"`
@@ -32,6 +34,7 @@ type ProductDocument struct {
 	ResName        *String    `xmlrpc:"res_name,omitempty"`
 	Sequence       *Int       `xmlrpc:"sequence,omitempty"`
 	StoreFname     *String    `xmlrpc:"store_fname,omitempty"`
+	Thumbnail      *String    `xmlrpc:"thumbnail,omitempty"`
 	Type           *Selection `xmlrpc:"type,omitempty"`
 	Url            *String    `xmlrpc:"url,omitempty"`
 	VoiceIds       *Relation  `xmlrpc:"voice_ids,omitempty"`

@@ -12,6 +12,7 @@ type PosCategory struct {
 	HourUntil   *Float    `xmlrpc:"hour_until,omitempty"`
 	Id          *Int      `xmlrpc:"id,omitempty"`
 	Image128    *String   `xmlrpc:"image_128,omitempty"`
+	Image512    *String   `xmlrpc:"image_512,omitempty"`
 	Name        *String   `xmlrpc:"name,omitempty"`
 	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
 	Sequence    *Int      `xmlrpc:"sequence,omitempty"`

@@ -2,6 +2,7 @@ package odoo
 
 // PosNote represents pos.note model.
 type PosNote struct {
+	Color       *Int      `xmlrpc:"color,omitempty"`
 	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
 	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
 	DisplayName *String   `xmlrpc:"display_name,omitempty"`

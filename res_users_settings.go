@@ -6,10 +6,10 @@ type ResUsersSettings struct {
 	CreateDate                          *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                           *Many2One  `xmlrpc:"create_uid,omitempty"`
 	DisplayName                         *String    `xmlrpc:"display_name,omitempty"`
+	EmbeddedActionsConfigIds            *Relation  `xmlrpc:"embedded_actions_config_ids,omitempty"`
 	Id                                  *Int       `xmlrpc:"id,omitempty"`
 	IsDiscussSidebarCategoryChannelOpen *Bool      `xmlrpc:"is_discuss_sidebar_category_channel_open,omitempty"`
 	IsDiscussSidebarCategoryChatOpen    *Bool      `xmlrpc:"is_discuss_sidebar_category_chat_open,omitempty"`
-	MuteUntilDt                         *Time      `xmlrpc:"mute_until_dt,omitempty"`
 	PushToTalkKey                       *String    `xmlrpc:"push_to_talk_key,omitempty"`
 	UsePushToTalk                       *Bool      `xmlrpc:"use_push_to_talk,omitempty"`
 	UserId                              *Many2One  `xmlrpc:"user_id,omitempty"`

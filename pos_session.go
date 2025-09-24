@@ -25,14 +25,13 @@ type PosSession struct {
 	ConfigId                    *Many2One  `xmlrpc:"config_id,omitempty"`
 	CreateDate                  *Time      `xmlrpc:"create_date,omitempty"`
 	CreateUid                   *Many2One  `xmlrpc:"create_uid,omitempty"`
+	CrmTeamId                   *Many2One  `xmlrpc:"crm_team_id,omitempty"`
 	CurrencyId                  *Many2One  `xmlrpc:"currency_id,omitempty"`
 	DisplayName                 *String    `xmlrpc:"display_name,omitempty"`
-	EmployeeId                  *Many2One  `xmlrpc:"employee_id,omitempty"`
 	FailedPickings              *Bool      `xmlrpc:"failed_pickings,omitempty"`
 	HasMessage                  *Bool      `xmlrpc:"has_message,omitempty"`
 	Id                          *Int       `xmlrpc:"id,omitempty"`
 	IsInCompanyCurrency         *Bool      `xmlrpc:"is_in_company_currency,omitempty"`
-	LoginNumber                 *Int       `xmlrpc:"login_number,omitempty"`
 	MessageAttachmentCount      *Int       `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds          *Relation  `xmlrpc:"message_follower_ids,omitempty"`
 	MessageHasError             *Bool      `xmlrpc:"message_has_error,omitempty"`
@@ -52,9 +51,7 @@ type PosSession struct {
 	PaymentMethodIds            *Relation  `xmlrpc:"payment_method_ids,omitempty"`
 	PickingCount                *Int       `xmlrpc:"picking_count,omitempty"`
 	PickingIds                  *Relation  `xmlrpc:"picking_ids,omitempty"`
-	RatingIds                   *Relation  `xmlrpc:"rating_ids,omitempty"`
 	Rescue                      *Bool      `xmlrpc:"rescue,omitempty"`
-	SequenceNumber              *Int       `xmlrpc:"sequence_number,omitempty"`
 	StartAt                     *Time      `xmlrpc:"start_at,omitempty"`
 	State                       *Selection `xmlrpc:"state,omitempty"`
 	StatementLineIds            *Relation  `xmlrpc:"statement_line_ids,omitempty"`

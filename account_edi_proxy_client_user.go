@@ -2,21 +2,22 @@ package odoo
 
 // AccountEdiProxyClientUser represents account_edi_proxy_client.user model.
 type AccountEdiProxyClientUser struct {
-	Active                 *Bool      `xmlrpc:"active,omitempty"`
-	CompanyId              *Many2One  `xmlrpc:"company_id,omitempty"`
-	CreateDate             *Time      `xmlrpc:"create_date,omitempty"`
-	CreateUid              *Many2One  `xmlrpc:"create_uid,omitempty"`
-	DisplayName            *String    `xmlrpc:"display_name,omitempty"`
-	EdiIdentification      *String    `xmlrpc:"edi_identification,omitempty"`
-	EdiMode                *Selection `xmlrpc:"edi_mode,omitempty"`
-	Id                     *Int       `xmlrpc:"id,omitempty"`
-	IdClient               *String    `xmlrpc:"id_client,omitempty"`
-	PeppolVerificationCode *String    `xmlrpc:"peppol_verification_code,omitempty"`
-	PrivateKeyId           *Many2One  `xmlrpc:"private_key_id,omitempty"`
-	ProxyType              *Selection `xmlrpc:"proxy_type,omitempty"`
-	RefreshToken           *String    `xmlrpc:"refresh_token,omitempty"`
-	WriteDate              *Time      `xmlrpc:"write_date,omitempty"`
-	WriteUid               *Many2One  `xmlrpc:"write_uid,omitempty"`
+	Active            *Bool      `xmlrpc:"active,omitempty"`
+	CompanyId         *Many2One  `xmlrpc:"company_id,omitempty"`
+	CreateDate        *Time      `xmlrpc:"create_date,omitempty"`
+	CreateUid         *Many2One  `xmlrpc:"create_uid,omitempty"`
+	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	EdiIdentification *String    `xmlrpc:"edi_identification,omitempty"`
+	EdiMode           *Selection `xmlrpc:"edi_mode,omitempty"`
+	Id                *Int       `xmlrpc:"id,omitempty"`
+	IdClient          *String    `xmlrpc:"id_client,omitempty"`
+	IsTokenOutOfSync  *Bool      `xmlrpc:"is_token_out_of_sync,omitempty"`
+	PrivateKeyId      *Many2One  `xmlrpc:"private_key_id,omitempty"`
+	ProxyType         *Selection `xmlrpc:"proxy_type,omitempty"`
+	RefreshToken      *String    `xmlrpc:"refresh_token,omitempty"`
+	TokenSyncVersion  *Int       `xmlrpc:"token_sync_version,omitempty"`
+	WriteDate         *Time      `xmlrpc:"write_date,omitempty"`
+	WriteUid          *Many2One  `xmlrpc:"write_uid,omitempty"`
 }
 
 // AccountEdiProxyClientUsers represents array of account_edi_proxy_client.user model.

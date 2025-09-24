@@ -12,6 +12,8 @@ type ProductCombo struct {
 	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
 	Id             *Int      `xmlrpc:"id,omitempty"`
 	Name           *String   `xmlrpc:"name,omitempty"`
+	QtyFree        *Int      `xmlrpc:"qty_free,omitempty"`
+	QtyMax         *Int      `xmlrpc:"qty_max,omitempty"`
 	Sequence       *Int      `xmlrpc:"sequence,omitempty"`
 	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
 	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
