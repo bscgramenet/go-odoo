@@ -3,6 +3,7 @@ package odoo
 // PosPreset represents pos.preset model.
 type PosPreset struct {
 	AttendanceIds      *Relation  `xmlrpc:"attendance_ids,omitempty"`
+	AvailableInSelf    *Bool      `xmlrpc:"available_in_self,omitempty"`
 	Color              *Int       `xmlrpc:"color,omitempty"`
 	CountLinkedConfig  *Int       `xmlrpc:"count_linked_config,omitempty"`
 	CountLinkedOrders  *Int       `xmlrpc:"count_linked_orders,omitempty"`
@@ -17,10 +18,13 @@ type PosPreset struct {
 	Image512           *String    `xmlrpc:"image_512,omitempty"`
 	IntervalTime       *Int       `xmlrpc:"interval_time,omitempty"`
 	IsReturn           *Bool      `xmlrpc:"is_return,omitempty"`
+	MailTemplateId     *Many2One  `xmlrpc:"mail_template_id,omitempty"`
 	Name               *String    `xmlrpc:"name,omitempty"`
 	PricelistId        *Many2One  `xmlrpc:"pricelist_id,omitempty"`
 	ResourceCalendarId *Many2One  `xmlrpc:"resource_calendar_id,omitempty"`
+	ServiceAt          *Selection `xmlrpc:"service_at,omitempty"`
 	SlotsPerInterval   *Int       `xmlrpc:"slots_per_interval,omitempty"`
+	UseGuest           *Bool      `xmlrpc:"use_guest,omitempty"`
 	UseTiming          *Bool      `xmlrpc:"use_timing,omitempty"`
 	WriteDate          *Time      `xmlrpc:"write_date,omitempty"`
 	WriteUid           *Many2One  `xmlrpc:"write_uid,omitempty"`

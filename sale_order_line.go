@@ -14,6 +14,7 @@ type SaleOrderLine struct {
 	ComboItemId                       *Many2One   `xmlrpc:"combo_item_id,omitempty"`
 	CompanyId                         *Many2One   `xmlrpc:"company_id,omitempty"`
 	CompanyPriceInclude               *Selection  `xmlrpc:"company_price_include,omitempty"`
+	CouponId                          *Many2One   `xmlrpc:"coupon_id,omitempty"`
 	CreateDate                        *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                         *Many2One   `xmlrpc:"create_uid,omitempty"`
 	CurrencyId                        *Many2One   `xmlrpc:"currency_id,omitempty"`
@@ -35,6 +36,7 @@ type SaleOrderLine struct {
 	IsMto                             *Bool       `xmlrpc:"is_mto,omitempty"`
 	IsOptional                        *Bool       `xmlrpc:"is_optional,omitempty"`
 	IsProductArchived                 *Bool       `xmlrpc:"is_product_archived,omitempty"`
+	IsRewardLine                      *Bool       `xmlrpc:"is_reward_line,omitempty"`
 	IsStorable                        *Bool       `xmlrpc:"is_storable,omitempty"`
 	LinkedLineId                      *Many2One   `xmlrpc:"linked_line_id,omitempty"`
 	LinkedLineIds                     *Relation   `xmlrpc:"linked_line_ids,omitempty"`
@@ -44,6 +46,7 @@ type SaleOrderLine struct {
 	OrderId                           *Many2One   `xmlrpc:"order_id,omitempty"`
 	OrderPartnerId                    *Many2One   `xmlrpc:"order_partner_id,omitempty"`
 	ParentId                          *Many2One   `xmlrpc:"parent_id,omitempty"`
+	PointsCost                        *Float      `xmlrpc:"points_cost,omitempty"`
 	PosOrderLineIds                   *Relation   `xmlrpc:"pos_order_line_ids,omitempty"`
 	PriceReduceTaxexcl                *Float      `xmlrpc:"price_reduce_taxexcl,omitempty"`
 	PriceReduceTaxinc                 *Float      `xmlrpc:"price_reduce_taxinc,omitempty"`
@@ -72,6 +75,8 @@ type SaleOrderLine struct {
 	QtyInvoicedPosted                 *Float      `xmlrpc:"qty_invoiced_posted,omitempty"`
 	QtyToDeliver                      *Float      `xmlrpc:"qty_to_deliver,omitempty"`
 	QtyToInvoice                      *Float      `xmlrpc:"qty_to_invoice,omitempty"`
+	RewardId                          *Many2One   `xmlrpc:"reward_id,omitempty"`
+	RewardIdentifierCode              *String     `xmlrpc:"reward_identifier_code,omitempty"`
 	RouteIds                          *Relation   `xmlrpc:"route_ids,omitempty"`
 	SaleLineWarnMsg                   *String     `xmlrpc:"sale_line_warn_msg,omitempty"`
 	SalesmanId                        *Many2One   `xmlrpc:"salesman_id,omitempty"`
@@ -92,6 +97,9 @@ type SaleOrderLine struct {
 	WarehouseId                       *Many2One   `xmlrpc:"warehouse_id,omitempty"`
 	WriteDate                         *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                          *Many2One   `xmlrpc:"write_uid,omitempty"`
+	XAllAttributesIds                 *Relation   `xmlrpc:"x_all_attributes_ids,omitempty"`
+	XDetailIds                        *Relation   `xmlrpc:"x_detail_ids,omitempty"`
+	XTotalDetailQuantity              *Float      `xmlrpc:"x_total_detail_quantity,omitempty"`
 }
 
 // SaleOrderLines represents array of sale.order.line model.

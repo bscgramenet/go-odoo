@@ -105,6 +105,8 @@ type ProductTemplate struct {
 	SaleLineWarnMsg                      *String     `xmlrpc:"sale_line_warn_msg,omitempty"`
 	SaleOk                               *Bool       `xmlrpc:"sale_ok,omitempty"`
 	SalesCount                           *Float      `xmlrpc:"sales_count,omitempty"`
+	SelfOrderAvailable                   *Bool       `xmlrpc:"self_order_available,omitempty"`
+	SelfOrderVisible                     *Bool       `xmlrpc:"self_order_visible,omitempty"`
 	SellerIds                            *Relation   `xmlrpc:"seller_ids,omitempty"`
 	Sequence                             *Int        `xmlrpc:"sequence,omitempty"`
 	SerialPrefixFormat                   *String     `xmlrpc:"serial_prefix_format,omitempty"`

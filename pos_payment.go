@@ -14,6 +14,7 @@ type PosPayment struct {
 	CurrencyId               *Many2One `xmlrpc:"currency_id,omitempty"`
 	CurrencyRate             *Float    `xmlrpc:"currency_rate,omitempty"`
 	DisplayName              *String   `xmlrpc:"display_name,omitempty"`
+	EmployeeId               *Many2One `xmlrpc:"employee_id,omitempty"`
 	Id                       *Int      `xmlrpc:"id,omitempty"`
 	IsChange                 *Bool     `xmlrpc:"is_change,omitempty"`
 	Name                     *String   `xmlrpc:"name,omitempty"`

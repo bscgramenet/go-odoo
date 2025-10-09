@@ -56,6 +56,7 @@ type ResCompany struct {
 	CompanyRegistry                             *String     `xmlrpc:"company_registry,omitempty"`
 	CompanyRegistryPlaceholder                  *String     `xmlrpc:"company_registry_placeholder,omitempty"`
 	CompanyVatPlaceholder                       *String     `xmlrpc:"company_vat_placeholder,omitempty"`
+	ContractExpirationNoticePeriod              *Int        `xmlrpc:"contract_expiration_notice_period,omitempty"`
 	CostMethod                                  *Selection  `xmlrpc:"cost_method,omitempty"`
 	CountryCode                                 *String     `xmlrpc:"country_code,omitempty"`
 	CountryId                                   *Many2One   `xmlrpc:"country_id,omitempty"`
@@ -77,6 +78,7 @@ type ResCompany struct {
 	EmailFormatted                              *String     `xmlrpc:"email_formatted,omitempty"`
 	EmailPrimaryColor                           *String     `xmlrpc:"email_primary_color,omitempty"`
 	EmailSecondaryColor                         *String     `xmlrpc:"email_secondary_color,omitempty"`
+	EmployeePropertiesDefinition                interface{} `xmlrpc:"employee_properties_definition,omitempty"`
 	ExpectsChartOfAccounts                      *Bool       `xmlrpc:"expects_chart_of_accounts,omitempty"`
 	ExpenseAccountId                            *Many2One   `xmlrpc:"expense_account_id,omitempty"`
 	ExpenseAccrualAccountId                     *Many2One   `xmlrpc:"expense_accrual_account_id,omitempty"`
@@ -92,6 +94,12 @@ type ResCompany struct {
 	HasMessage                                  *Bool       `xmlrpc:"has_message,omitempty"`
 	HasReceivedWarningStockSms                  *Bool       `xmlrpc:"has_received_warning_stock_sms,omitempty"`
 	HorizonDays                                 *Float      `xmlrpc:"horizon_days,omitempty"`
+	HrPresenceControlAttendance                 *Bool       `xmlrpc:"hr_presence_control_attendance,omitempty"`
+	HrPresenceControlEmail                      *Bool       `xmlrpc:"hr_presence_control_email,omitempty"`
+	HrPresenceControlEmailAmount                *Int        `xmlrpc:"hr_presence_control_email_amount,omitempty"`
+	HrPresenceControlIp                         *Bool       `xmlrpc:"hr_presence_control_ip,omitempty"`
+	HrPresenceControlIpList                     *String     `xmlrpc:"hr_presence_control_ip_list,omitempty"`
+	HrPresenceControlLogin                      *Bool       `xmlrpc:"hr_presence_control_login,omitempty"`
 	IapEnrichAutoDone                           *Bool       `xmlrpc:"iap_enrich_auto_done,omitempty"`
 	Id                                          *Int        `xmlrpc:"id,omitempty"`
 	IncomeAccountId                             *Many2One   `xmlrpc:"income_account_id,omitempty"`
@@ -206,6 +214,7 @@ type ResCompany struct {
 	VatCheckVies                                *Bool       `xmlrpc:"vat_check_vies,omitempty"`
 	Website                                     *String     `xmlrpc:"website,omitempty"`
 	WebsiteMessageIds                           *Relation   `xmlrpc:"website_message_ids,omitempty"`
+	WorkPermitExpirationNoticePeriod            *Int        `xmlrpc:"work_permit_expiration_notice_period,omitempty"`
 	WriteDate                                   *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                                    *Many2One   `xmlrpc:"write_uid,omitempty"`
 	Zip                                         *String     `xmlrpc:"zip,omitempty"`

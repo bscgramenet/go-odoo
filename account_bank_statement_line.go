@@ -65,6 +65,7 @@ type AccountBankStatementLine struct {
 	DisplayQrCode                            *Bool       `xmlrpc:"display_qr_code,omitempty"`
 	DisplaySendButton                        *Bool       `xmlrpc:"display_send_button,omitempty"`
 	DuplicatedRefIds                         *Relation   `xmlrpc:"duplicated_ref_ids,omitempty"`
+	EmployeeId                               *Many2One   `xmlrpc:"employee_id,omitempty"`
 	ExchangeDiffPartialIds                   *Relation   `xmlrpc:"exchange_diff_partial_ids,omitempty"`
 	ExpectedCurrencyRate                     *Float      `xmlrpc:"expected_currency_rate,omitempty"`
 	FiscalPositionId                         *Many2One   `xmlrpc:"fiscal_position_id,omitempty"`

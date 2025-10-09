@@ -2,13 +2,15 @@ package odoo
 
 // PosDailySalesReportsWizard represents pos.daily.sales.reports.wizard model.
 type PosDailySalesReportsWizard struct {
-	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
-	Id           *Int      `xmlrpc:"id,omitempty"`
-	PosSessionId *Many2One `xmlrpc:"pos_session_id,omitempty"`
-	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
+	AddReportPerEmployee *Bool     `xmlrpc:"add_report_per_employee,omitempty"`
+	CreateDate           *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid            *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName          *String   `xmlrpc:"display_name,omitempty"`
+	EmployeeIds          *Relation `xmlrpc:"employee_ids,omitempty"`
+	Id                   *Int      `xmlrpc:"id,omitempty"`
+	PosSessionId         *Many2One `xmlrpc:"pos_session_id,omitempty"`
+	WriteDate            *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid             *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // PosDailySalesReportsWizards represents array of pos.daily.sales.reports.wizard model.

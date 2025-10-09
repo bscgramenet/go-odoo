@@ -22,14 +22,17 @@ type SaleOrder struct {
 	AmountUndiscounted            *Float      `xmlrpc:"amount_undiscounted,omitempty"`
 	AmountUnpaid                  *Float      `xmlrpc:"amount_unpaid,omitempty"`
 	AmountUntaxed                 *Float      `xmlrpc:"amount_untaxed,omitempty"`
+	AppliedCouponIds              *Relation   `xmlrpc:"applied_coupon_ids,omitempty"`
 	AuthorizedTransactionIds      *Relation   `xmlrpc:"authorized_transaction_ids,omitempty"`
 	AvailableQuotationDocumentIds *Relation   `xmlrpc:"available_quotation_document_ids,omitempty"`
 	CampaignId                    *Many2One   `xmlrpc:"campaign_id,omitempty"`
 	ClientOrderRef                *String     `xmlrpc:"client_order_ref,omitempty"`
+	CodeEnabledRuleIds            *Relation   `xmlrpc:"code_enabled_rule_ids,omitempty"`
 	CommitmentDate                *Time       `xmlrpc:"commitment_date,omitempty"`
 	CompanyId                     *Many2One   `xmlrpc:"company_id,omitempty"`
 	CompanyPriceInclude           *Selection  `xmlrpc:"company_price_include,omitempty"`
 	CountryCode                   *String     `xmlrpc:"country_code,omitempty"`
+	CouponPointIds                *Relation   `xmlrpc:"coupon_point_ids,omitempty"`
 	CreateDate                    *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                     *Many2One   `xmlrpc:"create_uid,omitempty"`
 	CurrencyId                    *Many2One   `xmlrpc:"currency_id,omitempty"`
@@ -43,6 +46,7 @@ type SaleOrder struct {
 	EffectiveDate                 *Time       `xmlrpc:"effective_date,omitempty"`
 	ExpectedDate                  *Time       `xmlrpc:"expected_date,omitempty"`
 	FiscalPositionId              *Many2One   `xmlrpc:"fiscal_position_id,omitempty"`
+	GiftCardCount                 *Int        `xmlrpc:"gift_card_count,omitempty"`
 	HasActivePricelist            *Bool       `xmlrpc:"has_active_pricelist,omitempty"`
 	HasArchivedProducts           *Bool       `xmlrpc:"has_archived_products,omitempty"`
 	HasAuthorizedTransactionIds   *Bool       `xmlrpc:"has_authorized_transaction_ids,omitempty"`
@@ -59,6 +63,7 @@ type SaleOrder struct {
 	JsonPopover                   *String     `xmlrpc:"json_popover,omitempty"`
 	LateAvailability              *Bool       `xmlrpc:"late_availability,omitempty"`
 	Locked                        *Bool       `xmlrpc:"locked,omitempty"`
+	LoyaltyData                   interface{} `xmlrpc:"loyalty_data,omitempty"`
 	MediumId                      *Many2One   `xmlrpc:"medium_id,omitempty"`
 	MessageAttachmentCount        *Int        `xmlrpc:"message_attachment_count,omitempty"`
 	MessageFollowerIds            *Relation   `xmlrpc:"message_follower_ids,omitempty"`
@@ -93,6 +98,7 @@ type SaleOrder struct {
 	Reference                     *String     `xmlrpc:"reference,omitempty"`
 	RequirePayment                *Bool       `xmlrpc:"require_payment,omitempty"`
 	RequireSignature              *Bool       `xmlrpc:"require_signature,omitempty"`
+	RewardAmount                  *Float      `xmlrpc:"reward_amount,omitempty"`
 	SaleOrderTemplateId           *Many2One   `xmlrpc:"sale_order_template_id,omitempty"`
 	SaleWarningText               *String     `xmlrpc:"sale_warning_text,omitempty"`
 	ShowJsonPopover               *Bool       `xmlrpc:"show_json_popover,omitempty"`

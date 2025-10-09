@@ -4,10 +4,12 @@ package odoo
 type PosConfig struct {
 	AccessToken                         *String     `xmlrpc:"access_token,omitempty"`
 	Active                              *Bool       `xmlrpc:"active,omitempty"`
+	AdvancedEmployeeIds                 *Relation   `xmlrpc:"advanced_employee_ids,omitempty"`
 	AmountAuthorizedDiff                *Float      `xmlrpc:"amount_authorized_diff,omitempty"`
 	AutoValidateTerminalPayment         *Bool       `xmlrpc:"auto_validate_terminal_payment,omitempty"`
 	AvailablePresetIds                  *Relation   `xmlrpc:"available_preset_ids,omitempty"`
 	AvailablePricelistIds               *Relation   `xmlrpc:"available_pricelist_ids,omitempty"`
+	BasicEmployeeIds                    *Relation   `xmlrpc:"basic_employee_ids,omitempty"`
 	BasicReceipt                        *Bool       `xmlrpc:"basic_receipt,omitempty"`
 	CashControl                         *Bool       `xmlrpc:"cash_control,omitempty"`
 	CashRounding                        *Bool       `xmlrpc:"cash_rounding,omitempty"`
@@ -25,6 +27,7 @@ type PosConfig struct {
 	DefaultBillIds                      *Relation   `xmlrpc:"default_bill_ids,omitempty"`
 	DefaultFiscalPositionId             *Many2One   `xmlrpc:"default_fiscal_position_id,omitempty"`
 	DefaultPresetId                     *Many2One   `xmlrpc:"default_preset_id,omitempty"`
+	DefaultScreen                       *Selection  `xmlrpc:"default_screen,omitempty"`
 	DeviceSeqId                         *Many2One   `xmlrpc:"device_seq_id,omitempty"`
 	DisplayName                         *String     `xmlrpc:"display_name,omitempty"`
 	DownPaymentProductId                *Many2One   `xmlrpc:"down_payment_product_id,omitempty"`
@@ -32,9 +35,11 @@ type PosConfig struct {
 	FallbackNomenclatureId              *Many2One   `xmlrpc:"fallback_nomenclature_id,omitempty"`
 	FastPaymentMethodIds                *Relation   `xmlrpc:"fast_payment_method_ids,omitempty"`
 	FiscalPositionIds                   *Relation   `xmlrpc:"fiscal_position_ids,omitempty"`
+	FloorIds                            *Relation   `xmlrpc:"floor_ids,omitempty"`
 	GroupPosManagerId                   *Many2One   `xmlrpc:"group_pos_manager_id,omitempty"`
 	GroupPosUserId                      *Many2One   `xmlrpc:"group_pos_user_id,omitempty"`
 	HasActiveSession                    *Bool       `xmlrpc:"has_active_session,omitempty"`
+	HasPaper                            *Bool       `xmlrpc:"has_paper,omitempty"`
 	Id                                  *Int        `xmlrpc:"id,omitempty"`
 	IfaceAvailableCategIds              *Relation   `xmlrpc:"iface_available_categ_ids,omitempty"`
 	IfaceBigScrollbars                  *Bool       `xmlrpc:"iface_big_scrollbars,omitempty"`
@@ -44,7 +49,9 @@ type PosConfig struct {
 	IfacePrintAuto                      *Bool       `xmlrpc:"iface_print_auto,omitempty"`
 	IfacePrintSkipScreen                *Bool       `xmlrpc:"iface_print_skip_screen,omitempty"`
 	IfacePrintViaProxy                  *Bool       `xmlrpc:"iface_print_via_proxy,omitempty"`
+	IfacePrintbill                      *Bool       `xmlrpc:"iface_printbill,omitempty"`
 	IfaceScanViaProxy                   *Bool       `xmlrpc:"iface_scan_via_proxy,omitempty"`
+	IfaceSplitbill                      *Bool       `xmlrpc:"iface_splitbill,omitempty"`
 	IfaceTaxIncluded                    *Selection  `xmlrpc:"iface_tax_included,omitempty"`
 	IfaceTipproduct                     *Bool       `xmlrpc:"iface_tipproduct,omitempty"`
 	InvoiceJournalId                    *Many2One   `xmlrpc:"invoice_journal_id,omitempty"`
@@ -61,6 +68,7 @@ type PosConfig struct {
 	LastSessionClosingDate              *Time       `xmlrpc:"last_session_closing_date,omitempty"`
 	LimitCategories                     *Bool       `xmlrpc:"limit_categories,omitempty"`
 	ManualDiscount                      *Bool       `xmlrpc:"manual_discount,omitempty"`
+	MinimalEmployeeIds                  *Relation   `xmlrpc:"minimal_employee_ids,omitempty"`
 	ModulePosAppointment                *Bool       `xmlrpc:"module_pos_appointment,omitempty"`
 	ModulePosAvatax                     *Bool       `xmlrpc:"module_pos_avatax,omitempty"`
 	ModulePosDiscount                   *Bool       `xmlrpc:"module_pos_discount,omitempty"`
@@ -90,12 +98,26 @@ type PosConfig struct {
 	RestrictPriceControl                *Bool       `xmlrpc:"restrict_price_control,omitempty"`
 	RoundingMethod                      *Many2One   `xmlrpc:"rounding_method,omitempty"`
 	RouteId                             *Many2One   `xmlrpc:"route_id,omitempty"`
+	SelfOrderOnlinePaymentMethodId      *Many2One   `xmlrpc:"self_order_online_payment_method_id,omitempty"`
+	SelfOrderingAvailableLanguageIds    *Relation   `xmlrpc:"self_ordering_available_language_ids,omitempty"`
+	SelfOrderingDefaultLanguageId       *Many2One   `xmlrpc:"self_ordering_default_language_id,omitempty"`
+	SelfOrderingDefaultUserId           *Many2One   `xmlrpc:"self_ordering_default_user_id,omitempty"`
+	SelfOrderingImageBackgroundIds      *Relation   `xmlrpc:"self_ordering_image_background_ids,omitempty"`
+	SelfOrderingImageBrand              *String     `xmlrpc:"self_ordering_image_brand,omitempty"`
+	SelfOrderingImageBrandName          *String     `xmlrpc:"self_ordering_image_brand_name,omitempty"`
+	SelfOrderingImageHomeIds            *Relation   `xmlrpc:"self_ordering_image_home_ids,omitempty"`
+	SelfOrderingMode                    *Selection  `xmlrpc:"self_ordering_mode,omitempty"`
+	SelfOrderingPayAfter                *Selection  `xmlrpc:"self_ordering_pay_after,omitempty"`
+	SelfOrderingServiceMode             *Selection  `xmlrpc:"self_ordering_service_mode,omitempty"`
+	SelfOrderingUrl                     *String     `xmlrpc:"self_ordering_url,omitempty"`
 	SessionIds                          *Relation   `xmlrpc:"session_ids,omitempty"`
 	SetMaximumDifference                *Bool       `xmlrpc:"set_maximum_difference,omitempty"`
+	SetTipAfterPayment                  *Bool       `xmlrpc:"set_tip_after_payment,omitempty"`
 	ShipLater                           *Bool       `xmlrpc:"ship_later,omitempty"`
 	ShowCategoryImages                  *Bool       `xmlrpc:"show_category_images,omitempty"`
 	ShowProductImages                   *Bool       `xmlrpc:"show_product_images,omitempty"`
 	StatisticsForCurrentSession         interface{} `xmlrpc:"statistics_for_current_session,omitempty"`
+	Status                              *Selection  `xmlrpc:"status,omitempty"`
 	TaxRegimeSelection                  *Bool       `xmlrpc:"tax_regime_selection,omitempty"`
 	TipProductId                        *Many2One   `xmlrpc:"tip_product_id,omitempty"`
 	TrustedConfigIds                    *Relation   `xmlrpc:"trusted_config_ids,omitempty"`
@@ -103,6 +125,18 @@ type PosConfig struct {
 	UsePresets                          *Bool       `xmlrpc:"use_presets,omitempty"`
 	UsePricelist                        *Bool       `xmlrpc:"use_pricelist,omitempty"`
 	Uuid                                *String     `xmlrpc:"uuid,omitempty"`
+	VmaiAutoSearchDelay                 *Int        `xmlrpc:"vmai_auto_search_delay,omitempty"`
+	VmaiAutoSearchEnabled               *Bool       `xmlrpc:"vmai_auto_search_enabled,omitempty"`
+	VmaiAutoSearchLimit                 *Int        `xmlrpc:"vmai_auto_search_limit,omitempty"`
+	VmaiAutoSearchMinLength             *Int        `xmlrpc:"vmai_auto_search_min_length,omitempty"`
+	VmaiAutoSearchNotification          *Bool       `xmlrpc:"vmai_auto_search_notification,omitempty"`
+	VmaiManualSearchAutoBackend         *Bool       `xmlrpc:"vmai_manual_search_auto_backend,omitempty"`
+	VmaiManualSearchDelay               *Int        `xmlrpc:"vmai_manual_search_delay,omitempty"`
+	VmaiManualSearchMinChars            *Int        `xmlrpc:"vmai_manual_search_min_chars,omitempty"`
+	VmaiPrintGiftCardsOnReceipt         *Bool       `xmlrpc:"vmai_print_gift_cards_on_receipt,omitempty"`
+	VmaiReceiptDebugLang                *Bool       `xmlrpc:"vmai_receipt_debug_lang,omitempty"`
+	VmaiReceiptSpanishEnabled           *Bool       `xmlrpc:"vmai_receipt_spanish_enabled,omitempty"`
+	VmaiReceiptSpanishMode              *Selection  `xmlrpc:"vmai_receipt_spanish_mode,omitempty"`
 	WarehouseId                         *Many2One   `xmlrpc:"warehouse_id,omitempty"`
 	WriteDate                           *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                            *Many2One   `xmlrpc:"write_uid,omitempty"`

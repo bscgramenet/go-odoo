@@ -13,7 +13,6 @@ type LinkTracker struct {
 	Label         *String   `xmlrpc:"label,omitempty"`
 	LinkClickIds  *Relation `xmlrpc:"link_click_ids,omitempty"`
 	LinkCodeIds   *Relation `xmlrpc:"link_code_ids,omitempty"`
-	MassMailingId *Many2One `xmlrpc:"mass_mailing_id,omitempty"`
 	MediumId      *Many2One `xmlrpc:"medium_id,omitempty"`
 	RedirectedUrl *String   `xmlrpc:"redirected_url,omitempty"`
 	ShortUrl      *String   `xmlrpc:"short_url,omitempty"`

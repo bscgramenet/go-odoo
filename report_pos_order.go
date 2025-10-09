@@ -8,6 +8,7 @@ type ReportPosOrder struct {
 	Date              *Time      `xmlrpc:"date,omitempty"`
 	DelayValidation   *Int       `xmlrpc:"delay_validation,omitempty"`
 	DisplayName       *String    `xmlrpc:"display_name,omitempty"`
+	EmployeeId        *Many2One  `xmlrpc:"employee_id,omitempty"`
 	Id                *Int       `xmlrpc:"id,omitempty"`
 	Invoiced          *Bool      `xmlrpc:"invoiced,omitempty"`
 	JournalId         *Many2One  `xmlrpc:"journal_id,omitempty"`

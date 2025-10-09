@@ -3,10 +3,13 @@ package odoo
 // PosOrderLine represents pos.order.line model.
 type PosOrderLine struct {
 	AttributeValueIds         *Relation   `xmlrpc:"attribute_value_ids,omitempty"`
+	ComboId                   *Many2One   `xmlrpc:"combo_id,omitempty"`
 	ComboItemId               *Many2One   `xmlrpc:"combo_item_id,omitempty"`
 	ComboLineIds              *Relation   `xmlrpc:"combo_line_ids,omitempty"`
 	ComboParentId             *Many2One   `xmlrpc:"combo_parent_id,omitempty"`
 	CompanyId                 *Many2One   `xmlrpc:"company_id,omitempty"`
+	CouponId                  *Many2One   `xmlrpc:"coupon_id,omitempty"`
+	CourseId                  *Many2One   `xmlrpc:"course_id,omitempty"`
 	CreateDate                *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                 *Many2One   `xmlrpc:"create_uid,omitempty"`
 	CurrencyId                *Many2One   `xmlrpc:"currency_id,omitempty"`
@@ -19,6 +22,7 @@ type PosOrderLine struct {
 	FullProductName           *String     `xmlrpc:"full_product_name,omitempty"`
 	Id                        *Int        `xmlrpc:"id,omitempty"`
 	IsEdited                  *Bool       `xmlrpc:"is_edited,omitempty"`
+	IsRewardLine              *Bool       `xmlrpc:"is_reward_line,omitempty"`
 	IsTotalCostComputed       *Bool       `xmlrpc:"is_total_cost_computed,omitempty"`
 	Margin                    *Float      `xmlrpc:"margin,omitempty"`
 	MarginPercent             *Float      `xmlrpc:"margin_percent,omitempty"`
@@ -27,6 +31,7 @@ type PosOrderLine struct {
 	Notice                    *String     `xmlrpc:"notice,omitempty"`
 	OrderId                   *Many2One   `xmlrpc:"order_id,omitempty"`
 	PackLotIds                *Relation   `xmlrpc:"pack_lot_ids,omitempty"`
+	PointsCost                *Float      `xmlrpc:"points_cost,omitempty"`
 	PriceExtra                *Float      `xmlrpc:"price_extra,omitempty"`
 	PriceSubtotal             *Float      `xmlrpc:"price_subtotal,omitempty"`
 	PriceSubtotalIncl         *Float      `xmlrpc:"price_subtotal_incl,omitempty"`
@@ -39,6 +44,8 @@ type PosOrderLine struct {
 	RefundOrderlineIds        *Relation   `xmlrpc:"refund_orderline_ids,omitempty"`
 	RefundedOrderlineId       *Many2One   `xmlrpc:"refunded_orderline_id,omitempty"`
 	RefundedQty               *Float      `xmlrpc:"refunded_qty,omitempty"`
+	RewardId                  *Many2One   `xmlrpc:"reward_id,omitempty"`
+	RewardIdentifierCode      *String     `xmlrpc:"reward_identifier_code,omitempty"`
 	SaleOrderLineId           *Many2One   `xmlrpc:"sale_order_line_id,omitempty"`
 	SaleOrderOriginId         *Many2One   `xmlrpc:"sale_order_origin_id,omitempty"`
 	TaxIds                    *Relation   `xmlrpc:"tax_ids,omitempty"`

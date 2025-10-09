@@ -28,6 +28,7 @@ type PosSession struct {
 	CrmTeamId                   *Many2One  `xmlrpc:"crm_team_id,omitempty"`
 	CurrencyId                  *Many2One  `xmlrpc:"currency_id,omitempty"`
 	DisplayName                 *String    `xmlrpc:"display_name,omitempty"`
+	EmployeeId                  *Many2One  `xmlrpc:"employee_id,omitempty"`
 	FailedPickings              *Bool      `xmlrpc:"failed_pickings,omitempty"`
 	HasMessage                  *Bool      `xmlrpc:"has_message,omitempty"`
 	Id                          *Int       `xmlrpc:"id,omitempty"`

@@ -67,6 +67,8 @@ type ResPartner struct {
 	EmailFormatted                             *String     `xmlrpc:"email_formatted,omitempty"`
 	EmailNormalized                            *String     `xmlrpc:"email_normalized,omitempty"`
 	Employee                                   *Bool       `xmlrpc:"employee,omitempty"`
+	EmployeeIds                                *Relation   `xmlrpc:"employee_ids,omitempty"`
+	EmployeesCount                             *Int        `xmlrpc:"employees_count,omitempty"`
 	FiscalCountryCodes                         *String     `xmlrpc:"fiscal_country_codes,omitempty"`
 	FiscalCountryGroupCodes                    interface{} `xmlrpc:"fiscal_country_group_codes,omitempty"`
 	FiscalPositionId                           *Many2One   `xmlrpc:"fiscal_position_id,omitempty"`
@@ -102,6 +104,7 @@ type ResPartner struct {
 	L10NEsEdiFacturaeAcRoleTypeIds             *Relation   `xmlrpc:"l10n_es_edi_facturae_ac_role_type_ids,omitempty"`
 	L10NEsEdiFacturaeResidenceType             *String     `xmlrpc:"l10n_es_edi_facturae_residence_type,omitempty"`
 	Lang                                       *Selection  `xmlrpc:"lang,omitempty"`
+	LoyaltyCardCount                           *Int        `xmlrpc:"loyalty_card_count,omitempty"`
 	MainUserId                                 *Many2One   `xmlrpc:"main_user_id,omitempty"`
 	MessageAttachmentCount                     *Int        `xmlrpc:"message_attachment_count,omitempty"`
 	MessageBounce                              *Int        `xmlrpc:"message_bounce,omitempty"`

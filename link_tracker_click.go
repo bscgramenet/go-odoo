@@ -2,18 +2,16 @@ package odoo
 
 // LinkTrackerClick represents link.tracker.click model.
 type LinkTrackerClick struct {
-	CampaignId     *Many2One `xmlrpc:"campaign_id,omitempty"`
-	CountryId      *Many2One `xmlrpc:"country_id,omitempty"`
-	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid      *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName    *String   `xmlrpc:"display_name,omitempty"`
-	Id             *Int      `xmlrpc:"id,omitempty"`
-	Ip             *String   `xmlrpc:"ip,omitempty"`
-	LinkId         *Many2One `xmlrpc:"link_id,omitempty"`
-	MailingTraceId *Many2One `xmlrpc:"mailing_trace_id,omitempty"`
-	MassMailingId  *Many2One `xmlrpc:"mass_mailing_id,omitempty"`
-	WriteDate      *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid       *Many2One `xmlrpc:"write_uid,omitempty"`
+	CampaignId  *Many2One `xmlrpc:"campaign_id,omitempty"`
+	CountryId   *Many2One `xmlrpc:"country_id,omitempty"`
+	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName *String   `xmlrpc:"display_name,omitempty"`
+	Id          *Int      `xmlrpc:"id,omitempty"`
+	Ip          *String   `xmlrpc:"ip,omitempty"`
+	LinkId      *Many2One `xmlrpc:"link_id,omitempty"`
+	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // LinkTrackerClicks represents array of link.tracker.click model.

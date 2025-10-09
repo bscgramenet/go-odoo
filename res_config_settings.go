@@ -48,6 +48,7 @@ type ResConfigSettings struct {
 	CompanyInformations                         *String     `xmlrpc:"company_informations,omitempty"`
 	CompanyName                                 *String     `xmlrpc:"company_name,omitempty"`
 	CompanySoTemplateId                         *Many2One   `xmlrpc:"company_so_template_id,omitempty"`
+	ContractExpirationNoticePeriod              *Int        `xmlrpc:"contract_expiration_notice_period,omitempty"`
 	CountryCode                                 *String     `xmlrpc:"country_code,omitempty"`
 	CreateDate                                  *Time       `xmlrpc:"create_date,omitempty"`
 	CreateUid                                   *Many2One   `xmlrpc:"create_uid,omitempty"`
@@ -105,6 +106,11 @@ type ResConfigSettings struct {
 	HasChartOfAccounts                          *Bool       `xmlrpc:"has_chart_of_accounts,omitempty"`
 	HasEnabledProvider                          *Bool       `xmlrpc:"has_enabled_provider,omitempty"`
 	HorizonDays                                 *Float      `xmlrpc:"horizon_days,omitempty"`
+	HrPresenceControlEmail                      *Bool       `xmlrpc:"hr_presence_control_email,omitempty"`
+	HrPresenceControlEmailAmount                *Int        `xmlrpc:"hr_presence_control_email_amount,omitempty"`
+	HrPresenceControlIp                         *Bool       `xmlrpc:"hr_presence_control_ip,omitempty"`
+	HrPresenceControlIpList                     *String     `xmlrpc:"hr_presence_control_ip_list,omitempty"`
+	HrPresenceControlLogin                      *Bool       `xmlrpc:"hr_presence_control_login,omitempty"`
 	Id                                          *Int        `xmlrpc:"id,omitempty"`
 	IncomeAccountId                             *Many2One   `xmlrpc:"income_account_id,omitempty"`
 	IncomeCurrencyExchangeAccountId             *Many2One   `xmlrpc:"income_currency_exchange_account_id,omitempty"`
@@ -162,6 +168,9 @@ type ResConfigSettings struct {
 	ModuleGoogleCalendar                        *Bool       `xmlrpc:"module_google_calendar,omitempty"`
 	ModuleGoogleGmail                           *Bool       `xmlrpc:"module_google_gmail,omitempty"`
 	ModuleGoogleRecaptcha                       *Bool       `xmlrpc:"module_google_recaptcha,omitempty"`
+	ModuleHrAttendance                          *Bool       `xmlrpc:"module_hr_attendance,omitempty"`
+	ModuleHrPresence                            *Bool       `xmlrpc:"module_hr_presence,omitempty"`
+	ModuleHrSkills                              *Bool       `xmlrpc:"module_hr_skills,omitempty"`
 	ModuleLoyalty                               *Bool       `xmlrpc:"module_loyalty,omitempty"`
 	ModuleMailPlugin                            *Bool       `xmlrpc:"module_mail_plugin,omitempty"`
 	ModuleMicrosoftCalendar                     *Bool       `xmlrpc:"module_microsoft_calendar,omitempty"`
@@ -218,11 +227,13 @@ type ResConfigSettings struct {
 	PortalAllowApiKeys                          *Bool       `xmlrpc:"portal_allow_api_keys,omitempty"`
 	PortalConfirmationPay                       *Bool       `xmlrpc:"portal_confirmation_pay,omitempty"`
 	PortalConfirmationSign                      *Bool       `xmlrpc:"portal_confirmation_sign,omitempty"`
+	PosAdvancedEmployeeIds                      *Relation   `xmlrpc:"pos_advanced_employee_ids,omitempty"`
 	PosAllowedPricelistIds                      *Relation   `xmlrpc:"pos_allowed_pricelist_ids,omitempty"`
 	PosAmountAuthorizedDiff                     *Float      `xmlrpc:"pos_amount_authorized_diff,omitempty"`
 	PosAutoValidateTerminalPayment              *Bool       `xmlrpc:"pos_auto_validate_terminal_payment,omitempty"`
 	PosAvailablePresetIds                       *Relation   `xmlrpc:"pos_available_preset_ids,omitempty"`
 	PosAvailablePricelistIds                    *Relation   `xmlrpc:"pos_available_pricelist_ids,omitempty"`
+	PosBasicEmployeeIds                         *Relation   `xmlrpc:"pos_basic_employee_ids,omitempty"`
 	PosBasicReceipt                             *Bool       `xmlrpc:"pos_basic_receipt,omitempty"`
 	PosCashControl                              *Bool       `xmlrpc:"pos_cash_control,omitempty"`
 	PosCashRounding                             *Bool       `xmlrpc:"pos_cash_rounding,omitempty"`
@@ -234,11 +245,13 @@ type ResConfigSettings struct {
 	PosDefaultBillIds                           *Relation   `xmlrpc:"pos_default_bill_ids,omitempty"`
 	PosDefaultFiscalPositionId                  *Many2One   `xmlrpc:"pos_default_fiscal_position_id,omitempty"`
 	PosDefaultPresetId                          *Many2One   `xmlrpc:"pos_default_preset_id,omitempty"`
+	PosDefaultScreen                            *Selection  `xmlrpc:"pos_default_screen,omitempty"`
 	PosDownPaymentProductId                     *Many2One   `xmlrpc:"pos_down_payment_product_id,omitempty"`
 	PosEpsonPrinterIp                           *String     `xmlrpc:"pos_epson_printer_ip,omitempty"`
 	PosFallbackNomenclatureId                   *Many2One   `xmlrpc:"pos_fallback_nomenclature_id,omitempty"`
 	PosFastPaymentMethodIds                     *Relation   `xmlrpc:"pos_fast_payment_method_ids,omitempty"`
 	PosFiscalPositionIds                        *Relation   `xmlrpc:"pos_fiscal_position_ids,omitempty"`
+	PosFloorIds                                 *Relation   `xmlrpc:"pos_floor_ids,omitempty"`
 	PosHasActiveSession                         *Bool       `xmlrpc:"pos_has_active_session,omitempty"`
 	PosIfaceAvailableCategIds                   *Relation   `xmlrpc:"pos_iface_available_categ_ids,omitempty"`
 	PosIfaceBigScrollbars                       *Bool       `xmlrpc:"pos_iface_big_scrollbars,omitempty"`
@@ -248,7 +261,9 @@ type ResConfigSettings struct {
 	PosIfacePrintAuto                           *Bool       `xmlrpc:"pos_iface_print_auto,omitempty"`
 	PosIfacePrintSkipScreen                     *Bool       `xmlrpc:"pos_iface_print_skip_screen,omitempty"`
 	PosIfacePrintViaProxy                       *Bool       `xmlrpc:"pos_iface_print_via_proxy,omitempty"`
+	PosIfacePrintbill                           *Bool       `xmlrpc:"pos_iface_printbill,omitempty"`
 	PosIfaceScanViaProxy                        *Bool       `xmlrpc:"pos_iface_scan_via_proxy,omitempty"`
+	PosIfaceSplitbill                           *Bool       `xmlrpc:"pos_iface_splitbill,omitempty"`
 	PosIfaceTaxIncluded                         *Selection  `xmlrpc:"pos_iface_tax_included,omitempty"`
 	PosIfaceTipproduct                          *Bool       `xmlrpc:"pos_iface_tipproduct,omitempty"`
 	PosInvoiceJournalId                         *Many2One   `xmlrpc:"pos_invoice_journal_id,omitempty"`
@@ -260,6 +275,7 @@ type ResConfigSettings struct {
 	PosJournalId                                *Many2One   `xmlrpc:"pos_journal_id,omitempty"`
 	PosLimitCategories                          *Bool       `xmlrpc:"pos_limit_categories,omitempty"`
 	PosManualDiscount                           *Bool       `xmlrpc:"pos_manual_discount,omitempty"`
+	PosMinimalEmployeeIds                       *Relation   `xmlrpc:"pos_minimal_employee_ids,omitempty"`
 	PosModulePosAppointment                     *Bool       `xmlrpc:"pos_module_pos_appointment,omitempty"`
 	PosModulePosAvatax                          *Bool       `xmlrpc:"pos_module_pos_avatax,omitempty"`
 	PosModulePosDiscount                        *Bool       `xmlrpc:"pos_module_pos_discount,omitempty"`
@@ -282,7 +298,19 @@ type ResConfigSettings struct {
 	PosRoundingMethod                           *Many2One   `xmlrpc:"pos_rounding_method,omitempty"`
 	PosRouteId                                  *Many2One   `xmlrpc:"pos_route_id,omitempty"`
 	PosSelectableCategIds                       *Relation   `xmlrpc:"pos_selectable_categ_ids,omitempty"`
+	PosSelfOrderOnlinePaymentMethodId           *Many2One   `xmlrpc:"pos_self_order_online_payment_method_id,omitempty"`
+	PosSelfOrderingAvailableLanguageIds         *Relation   `xmlrpc:"pos_self_ordering_available_language_ids,omitempty"`
+	PosSelfOrderingDefaultLanguageId            *Many2One   `xmlrpc:"pos_self_ordering_default_language_id,omitempty"`
+	PosSelfOrderingDefaultUserId                *Many2One   `xmlrpc:"pos_self_ordering_default_user_id,omitempty"`
+	PosSelfOrderingImageBackgroundIds           *Relation   `xmlrpc:"pos_self_ordering_image_background_ids,omitempty"`
+	PosSelfOrderingImageBrand                   *String     `xmlrpc:"pos_self_ordering_image_brand,omitempty"`
+	PosSelfOrderingImageBrandName               *String     `xmlrpc:"pos_self_ordering_image_brand_name,omitempty"`
+	PosSelfOrderingImageHomeIds                 *Relation   `xmlrpc:"pos_self_ordering_image_home_ids,omitempty"`
+	PosSelfOrderingMode                         *Selection  `xmlrpc:"pos_self_ordering_mode,omitempty"`
+	PosSelfOrderingPayAfter                     *Selection  `xmlrpc:"pos_self_ordering_pay_after,omitempty"`
+	PosSelfOrderingServiceMode                  *Selection  `xmlrpc:"pos_self_ordering_service_mode,omitempty"`
 	PosSetMaximumDifference                     *Bool       `xmlrpc:"pos_set_maximum_difference,omitempty"`
+	PosSetTipAfterPayment                       *Bool       `xmlrpc:"pos_set_tip_after_payment,omitempty"`
 	PosShipLater                                *Bool       `xmlrpc:"pos_ship_later,omitempty"`
 	PosShowCategoryImages                       *Bool       `xmlrpc:"pos_show_category_images,omitempty"`
 	PosShowProductImages                        *Bool       `xmlrpc:"pos_show_product_images,omitempty"`
@@ -304,6 +332,7 @@ type ResConfigSettings struct {
 	QuotationValidityDays                       *Int        `xmlrpc:"quotation_validity_days,omitempty"`
 	ReplenishOnOrder                            *Bool       `xmlrpc:"replenish_on_order,omitempty"`
 	ReportFooter                                *String     `xmlrpc:"report_footer,omitempty"`
+	ResourceCalendarId                          *Many2One   `xmlrpc:"resource_calendar_id,omitempty"`
 	RestrictTemplateRendering                   *Bool       `xmlrpc:"restrict_template_rendering,omitempty"`
 	RestrictiveAuditTrail                       *Bool       `xmlrpc:"restrictive_audit_trail,omitempty"`
 	SaleTaxId                                   *Many2One   `xmlrpc:"sale_tax_id,omitempty"`
@@ -337,6 +366,7 @@ type ResConfigSettings struct {
 	UseTwilioRtcServers                         *Bool       `xmlrpc:"use_twilio_rtc_servers,omitempty"`
 	VatCheckVies                                *Bool       `xmlrpc:"vat_check_vies,omitempty"`
 	WebAppName                                  *String     `xmlrpc:"web_app_name,omitempty"`
+	WorkPermitExpirationNoticePeriod            *Int        `xmlrpc:"work_permit_expiration_notice_period,omitempty"`
 	WriteDate                                   *Time       `xmlrpc:"write_date,omitempty"`
 	WriteUid                                    *Many2One   `xmlrpc:"write_uid,omitempty"`
 }

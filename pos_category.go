@@ -2,22 +2,23 @@ package odoo
 
 // PosCategory represents pos.category model.
 type PosCategory struct {
-	ChildIds    *Relation `xmlrpc:"child_ids,omitempty"`
-	Color       *Int      `xmlrpc:"color,omitempty"`
-	CreateDate  *Time     `xmlrpc:"create_date,omitempty"`
-	CreateUid   *Many2One `xmlrpc:"create_uid,omitempty"`
-	DisplayName *String   `xmlrpc:"display_name,omitempty"`
-	HasImage    *Bool     `xmlrpc:"has_image,omitempty"`
-	HourAfter   *Float    `xmlrpc:"hour_after,omitempty"`
-	HourUntil   *Float    `xmlrpc:"hour_until,omitempty"`
-	Id          *Int      `xmlrpc:"id,omitempty"`
-	Image128    *String   `xmlrpc:"image_128,omitempty"`
-	Image512    *String   `xmlrpc:"image_512,omitempty"`
-	Name        *String   `xmlrpc:"name,omitempty"`
-	ParentId    *Many2One `xmlrpc:"parent_id,omitempty"`
-	Sequence    *Int      `xmlrpc:"sequence,omitempty"`
-	WriteDate   *Time     `xmlrpc:"write_date,omitempty"`
-	WriteUid    *Many2One `xmlrpc:"write_uid,omitempty"`
+	ChildIds     *Relation `xmlrpc:"child_ids,omitempty"`
+	Color        *Int      `xmlrpc:"color,omitempty"`
+	CreateDate   *Time     `xmlrpc:"create_date,omitempty"`
+	CreateUid    *Many2One `xmlrpc:"create_uid,omitempty"`
+	DisplayName  *String   `xmlrpc:"display_name,omitempty"`
+	HasImage     *Bool     `xmlrpc:"has_image,omitempty"`
+	HourAfter    *Float    `xmlrpc:"hour_after,omitempty"`
+	HourUntil    *Float    `xmlrpc:"hour_until,omitempty"`
+	Id           *Int      `xmlrpc:"id,omitempty"`
+	Image128     *String   `xmlrpc:"image_128,omitempty"`
+	Image512     *String   `xmlrpc:"image_512,omitempty"`
+	Name         *String   `xmlrpc:"name,omitempty"`
+	ParentId     *Many2One `xmlrpc:"parent_id,omitempty"`
+	PosConfigIds *Relation `xmlrpc:"pos_config_ids,omitempty"`
+	Sequence     *Int      `xmlrpc:"sequence,omitempty"`
+	WriteDate    *Time     `xmlrpc:"write_date,omitempty"`
+	WriteUid     *Many2One `xmlrpc:"write_uid,omitempty"`
 }
 
 // PosCategorys represents array of pos.category model.

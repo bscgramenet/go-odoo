@@ -3,6 +3,7 @@ package odoo
 // UtmCampaign represents utm.campaign model.
 type UtmCampaign struct {
 	Active         *Bool     `xmlrpc:"active,omitempty"`
+	ClickCount     *Int      `xmlrpc:"click_count,omitempty"`
 	Color          *Int      `xmlrpc:"color,omitempty"`
 	CompanyId      *Many2One `xmlrpc:"company_id,omitempty"`
 	CreateDate     *Time     `xmlrpc:"create_date,omitempty"`

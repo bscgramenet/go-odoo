@@ -43,7 +43,6 @@ type HrDepartment struct {
 	ParentPath                  *String    `xmlrpc:"parent_path,omitempty"`
 	PlanIds                     *Relation  `xmlrpc:"plan_ids,omitempty"`
 	PlansCount                  *Int       `xmlrpc:"plans_count,omitempty"`
-	RatingIds                   *Relation  `xmlrpc:"rating_ids,omitempty"`
 	TotalEmployee               *Int       `xmlrpc:"total_employee,omitempty"`
 	WebsiteMessageIds           *Relation  `xmlrpc:"website_message_ids,omitempty"`
 	WriteDate                   *Time      `xmlrpc:"write_date,omitempty"`
