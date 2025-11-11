@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"net/http"
 	"reflect"
 	"sync"
 
@@ -445,9 +446,33 @@ func (c *Client) loadObjectClient() error {
 	return c.loadXmlrpcClient(c.object, "/xmlrpc/2/object")
 }
 
+type headerRoundTripper struct {
+	rt      http.RoundTripper
+	headers http.Header
+}
+
+func (h *headerRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+	if h.rt == nil {
+		h.rt = http.DefaultTransport
+	}
+	for k, vals := range h.headers {
+		for _, v := range vals {
+			req.Header.Set(k, v)
+		}
+	}
+	return h.rt.RoundTrip(req)
+}
+
+// 在 loadXmlrpcClient 中创建带 header 的 transport（只是示例）
 func (c *Client) loadXmlrpcClient(x *xmlrpc.Client, path string) error {
 	if x.Client == nil {
-		newClient, err := xmlrpc.NewClient(c.cfg.URL+path, nil)
+		fullURL := c.cfg.URL + path
+		headers := http.Header{}
+		if c != nil && c.cfg != nil && c.cfg.Database != "" {
+			headers.Set("X-Odoo-Database", c.cfg.Database)
+		}
+		transport := &headerRoundTripper{rt: http.DefaultTransport, headers: headers}
+		newClient, err := xmlrpc.NewClient(fullURL, transport)
 		if err != nil {
 			return err
 		}
